@@ -204,6 +204,9 @@ ul{
 								<li>
 									<ul class="mb0">
 										<li>
+											<a href="#" role="menuitem">김포국제공항</a>
+										</li>
+										<li>
 											<a href="#" role="menuitem">김해국제공항</a>
 										</li>
 										<li>
@@ -240,7 +243,7 @@ ul{
 											<a href="#">군산공항</a>
 										</li>
 										<li>
-											<a href="#">군산공항</a>
+											<a href="#">원주공항</a>
 										</li>
 									</ul>
 							</li>
