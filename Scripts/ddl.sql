@@ -1,163 +1,163 @@
--- °øÇ×
+-- ê³µí•­
 DROP SCHEMA IF EXISTS airport;
 
--- °øÇ×
+-- ê³µí•­
 CREATE SCHEMA airport;
 
--- °Ô½ÃÆÇ
+-- ê²Œì‹œíŒ
 CREATE TABLE airport.board (
-	no              INT         NOT NULL COMMENT '°Ô½ÃÆÇ¹øÈ£', -- °Ô½ÃÆÇ¹øÈ£
-	title           TEXT        NOT NULL COMMENT 'Á¦¸ñ', -- Á¦¸ñ
-	content         TEXT        NOT NULL COMMENT '³»¿ë', -- ³»¿ë
-	answer_required TINYINT(1)  NOT NULL COMMENT '´äº¯ÇÊ¿ä¿©ºÎ', -- ´äº¯ÇÊ¿ä¿©ºÎ
-	open            TINYINT(1)  NOT NULL COMMENT '°ø°³¿©ºÎ', -- °ø°³¿©ºÎ
-	reg_date        DATE        NOT NULL COMMENT 'µî·ÏÀÏ', -- µî·ÏÀÏ
-	view_cnt        INT         NOT NULL COMMENT 'Á¶È¸¼ö', -- Á¶È¸¼ö
-	progress        VARCHAR(40) NOT NULL COMMENT 'Ã³¸®ÇöÈ²', -- Ã³¸®ÇöÈ²
-	file            TEXT        NULL     COMMENT 'Ã·ºÎÆÄÀÏ', -- Ã·ºÎÆÄÀÏ
-	customer_code   CHAR(4)     NOT NULL COMMENT '°í°´¹øÈ£', -- °í°´¹øÈ£
-	airport_code    CHAR(3)     NOT NULL COMMENT '°øÇ×ÄÚµå' -- °øÇ×ÄÚµå
+	no              INT         NOT NULL COMMENT 'ê²Œì‹œíŒë²ˆí˜¸', -- ê²Œì‹œíŒë²ˆí˜¸
+	title           TEXT        NOT NULL COMMENT 'ì œëª©', -- ì œëª©
+	content         TEXT        NOT NULL COMMENT 'ë‚´ìš©', -- ë‚´ìš©
+	answer_required TINYINT(1)  NOT NULL COMMENT 'ë‹µë³€í•„ìš”ì—¬ë¶€', -- ë‹µë³€í•„ìš”ì—¬ë¶€
+	open            TINYINT(1)  NOT NULL COMMENT 'ê³µê°œì—¬ë¶€', -- ê³µê°œì—¬ë¶€
+	reg_date        DATE        NOT NULL COMMENT 'ë“±ë¡ì¼', -- ë“±ë¡ì¼
+	view_cnt        INT         NOT NULL COMMENT 'ì¡°íšŒìˆ˜', -- ì¡°íšŒìˆ˜
+	progress        VARCHAR(40) NOT NULL COMMENT 'ì²˜ë¦¬í˜„í™©', -- ì²˜ë¦¬í˜„í™©
+	file            TEXT        NULL     COMMENT 'ì²¨ë¶€íŒŒì¼', -- ì²¨ë¶€íŒŒì¼
+	customer_code   CHAR(4)     NOT NULL COMMENT 'ê³ ê°ë²ˆí˜¸', -- ê³ ê°ë²ˆí˜¸
+	airport_code    CHAR(3)     NOT NULL COMMENT 'ê³µí•­ì½”ë“œ' -- ê³µí•­ì½”ë“œ
 )
-COMMENT '°Ô½ÃÆÇ';
+COMMENT 'ê²Œì‹œíŒ';
 
--- °Ô½ÃÆÇ
+-- ê²Œì‹œíŒ
 ALTER TABLE airport.board
-	ADD CONSTRAINT PK_board -- °Ô½ÃÆÇ ±âº»Å°
+	ADD CONSTRAINT PK_board -- ê²Œì‹œíŒ ê¸°ë³¸í‚¤
 		PRIMARY KEY (
-			no -- °Ô½ÃÆÇ¹øÈ£
+			no -- ê²Œì‹œíŒë²ˆí˜¸
 		);
 
--- °í°´
+-- ê³ ê°
 CREATE TABLE airport.customer (
-	code     CHAR(4)     NOT NULL COMMENT '°í°´¹øÈ£', -- °í°´¹øÈ£
-	name     VARCHAR(20) NOT NULL COMMENT 'ÀÌ¸§', -- ÀÌ¸§
-	id       VARCHAR(40) NOT NULL COMMENT '¾ÆÀÌµğ', -- ¾ÆÀÌµğ
-	password CHAR(42)    NOT NULL COMMENT 'ºñ¹Ğ¹øÈ£', -- ºñ¹Ğ¹øÈ£
-	phone    VARCHAR(13) NOT NULL COMMENT 'ÈŞ´ëÀüÈ­', -- ÈŞ´ëÀüÈ­
-	zip_code CHAR(5)     NOT NULL COMMENT '¿ìÆí¹øÈ£', -- ¿ìÆí¹øÈ£
-	address  VARCHAR(50) NOT NULL COMMENT 'ÁÖ¼Ò', -- ÁÖ¼Ò
-	email    VARCHAR(30) NOT NULL COMMENT 'ÀÌ¸ŞÀÏ', -- ÀÌ¸ŞÀÏ
-	isCustom TINYINT(1)  NOT NULL COMMENT '±¸ºĞ' -- ±¸ºĞ
+	code     CHAR(4)     NOT NULL COMMENT 'ê³ ê°ë²ˆí˜¸', -- ê³ ê°ë²ˆí˜¸
+	name     VARCHAR(20) NOT NULL COMMENT 'ì´ë¦„', -- ì´ë¦„
+	id       VARCHAR(40) NOT NULL COMMENT 'ì•„ì´ë””', -- ì•„ì´ë””
+	passwd   CHAR(42)    NOT NULL COMMENT 'ë¹„ë°€ë²ˆí˜¸', -- ë¹„ë°€ë²ˆí˜¸
+	dob      DATE        NOT NULL COMMENT 'ìƒë…„ì›”ì¼', -- ìƒë…„ì›”ì¼
+	phone    VARCHAR(13) NOT NULL COMMENT 'íœ´ëŒ€ì „í™”', -- íœ´ëŒ€ì „í™”
+	zip_code CHAR(5)     NOT NULL COMMENT 'ìš°í¸ë²ˆí˜¸', -- ìš°í¸ë²ˆí˜¸
+	address  VARCHAR(50) NOT NULL COMMENT 'ì£¼ì†Œ', -- ì£¼ì†Œ
+	email    VARCHAR(30) NOT NULL COMMENT 'ì´ë©”ì¼' -- ì´ë©”ì¼
 )
-COMMENT '°í°´';
+COMMENT 'ê³ ê°';
 
--- °í°´
+-- ê³ ê°
 ALTER TABLE airport.customer
-	ADD CONSTRAINT PK_customer -- °í°´ ±âº»Å°
+	ADD CONSTRAINT PK_customer -- ê³ ê° ê¸°ë³¸í‚¤
 		PRIMARY KEY (
-			code -- °í°´¹øÈ£
+			code -- ê³ ê°ë²ˆí˜¸
 		);
 
--- ´äº¯
+-- ë‹µë³€
 CREATE TABLE airport.answer (
-	no          INT     NOT NULL COMMENT '´äº¯¹øÈ£', -- ´äº¯¹øÈ£
-	content     TEXT    NOT NULL COMMENT '´äº¯³»¿ë', -- ´äº¯³»¿ë
-	answer_date DATE    NOT NULL COMMENT '´äº¯ÀÏ', -- ´äº¯ÀÏ
-	board_no    INT     NOT NULL COMMENT '°Ô½ÃÆÇ¹øÈ£', -- °Ô½ÃÆÇ¹øÈ£
-	manager_no  CHAR(4) NOT NULL COMMENT '°ü¸®ÀÚÄÚµå' -- °ü¸®ÀÚÄÚµå
+	no          INT     NOT NULL COMMENT 'ë‹µë³€ë²ˆí˜¸', -- ë‹µë³€ë²ˆí˜¸
+	content     TEXT    NOT NULL COMMENT 'ë‹µë³€ë‚´ìš©', -- ë‹µë³€ë‚´ìš©
+	answer_date DATE    NOT NULL COMMENT 'ë‹µë³€ì¼', -- ë‹µë³€ì¼
+	board_no    INT     NOT NULL COMMENT 'ê²Œì‹œíŒë²ˆí˜¸', -- ê²Œì‹œíŒë²ˆí˜¸
+	manager_no  CHAR(4) NOT NULL COMMENT 'ê´€ë¦¬ìì½”ë“œ' -- ê´€ë¦¬ìì½”ë“œ
 )
-COMMENT '´äº¯';
+COMMENT 'ë‹µë³€';
 
--- ´äº¯
+-- ë‹µë³€
 ALTER TABLE airport.answer
-	ADD CONSTRAINT PK_answer -- ´äº¯ ±âº»Å°
+	ADD CONSTRAINT PK_answer -- ë‹µë³€ ê¸°ë³¸í‚¤
 		PRIMARY KEY (
-			no -- ´äº¯¹øÈ£
+			no -- ë‹µë³€ë²ˆí˜¸
 		);
 
--- °ü¸®ÀÚ
+-- ê´€ë¦¬ì
 CREATE TABLE airport.manager (
-	manager_no CHAR(4)     NOT NULL COMMENT '°ü¸®ÀÚÄÚµå', -- °ü¸®ÀÚÄÚµå
-	name       VARCHAR(20) NOT NULL COMMENT '°ü¸®ÀÚ ÀÌ¸§' -- °ü¸®ÀÚ ÀÌ¸§
+	manager_no CHAR(4)     NOT NULL COMMENT 'ê´€ë¦¬ìì½”ë“œ', -- ê´€ë¦¬ìì½”ë“œ
+	name       VARCHAR(20) NOT NULL COMMENT 'ê´€ë¦¬ì ì´ë¦„' -- ê´€ë¦¬ì ì´ë¦„
 )
-COMMENT '°ü¸®ÀÚ';
+COMMENT 'ê´€ë¦¬ì';
 
--- °ü¸®ÀÚ
+-- ê´€ë¦¬ì
 ALTER TABLE airport.manager
-	ADD CONSTRAINT PK_manager -- °ü¸®ÀÚ ±âº»Å°
+	ADD CONSTRAINT PK_manager -- ê´€ë¦¬ì ê¸°ë³¸í‚¤
 		PRIMARY KEY (
-			manager_no -- °ü¸®ÀÚÄÚµå
+			manager_no -- ê´€ë¦¬ìì½”ë“œ
 		);
 
--- °øÇ×
+-- ê³µí•­
 CREATE TABLE airport.airport (
-	code CHAR(3)     NOT NULL COMMENT '°øÇ×ÄÚµå', -- °øÇ×ÄÚµå
-	name VARCHAR(40) NOT NULL COMMENT '°øÇ×¸í' -- °øÇ×¸í
+	code CHAR(3)     NOT NULL COMMENT 'ê³µí•­ì½”ë“œ', -- ê³µí•­ì½”ë“œ
+	name VARCHAR(40) NOT NULL COMMENT 'ê³µí•­ëª…' -- ê³µí•­ëª…
 )
-COMMENT '°øÇ×';
+COMMENT 'ê³µí•­';
 
--- °øÇ×
+-- ê³µí•­
 ALTER TABLE airport.airport
-	ADD CONSTRAINT PK_airport -- °øÇ× ±âº»Å°
+	ADD CONSTRAINT PK_airport -- ê³µí•­ ê¸°ë³¸í‚¤
 		PRIMARY KEY (
-			code -- °øÇ×ÄÚµå
+			code -- ê³µí•­ì½”ë“œ
 		);
 
--- °øÁö»çÇ×
+-- ê³µì§€ì‚¬í•­
 CREATE TABLE airport.notice (
-	no         INT     NOT NULL COMMENT '°øÁö»çÇ×¹øÈ£', -- °øÁö»çÇ×¹øÈ£
-	title      TEXT    NOT NULL COMMENT '°øÁöÁ¦¸ñ', -- °øÁöÁ¦¸ñ
-	content    TEXT    NOT NULL COMMENT '°øÁö³»¿ë', -- °øÁö³»¿ë
-	reg_date   DATE    NOT NULL COMMENT '°øÁöÀÏ', -- °øÁöÀÏ
-	view_cnt   INT     NOT NULL COMMENT 'Á¶È¸¼ö', -- Á¶È¸¼ö
-	file       TEXT    NULL     COMMENT 'Ã·ºÎÆÄÀÏ', -- Ã·ºÎÆÄÀÏ
-	manager_no CHAR(4) NOT NULL COMMENT '°ü¸®ÀÚÄÚµå' -- °ü¸®ÀÚÄÚµå
+	no         INT     NOT NULL COMMENT 'ê³µì§€ì‚¬í•­ë²ˆí˜¸', -- ê³µì§€ì‚¬í•­ë²ˆí˜¸
+	title      TEXT    NOT NULL COMMENT 'ê³µì§€ì œëª©', -- ê³µì§€ì œëª©
+	content    TEXT    NOT NULL COMMENT 'ê³µì§€ë‚´ìš©', -- ê³µì§€ë‚´ìš©
+	reg_date   DATE    NOT NULL COMMENT 'ê³µì§€ì¼', -- ê³µì§€ì¼
+	view_cnt   INT     NOT NULL COMMENT 'ì¡°íšŒìˆ˜', -- ì¡°íšŒìˆ˜
+	file       TEXT    NULL     COMMENT 'ì²¨ë¶€íŒŒì¼', -- ì²¨ë¶€íŒŒì¼
+	manager_no CHAR(4) NOT NULL COMMENT 'ê´€ë¦¬ìì½”ë“œ' -- ê´€ë¦¬ìì½”ë“œ
 )
-COMMENT '°øÁö»çÇ×';
+COMMENT 'ê³µì§€ì‚¬í•­';
 
--- °øÁö»çÇ×
+-- ê³µì§€ì‚¬í•­
 ALTER TABLE airport.notice
-	ADD CONSTRAINT PK_notice -- °øÁö»çÇ× ±âº»Å°
+	ADD CONSTRAINT PK_notice -- ê³µì§€ì‚¬í•­ ê¸°ë³¸í‚¤
 		PRIMARY KEY (
-			no -- °øÁö»çÇ×¹øÈ£
+			no -- ê³µì§€ì‚¬í•­ë²ˆí˜¸
 		);
 
--- °Ô½ÃÆÇ
+-- ê²Œì‹œíŒ
 ALTER TABLE airport.board
-	ADD CONSTRAINT FK_customer_TO_board -- °í°´ -> °Ô½ÃÆÇ
+	ADD CONSTRAINT FK_customer_TO_board -- ê³ ê° -> ê²Œì‹œíŒ
 		FOREIGN KEY (
-			customer_code -- °í°´¹øÈ£
+			customer_code -- ê³ ê°ë²ˆí˜¸
 		)
-		REFERENCES airport.customer ( -- °í°´
-			code -- °í°´¹øÈ£
+		REFERENCES airport.customer ( -- ê³ ê°
+			code -- ê³ ê°ë²ˆí˜¸
 		);
 
--- °Ô½ÃÆÇ
+-- ê²Œì‹œíŒ
 ALTER TABLE airport.board
-	ADD CONSTRAINT FK_airport_TO_board -- °øÇ× -> °Ô½ÃÆÇ
+	ADD CONSTRAINT FK_airport_TO_board -- ê³µí•­ -> ê²Œì‹œíŒ
 		FOREIGN KEY (
-			airport_code -- °øÇ×ÄÚµå
+			airport_code -- ê³µí•­ì½”ë“œ
 		)
-		REFERENCES airport.airport ( -- °øÇ×
-			code -- °øÇ×ÄÚµå
+		REFERENCES airport.airport ( -- ê³µí•­
+			code -- ê³µí•­ì½”ë“œ
 		);
 
--- ´äº¯
+-- ë‹µë³€
 ALTER TABLE airport.answer
-	ADD CONSTRAINT FK_board_TO_answer -- °Ô½ÃÆÇ -> ´äº¯
+	ADD CONSTRAINT FK_board_TO_answer -- ê²Œì‹œíŒ -> ë‹µë³€
 		FOREIGN KEY (
-			board_no -- °Ô½ÃÆÇ¹øÈ£
+			board_no -- ê²Œì‹œíŒë²ˆí˜¸
 		)
-		REFERENCES airport.board ( -- °Ô½ÃÆÇ
-			no -- °Ô½ÃÆÇ¹øÈ£
+		REFERENCES airport.board ( -- ê²Œì‹œíŒ
+			no -- ê²Œì‹œíŒë²ˆí˜¸
 		);
 
--- ´äº¯
+-- ë‹µë³€
 ALTER TABLE airport.answer
-	ADD CONSTRAINT FK_manager_TO_answer -- °ü¸®ÀÚ -> ´äº¯
+	ADD CONSTRAINT FK_manager_TO_answer -- ê´€ë¦¬ì -> ë‹µë³€
 		FOREIGN KEY (
-			manager_no -- °ü¸®ÀÚÄÚµå
+			manager_no -- ê´€ë¦¬ìì½”ë“œ
 		)
-		REFERENCES airport.manager ( -- °ü¸®ÀÚ
-			manager_no -- °ü¸®ÀÚÄÚµå
+		REFERENCES airport.manager ( -- ê´€ë¦¬ì
+			manager_no -- ê´€ë¦¬ìì½”ë“œ
 		);
 
--- °øÁö»çÇ×
+-- ê³µì§€ì‚¬í•­
 ALTER TABLE airport.notice
-	ADD CONSTRAINT FK_manager_TO_notice -- °ü¸®ÀÚ -> °øÁö»çÇ×
+	ADD CONSTRAINT FK_manager_TO_notice -- ê´€ë¦¬ì -> ê³µì§€ì‚¬í•­
 		FOREIGN KEY (
-			manager_no -- °ü¸®ÀÚÄÚµå
+			manager_no -- ê´€ë¦¬ìì½”ë“œ
 		)
-		REFERENCES airport.manager ( -- °ü¸®ÀÚ
-			manager_no -- °ü¸®ÀÚÄÚµå
+		REFERENCES airport.manager ( -- ê´€ë¦¬ì
+			manager_no -- ê´€ë¦¬ìì½”ë“œ
 		);

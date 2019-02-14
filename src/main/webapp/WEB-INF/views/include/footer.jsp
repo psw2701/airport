@@ -2,22 +2,26 @@
     pageEncoding="UTF-8"%>
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <style>
- .footer.wrap{
+ .footer_wrap{
  	width: 100%;
+ 	border-top:1px solid #8394a3;
  }
 .footer_area {
+	width: 100%;
 	position: relative;
 	overflow: hidden;
-	background-color: rgba(77, 77, 77, 0.95);
-	color: rgba(204, 204, 204, 0.9);
+
 	padding-top: 20px;	
+}
+.container text-center{
+	width: 100%;
 }
 
 .footer_wrap .container .footer_area {
 	height: 127px;
 }
 .footer_navi a.btn.btn-link{
-	color: rgba(204, 204, 204, 0.9);
+	color: #8394a3;
 }
 
 .footer_area em {
@@ -29,7 +33,7 @@
 }
 
 .txt_w {
-	color: #fff;
+	color: #8394a3;
 }
 
 .footer_wrap {
@@ -80,7 +84,6 @@ address {
 	    				<em>41052 대구 동구 수완로 333</em>
 	    				<em class="txt_y3">
 	    					[ 전화번호 1661-0303 ] <span class="txt_w">말로 하는 전화 0303 + '공항'</span>
-	    					<a href="#"><img src="${pageContext.request.contextPath }/resources/images/CONTENTS_2018060715291630188425970.png" alt="굿 콘텐츠서비스 인증서"></a>
 	    				</em>
 	    				<address class="mb10">Copyright © 2016 KAC. All Rights Reserved.</address>
 	    			</div>

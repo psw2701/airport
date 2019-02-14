@@ -1,19 +1,17 @@
-use airport;
+insert into airport.airport(code, name) values('ICN','ì¸ì²œêµ­ì œê³µí•­' ),
+                              ('GMP', 'ê¹€í¬êµ­ì œê³µí•­'),
+                              ('YNY', 'ì–‘ì–‘êµ­ì œê³µí•­'),
+                              ('WJU', 'ì›ì£¼ê³µí•­'),
+                              ('TAE', 'ëŒ€êµ¬êµ­ì œê³µí•­'),
+                              ('CJJ', 'ì²­ì£¼êµ­ì œê³µí•­'),
+                              ('KPO', 'í¬í•­ê³µí•­'),
+                              ('PUS', 'ê¹€í•´êµ­ì œê³µí•­'),
+                              ('CJU', 'ì œì£¼êµ­ì œê³µí•­'),
+                              ('HIN', 'ì‚¬ì²œê³µí•­'),
+                              ('USN', 'ìš¸ì‚°ê³µí•­'),
+                              ('MWX', 'ë¬´ì•ˆêµ­ì œê³µí•­'),
+                              ('KWJ', 'ê´‘ì£¼ê³µí•­'),
+                              ('KUV', 'êµ°ì‚°ê³µí•­'),
+                              ('RSU', 'ì—¬ìˆ˜ê³µí•­');
 
-insert into airport(code, name) values('ICN','ÀÎÃµ±¹Á¦°øÇ×' ),
-                              ('GMP', '±èÆ÷±¹Á¦°øÇ×'),
-                              ('YNY', '¾ç¾ç±¹Á¦°øÇ×'),
-                              ('WJU', '¿øÁÖ°øÇ×'),
-                              ('TAE', '´ë±¸±¹Á¦°øÇ×'),
-                              ('CJJ', 'Ã»ÁÖ±¹Á¦°øÇ×'),
-                              ('KPO', 'Æ÷Ç×°øÇ×'),
-                              ('PUS', '±èÇØ±¹Á¦°øÇ×'),
-                              ('CJU', 'Á¦ÁÖ±¹Á¦°øÇ×'),
-                              ('HIN', '»çÃµ°øÇ×'),
-                              ('USN', '¿ï»ê°øÇ×'),
-                              ('MWX', '¹«¾È±¹Á¦°øÇ×'),
-                              ('KWJ', '±¤ÁÖ°øÇ×'),
-                              ('KUV', '±º»ê°øÇ×'),
-                              ('RSU', '¿©¼ö°øÇ×');
-
-select * from airport;
+select * from airport.airport;   

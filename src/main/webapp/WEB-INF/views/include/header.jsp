@@ -8,7 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <head>
 <script type="text/javascript">
-
+/* 메뉴 슬라이드 */
 $(document).ready(function(){
 	// Navbar Slider
 		var $window = $(window),
@@ -37,6 +37,8 @@ $(document).ready(function(){
 			$(this).parent().find('div').show().parent().siblings().find('div').hide();
 		});
 })
+
+/* 로그인 */
 </script>
 
 
@@ -46,6 +48,14 @@ $(document).ready(function(){
 	color: #777;
 	line-height: 1.8;
 	font-size: 14px;
+	position: relative;
+}
+/* 로고 */
+#swAir a{
+	color: white;
+}
+header{
+	height: 165px;
 	position: relative;
 }
 	 header .container{
@@ -107,7 +117,6 @@ $(document).ready(function(){
 		display: block;
 	}
 	
- 
  * {
   box-sizing: border-box;
 }
@@ -119,6 +128,7 @@ $(document).ready(function(){
 	border-radius: 0;
 	margin-bottom: 10px;
 	min-height: 50px;
+	border-bottom: 1px solid #fff;
 	
 }
 .navbar #lnb-web li.navi1m-loop{
@@ -146,8 +156,82 @@ $(document).ready(function(){
 	padding: 0 10px;
 }
 
+.navbar #lnb-web .navi2m{
+	position: absolute;
+	top:70px;
+	display: none;
+	width: 100%;
+	background-color:  rgba(0,0,0,0.5);
+	
+}
+
+.navbar #lnb-web .navi2m a{
+	color:white; 
+}
+
 ul{
 	list-style: none;
+}
+
+/* 모달 로그인 */
+
+#loginPopModal .modal-content .modal-header h4{
+	border-bottom: 3px solid black;
+	padding-bottom: 15px;
+	
+}
+.modal-body{
+	position: relative;
+	padding: 15px;
+}
+.modal-header{
+	border: none;
+}
+.pop_cont{
+	width: 95%;
+	margin: 0 auto;
+}
+.input-group .form-control{
+	display: block;
+	width: 100%;
+
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;	
+	border-radius: 4px;
+}
+
+h4, .modal-title{
+	color: #444;
+	font-size: 130%;
+	padding-left: 12px;
+	font-weight: 700;
+	letter-spacing: -.05em;
+}
+.section{
+	padding: 20px 0;
+}
+
+.pop_list{
+	clear: both;
+	border-top:1px solid #ccc;
+	margin: 15px;
+	padding-top: 10px; 
+}
+
+.input-group{
+	margin-bottom: 10px;
+}
+
+#userid, #userpwd{
+	height: 33.64px;	
+}
+
+.msg-log{
+	margin-left:10px; 
 }
 </style>
 </head>
@@ -155,7 +239,7 @@ ul{
 
 <header>
 <div class="container top">
-	<h1><a href="#" class="navbar-logo">SW공항</a></h1>
+	<h1 id="swAir"><a href="#" class="navbar-logo">SW AIR</a></h1>
 </div> 
 <div class="modal fade" id="loginPopModal" tabindex="-1" role="dialog" aria-labelledby="loginPopModalLabel" style="display: none;">
 		<div class="modal-dialog" role="document">
@@ -170,7 +254,59 @@ ul{
 							<strong>로그인</strong>
 						</h4>				
 				</div>
-				<form action="">
+				<form action="" method="post">
+					<div class="modal-body">
+						<div class="msg-log">
+							한국공항공사 홈페이지에 방문해 주셔서 감사합니다.<br>
+							아이디와 비밀번호를 입력해 주십시오.
+						</div>
+						<div class="section row pop_cont">
+						
+							<div class="col-md-9">
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="input-group">
+											<label class="input-group-addon" for="user_id">
+												<img alt="" src="${pageContext.request.contextPath }/resources/images/id_img.gif">
+											</label>
+											<input type="text" class="form-control" name="userid" id="userid" placeholder="아이디를 입력해주세요." autofocus="autofocus">
+										</div>
+									</div>
+									<div class="col-xs-12">
+										<div class="input-group">
+											<label class="input-group-addon" for="user_pwd">
+												<img alt="" src="${pageContext.request.contextPath }/resources/images/pass_img.gif">
+											</label>
+											<input type="password" class="form-control" name="userpwd" id="userpwd" placeholder="비밀번호를 입력해주세요.">
+										</div>
+									</div>
+								</div>	
+							</div>
+									
+							<div class="col-md-3 mb10">
+								<button type="submit" class="btn pop_btn">로그인</button>
+							</div>
+							<div class="pop_list">
+								<div class="row">
+									<div class="col-md-3 kloop text-center br">
+										<a href="#" class="find_id" style="color:#e92949 !important; padding-left:16px">아이디 찾기</a>
+									</div>
+									<div class="col-md-3 kloop text-center br">
+										<a href="#" class="find_id" style="color:#e92949 !important; padding-left:16px">비밀번호 찾기</a>
+									</div>
+									<div class="col-md-3 kloop text-center br">
+										<a href="#" class="find_id" style="color:#5c5b5b !important">회원가입</a>
+									</div>
+									<div class="col-md-3 kloop text-center">
+										<a href="#" class="find_id"  style="color:#5c5b5b !important">직원로그인</a>
+									</div>
+								</div>
+							</div>
+								
+							
+						</div>
+					</div>
+				
 				</form>
 				
 			</div>
@@ -266,7 +402,7 @@ ul{
 					</li>
 					
 					<li class="hidden-xs hidden-sm">
-						<a href="#">로그인</a>
+						<a href="#" id="loginBtn" data-toggle="modal" data-target="#loginPopModal" role="button">로그인</a>
 					</li>
 						
 					<li class="hidden-xs hidden-sm">
@@ -286,8 +422,8 @@ ul{
 				<div class="row">
 					<ul class="lnb-bg-wrap navbar-right">
 						<li class="navi1m-loop" id="top_web_480">
-							<a href="#" class="navi1m">운항현황</a>
-							<div class="navi2m" style="display: none; height: 109px; padding-top:20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+							<a href="#" class="navi1m" >운항현황</a>
+							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
 									<a href="#"><span>실시간 운항정보</span></a>
@@ -298,13 +434,19 @@ ul{
 									<li>
 									<a href="#"><span>운항스케줄</span></a>
 									</li>
+									<li>
+									<a href="#"><span></span></a>
+									</li>
+									<li>
+									<a href="#"><span></span></a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						
 						<li class="navi1m-loop" id="top_web_481">
 							<a href="#" class="navi1m">탑승안내</a>
-							<div class="navi2m" style="display: none; height: 109px;; padding-top:20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
 									<a href="#"><span>탑승시뮬레이션</span></a>
@@ -327,7 +469,7 @@ ul{
 						
 						<li class="navi1m-loop" id="top_web_482">
 							<a href="#" class="navi1m">교통/주차</a>
-							<div class="navi2m" style="display: none; height: 109px;; padding-top:20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
 									<a href="#"><span>오시는길</span></a>
@@ -350,7 +492,7 @@ ul{
 						
 						<li class="navi1m-loop" id="top_web_483">
 							<a href="#" class="navi1m">공항정보</a>
-							<div class="navi2m" style="display: none; height: 132px; padding-top:20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
 									<a href="#"><span>공항소개</span></a>
@@ -364,13 +506,16 @@ ul{
 									<li>
 									<a href="#"><span>모바일앱 소개</span></a>
 									</li>
+									<li>
+									<a href="#"><span></span></a>
+									</li>
 								</ul>
 							</div>
 						</li>
 						
 						<li class="navi1m-loop" id="top_web_484">
 							<a href="#" class="navi1m">여행상품</a>
-							<div class="navi2m" style="display: none; height: 109px; padding-top:20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
 									<a href="#"><span>비행기 국내여행</span></a>
@@ -393,7 +538,7 @@ ul{
 						
 						<li class="navi1m-loop" id="top_web_485">
 							<a href="#" class="navi1m">고객센터</a>
-							<div class="navi2m" style="display: none; height: 155px; padding-top:20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
+							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
 									<a href="#"><span>공지사항</span></a>
