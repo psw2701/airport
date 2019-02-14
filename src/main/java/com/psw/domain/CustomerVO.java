@@ -2,7 +2,7 @@ package com.psw.domain;
 
 import java.util.Date;
 
-public class Customer {
+public class CustomerVO {
 	private String code;
 	private String Id;
 	private String passwd;
@@ -12,8 +12,8 @@ public class Customer {
 	private String phone;
 	private Date dob;
 	private String email;
-	
-	public Customer() {
+
+	public CustomerVO() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -89,5 +89,10 @@ public class Customer {
 		this.email = email;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "CustomerVO [code=" + code + ", Id=" + Id + ", passwd=" + passwd + ", name=" + name + ", zipCode="
+				+ zipCode + ", address=" + address + ", phone=" + phone + ", dob=" + dob + ", email=" + email + "]";
+	}
+
 }
