@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psw.mapper.CustomerMapper">
+	<insert id="insert">
+		insert into customer(code, Id, passwd, Name, zip_code, address, phone, email)
+		values(#{code}, #{id}, password(#{passwd}), #{name}, #{zipCode} ,#{address}, #{phone}, #{email})
+	</insert>
+	
+	<select id="read" resultType="CustomerVO">
+		select * from customer
+		where code = #{code}
+	</select>
+	
+	<select id="listAll" resultType="CustomerVO">
+		select * from customer order by code asc
+	</select>
+	
+	<delete id="delete">
+		delete from customer where code = #{code}
+	</delete>
+	
+	<update id="update">
+		update customer
+		set passwd = password(#{passwd}), zip_code =#{zipCode}, address =#{address}, phone =#{phone}, email =#{email}
+		where code = #{code}
+	</update>
+	
+	<select id="selectCustomerByName">
+		select * from customer
+		where name = #{name}
+	</select>
+	
+	<select id="selectCustomerById">
+		select * from customer
+		where id = #{Id}
+	</select>
+	
+	<select id="nextCode" resultType="String">
+		select concat('C',lpad(max(right(code,3)+1),3,'0'))  from customer;
+	</select>
+</mapper>

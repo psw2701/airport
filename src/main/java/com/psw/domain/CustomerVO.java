@@ -10,7 +10,6 @@ public class CustomerVO {
 	private String zipCode;
 	private String address;
 	private String phone;
-	private Date dob;
 	private String email;
 
 	public CustomerVO() {
@@ -49,6 +48,8 @@ public class CustomerVO {
 		this.name = name;
 	}
 
+	
+
 	public String getZipCode() {
 		return zipCode;
 	}
@@ -73,13 +74,6 @@ public class CustomerVO {
 		this.phone = phone;
 	}
 
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
-		this.dob = dob;
-	}
 
 	public String getEmail() {
 		return email;
@@ -92,7 +86,8 @@ public class CustomerVO {
 	@Override
 	public String toString() {
 		return "CustomerVO [code=" + code + ", Id=" + Id + ", passwd=" + passwd + ", name=" + name + ", zipCode="
-				+ zipCode + ", address=" + address + ", phone=" + phone + ", dob=" + dob + ", email=" + email + "]";
+				+ zipCode + ", address=" + address + ", phone=" + phone + ", email=" + email + "]";
 	}
 
+	
 }

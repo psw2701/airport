@@ -33,7 +33,6 @@ CREATE TABLE airport.customer (
 	name     VARCHAR(20) NOT NULL COMMENT '이름', -- 이름
 	id       VARCHAR(40) NOT NULL COMMENT '아이디', -- 아이디
 	passwd   CHAR(42)    NOT NULL COMMENT '비밀번호', -- 비밀번호
-	dob      DATE        NOT NULL COMMENT '생년월일', -- 생년월일
 	phone    VARCHAR(13) NOT NULL COMMENT '휴대전화', -- 휴대전화
 	zip_code CHAR(5)     NOT NULL COMMENT '우편번호', -- 우편번호
 	address  VARCHAR(50) NOT NULL COMMENT '주소', -- 주소
