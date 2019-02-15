@@ -42,6 +42,8 @@ $(document).ready(function(){
 </script>
 
 
+
+
 <title>Insert title here</title>
 <style type="text/css">
  body{
@@ -49,6 +51,107 @@ $(document).ready(function(){
 	line-height: 1.8;
 	font-size: 14px;
 	position: relative;
+}
+
+/* 팝업 */
+
+#pop{
+	background: #0c3f52;
+	position: relative;
+}
+#pop .wrap{
+	position: relative;
+}
+#pop .Area{
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+.pop_g{
+	float: left;
+	width: 49%;
+	
+
+	margin: 0 0 0 10px;
+	padding-left: 30px; 
+}
+
+/* .pop_g:first-child{
+	border-left: 0;
+} */
+.pop_g .pop_img{
+	float: left;
+	width: 130px;
+}
+.pop_g .pop_img img{
+	width: 130px;
+	height: 120px;
+}
+
+.pop_g dl dt{
+	font-size: 18px;
+	font-weight: bold;
+	color: #d8af50;
+	margin-bottom: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.pop_g dl dd{
+	font-size: 13px;
+	color: #fff;
+	margin-top: 3px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#pop .pop_ctrl .pop_count{
+	color: #fff;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	background-color:#04493e;
+	width: 50px;
+	height: 19px;
+	line-height: 24px;
+	text-align: center;
+	 
+}
+#pop .pop_ctrl .pop_btn_Play{
+	position: absolute;
+	top: -2px;
+	left: 51px;
+	z-index: 100;
+}
+#pop .pop_ctrl .pop_btn_Prev{
+	position: absolute;
+	top: 55px;
+	left: 0px;
+}
+#pop .pop_ctrl .pop_btn_Next{
+	position: absolute;
+	top: 55px;
+	right: 0;
+}
+button{
+	cursor: pointer;
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+.pop_g .deta_btn{
+	border: 1px solid #648191;
+	padding: 2px 5px;
+	color: #648191;
+	margin-left: 10px;
+	clear: both;
+	display: inline-block;
 }
 /* 로고 */
 #swAir a{
@@ -121,6 +224,7 @@ header{
   box-sizing: border-box;
 }
 
+
 .navbar{
 	position: relative;
 	z-index: 10;
@@ -173,6 +277,7 @@ ul{
 	list-style: none;
 }
 
+
 /* 모달 로그인 */
 
 #loginPopModal .modal-content .modal-header h4{
@@ -215,7 +320,7 @@ h4, .modal-title{
 	padding: 20px 0;
 }
 
-.pop_list{
+section row pop_cont .pop_list{
 	clear: both;
 	border-top:1px solid #ccc;
 	margin: 15px;
@@ -238,6 +343,69 @@ h4, .modal-title{
 <body>
 
 <header>
+<div id="pop" style="display: block;">
+	<div class="wrap container">
+		<div class="Area">
+			<ul class="pop_list">
+				<li style="display: list-item;"> <!--  --> 
+					<div class="pop_g">
+						<p class="pop_img">
+							<img alt="" src="${pageContext.request.contextPath }/resources/images/POPUP_INFO_201608291632497178262349.png" class="img-responsive">
+						</p>
+						<dl>
+							<dt>항공기내 반입급지 물품 검색</dt>
+							<dd>이제 인터넷을 통해 항공기내 반입금지 물품을 <br>
+								언제 어디서든 간편하게 검색 하실 수 있습니다.<br>
+								출발하기 전에 미리 확인하세요!<br>
+							</dd>
+						</dl>
+						<a href="#" role="button" class="deta_btn">자세히 보기</a>
+					</div>
+				</li>
+				<li style="display: list-item;"> <!-- style="display: none;" --> 
+					<div class="pop_g">
+						<p class="pop_img">
+							<img alt="" src="${pageContext.request.contextPath }/resources/images/POPUP_INFO_201609291045190613405561.png" class="img-responsive">
+						</p>
+						<dl>
+							<dt>항공기 반입금지 물품 안내</dt>
+							<dd>항공기 반입금지 물품을 사전에 확인하고 공항이용 시 휴대금지를 요청드립니다.<br>
+								반입금지 물품 :총기류, 전자충격기, 도검류, 총알, 폭죽류 등<br>
+							</dd>
+						</dl>
+						<a href="#" role="button" class="deta_btn">자세히 보기</a>
+					</div>
+				</li>
+		<%-- 		<li style="display: list-item;"> <!-- style="display: none;" --> 
+					<div class="pop_g">
+						<p class="pop_img">
+							<img alt="" src="${pageContext.request.contextPath }/resources/images/POPUP_INFO_201609291045190613405561.png" class="img-responsive">
+						</p>
+						<dl>
+							<dt>공항 이용시 대중교통 이용 협조 요청</dt>
+							<dd>이용객 증가에 따라 주차장이 혼잡하오니 공항 이용시 대중교통을 적극 이용하여 주시기 바랍니다.
+							</dd>
+						</dl>
+					</div>
+				</li> --%>
+			</ul>
+		</div>
+		<div class="pop_ctrl">
+			<button class="pop_btn_Prev">
+				<img alt="" src="${pageContext.request.contextPath }/resources/images/ar_prev_pop.png">
+			</button>
+			<button class="pop_btn_Next">
+				<img alt="" src="${pageContext.request.contextPath }/resources/images/ar_next_pop.png">
+			</button>
+			<span class="pop_count">
+				<strong class="count">1 / 2</strong>
+			</span>
+			<button class="pop_btn_Play">
+				<img alt="" src="${pageContext.request.contextPath }/resources/images/btn_rolling_stop.png">
+			</button>
+		</div>
+	</div>
+</div>
 <div class="container top">
 	<h1 id="swAir"><a href="#" class="navbar-logo">SW AIR</a></h1>
 </div> 
@@ -319,10 +487,10 @@ h4, .modal-title{
 				<ul>
 					<li class="none-no">
 						<div class="btn_pop_open">
-							<a href="#" class="popupzone_btn">팝업존 열기</a>
+							<a href="#popupzone_btn" class="popupzone_btn">팝업존 열기</a>
 						</div>
 						<div class="btn_pop_close">
-							<a href="#" class="popupzone_btn" style="display: none;">팝업존 닫기</a>
+							<a href="#popupzone_btn" class="popupzone_btn" >팝업존 닫기</a>
 						</div>
 					</li>
 					
@@ -564,7 +732,27 @@ h4, .modal-title{
 		</div>
 	</div>
 </nav>
+<script type="text/javascript">
 
+	
+$(function() {
+	$(".btn_pop_open").hide();
+	$(".popupzone_btn").click(function() {
+		$("#pop").slideToggle();				
+		if($(".btn_pop_open").is(":hidden")==true){
+			$(".btn_pop_open").show();
+			$(".btn_pop_close").hide();
+
+		}else{
+			$(".btn_pop_open").hide();
+			$(".btn_pop_close").show();
+
+		}
+	});	
+});
+
+
+</script>
 
 
 </header>
