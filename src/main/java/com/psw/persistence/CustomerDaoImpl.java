@@ -63,7 +63,7 @@ public class CustomerDaoImpl implements CustomerDAO {
 	@Override
 	public String nextCode() {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + "nextCode");
+		return sqlSession.selectOne(namespace + ".nextCode");
 	}
 
 	@Override
@@ -74,6 +74,31 @@ public class CustomerDaoImpl implements CustomerDAO {
 		map.put("passwd", passwd);
 
 		return sqlSession.selectOne(namespace + ".login", map);
+	}
+
+	@Override
+	public CustomerVO searchId(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".searchId", vo);
+	}
+
+	@Override
+	public CustomerVO selectCustomerByIdEmail(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".selectCustomerByIdEmail", vo);
+	}
+
+	@Override
+	public String getRandomPassword() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".getRandomPassword");
+	}
+
+	@Override
+	public int changePw(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		int res = sqlSession.update(namespace + ".changePw", vo);
+		return res;
 	}
 
 }

@@ -20,6 +20,14 @@ public interface CustomerService {
 	CustomerVO selectCustomerById(CustomerVO vo);
 
 	String nextCode();
-	
-	/*public CustomerVO login(String id, String passwd);*/
+
+	public CustomerVO login(String id, String passwd);
+
+	CustomerVO searchId(CustomerVO vo);
+
+	CustomerVO selectCustomerByIdEmail(CustomerVO vo);
+
+	String getRandomPassword();
+
+	int changePw(CustomerVO vo);
 }

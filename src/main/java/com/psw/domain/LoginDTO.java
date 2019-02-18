@@ -1,4 +1,4 @@
-/*package com.psw.domain;
+package com.psw.domain;
 
 public class LoginDTO {
 	private String id;
@@ -26,4 +26,3 @@ public class LoginDTO {
 	}
 
 }
-*/

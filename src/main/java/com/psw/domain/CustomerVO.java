@@ -16,6 +16,19 @@ public class CustomerVO {
 		// TODO Auto-generated constructor stub
 	}
 
+	public CustomerVO(String code, String id, String passwd, String name, String zipCode, String address, String phone,
+			String email) {
+		super();
+		this.code = code;
+		Id = id;
+		this.passwd = passwd;
+		this.name = name;
+		this.zipCode = zipCode;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+	}
+
 	public String getCode() {
 		return code;
 	}
@@ -48,8 +61,6 @@ public class CustomerVO {
 		this.name = name;
 	}
 
-	
-
 	public String getZipCode() {
 		return zipCode;
 	}
@@ -74,7 +85,6 @@ public class CustomerVO {
 		this.phone = phone;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
@@ -89,5 +99,4 @@ public class CustomerVO {
 				+ zipCode + ", address=" + address + ", phone=" + phone + ", email=" + email + "]";
 	}
 
-	
 }

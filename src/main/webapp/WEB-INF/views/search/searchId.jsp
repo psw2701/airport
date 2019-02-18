@@ -8,7 +8,7 @@
 
 <div id="joinform">
 
-<form class="content" action="/action_page.php" method="post">
+<form class="content" action="searchId" method="post">
     <div class="container mt-3">
     
  		<h2><b>아이디 찾기</b></h2>

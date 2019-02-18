@@ -1,4 +1,4 @@
-/*package com.psw.controller;
+package com.psw.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.psw.domain.CustomerVO;
 import com.psw.domain.LoginDTO;
 import com.psw.service.CustomerService;
+
 
 
 @Controller
@@ -55,4 +56,4 @@ public class UserController {
 		return "redirect:${pageContext.request.contextPath }";
 		
 	}
-}*/
+}

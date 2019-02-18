@@ -59,13 +59,38 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public String nextCode() {
 		// TODO Auto-generated method stub
-		return nextCode();
+		return dao.nextCode();
 	}
 
-	/*@Override
+	@Override
 	public CustomerVO login(String id, String passwd) {
 		// TODO Auto-generated method stub
 		return dao.login(id, passwd);
-	}*/
+	}
+
+	@Override
+	public CustomerVO searchId(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return dao.searchId(vo);
+	}
+
+	@Override
+	public CustomerVO selectCustomerByIdEmail(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return dao.selectCustomerByIdEmail(vo);
+	}
+
+	@Override
+	public String getRandomPassword() {
+		// TODO Auto-generated method stub
+		return dao.getRandomPassword();
+	}
+
+	@Override
+	public int changePw(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		int res = dao.changePw(vo);
+		return res;
+	}
 
 }
