@@ -463,7 +463,7 @@ h4, .modal-title{
 							<strong>로그인</strong>
 						</h4>				
 				</div>
-				<form action="" method="post">
+				<form action="<!-- loginPost -->" method="post">
 					<div class="modal-body">
 						<div class="msg-log">
 							SW AIR 홈페이지에 방문해 주셔서 감사합니다.<br>
@@ -478,7 +478,7 @@ h4, .modal-title{
 											<label class="input-group-addon" for="user_id">
 												<img alt="" src="${pageContext.request.contextPath }/resources/images/id_img.gif">
 											</label>
-											<input type="text" class="form-control" name="userid" id="userid" placeholder="아이디를 입력해주세요." autofocus="autofocus">
+											<input type="text" class="form-control" name="id" id="userid" placeholder="아이디를 입력해주세요." autofocus="autofocus" required="required">
 										</div>
 									</div>
 									<div class="col-xs-12">
@@ -486,7 +486,7 @@ h4, .modal-title{
 											<label class="input-group-addon" for="user_pwd">
 												<img alt="" src="${pageContext.request.contextPath }/resources/images/pass_img.gif">
 											</label>
-											<input type="password" class="form-control" name="userpwd" id="userpwd" placeholder="비밀번호를 입력해주세요.">
+											<input type="password" class="form-control" name="passwd" id="userpwd" placeholder="비밀번호를 입력해주세요." required="required">
 										</div>
 									</div>
 								</div>	
@@ -498,13 +498,13 @@ h4, .modal-title{
 							<div class="pop_list">
 								<div class="row">
 									<div class="col-md-3 kloop text-center br">
-										<a href="#" class="find_id" style="color:#e92949 !important; padding-left:16px">아이디 찾기</a>
+										<a href="${pageContext.request.contextPath }/search/searchId" class="find_id" style="color:#e92949 !important; padding-left:16px">아이디 찾기</a>
 									</div>
 									<div class="col-md-3 kloop text-center br">
-										<a href="#" class="find_id" style="color:#e92949 !important; padding-left:16px">비밀번호 찾기</a>
+										<a href="${pageContext.request.contextPath }/search/searchPw" class="find_id" style="color:#e92949 !important; padding-left:16px">비밀번호 찾기</a>
 									</div>
 									<div class="col-md-3 kloop text-center br">
-										<a href="join/join" class="find_id" style="color:#5c5b5b !important">회원가입</a>
+										<a href="${pageContext.request.contextPath }/join/join" class="find_id" style="color:#5c5b5b !important">회원가입</a>
 									</div>
 									<div class="col-md-3 kloop text-center">
 										<a href="#" class="find_id"  style="color:#5c5b5b !important">직원로그인</a>
@@ -615,7 +615,7 @@ h4, .modal-title{
 					</li>
 						
 					<li class="hidden-xs hidden-sm">
-						<a href="#">홈</a>
+						<a href="${pageContext.request.contextPath }">홈</a>
 					</li>
 								
 				</ul>

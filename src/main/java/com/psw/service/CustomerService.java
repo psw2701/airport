@@ -1,10 +1,10 @@
-package com.psw.persistence;
+package com.psw.service;
 
 import java.util.List;
 
 import com.psw.domain.CustomerVO;
 
-public interface CustomerDAO {
+public interface CustomerService {
 	public void insert(CustomerVO vo);
 
 	public CustomerVO read(String code);
@@ -21,5 +21,5 @@ public interface CustomerDAO {
 
 	String nextCode();
 	
-	public CustomerVO login(String id, String passwd);
+	/*public CustomerVO login(String id, String passwd);*/
 }

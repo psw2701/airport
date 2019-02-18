@@ -1,4 +1,4 @@
-package com.yi.domain;
+package com.psw.domain;
 
 import com.psw.domain.Criteria;
 

@@ -25,17 +25,22 @@
 		where code = #{code}
 	</update>
 	
-	<select id="selectCustomerByName">
+	<select id="selectCustomerByName" resultType="CustomerVO">
 		select * from customer
 		where name = #{name}
 	</select>
 	
-	<select id="selectCustomerById">
+	<select id="selectCustomerById" resultType="CustomerVO">
 		select * from customer
 		where id = #{Id}
 	</select>
 	
 	<select id="nextCode" resultType="String">
 		select concat('C',lpad(max(right(code,3)+1),3,'0'))  from customer;
+	</select>
+	
+	<select id="login" resultType="CustomerVO">
+		select * from tbl_member
+		where id = #{Id} and passwd = password(#{passwd})
 	</select>
 </mapper>

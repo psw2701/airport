@@ -1,79 +1,71 @@
-package com.psw.persistence;
+package com.psw.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.psw.domain.CustomerVO;
+import com.psw.persistence.CustomerDAO;
 
-@Repository
-public class CustomerDaoImpl implements CustomerDAO {
+@Service
+public class CustomerServiceImpl implements CustomerService {
+
 	@Autowired
-	private SqlSession sqlSession;
-
-	private static final String namespace = "com.psw.mapper.CustomerMapper";
+	CustomerDAO dao;
 
 	@Override
 	public void insert(CustomerVO vo) {
 		// TODO Auto-generated method stub
-		sqlSession.insert(namespace + ".insert", vo);
-
+		dao.insert(vo);
 	}
 
 	@Override
 	public CustomerVO read(String code) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + ".read", code);
+		return dao.read(code);
 	}
 
 	@Override
 	public void update(CustomerVO vo) {
 		// TODO Auto-generated method stub
-		sqlSession.update(namespace + ".update", vo);
+		dao.update(vo);
 	}
 
 	@Override
 	public void delete(String code) {
 		// TODO Auto-generated method stub
-		sqlSession.delete(namespace + ".delete", code);
+		dao.delete(code);
 	}
 
 	@Override
 	public List<CustomerVO> listAll() {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace + ".listAll");
+		return dao.listAll();
 	}
 
 	@Override
 	public List<CustomerVO> selectCustomerByName(CustomerVO vo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace + ".selectCustomerByName", vo);
+		return dao.selectCustomerByName(vo);
 	}
 
 	@Override
 	public CustomerVO selectCustomerById(CustomerVO vo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + ".selectCustomerById", vo);
+		return dao.selectCustomerById(vo);
 	}
 
 	@Override
 	public String nextCode() {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + "nextCode");
+		return nextCode();
 	}
 
-	@Override
+	/*@Override
 	public CustomerVO login(String id, String passwd) {
 		// TODO Auto-generated method stub
-		Map<String, String> map = new HashMap<>();
-		map.put("id", id);
-		map.put("passwd", passwd);
-
-		return sqlSession.selectOne(namespace + ".login", map);
-	}
+		return dao.login(id, passwd);
+	}*/
 
 }

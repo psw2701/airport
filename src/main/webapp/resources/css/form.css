@@ -1,140 +1,137 @@
-@CHARSET "UTF-8";
+@charset "UTF-8";
+ 
+ /* Full-width input fields */
+#joinform input[type=text], #joinform input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
 
-	section{
-		border:1px solid #cccccc;
-		border-bottom:none;
-		padding:10px;
-		overflow: hidden;
-	}
-	
-	#form{
-		overflow: hidden;
-	}
-	#form h1{
-		text-align: center;
-		font-weight: lighter;
-	}
+#joinform #email1, #joinform #email2{
+	width: 32%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
 
-	#form h5{
-		color: #555;
-		font-weight: lighter;
-		margin: 10px;	
-		text-align: center;
-	}
-	#grade{
-	padding:10px;
-		width:330px;
-		margin: 0 auto;
-		border:1px solid #aaa;
-		border-right:none;
-		border-left: none;
-		border-bottom: none; 
-	}
-	#event{
-	padding:10px;
-		width:400px;
-		margin: 0 auto;
-		border:1px solid #aaa;
-		border-right:none;
-		border-left: none;
-		border-bottom: none; 
-	}
-	#emp{
-		padding:10px;
-		width:600px;
-		margin: 0 auto;
-		border:1px solid #aaa;
-		
-	}
-	
-	#Join label{
-		font-size: 14px;
-	}
-	fieldset {
-		width:850px;  
-		margin: 0 auto;
-		padding: 10px;
-		
-	}
-	#modify label{
-		font-size: 14px;
-		margin: 5px;
-	}
-	
-	#event label{
-		width: 120px;
-	}
-	
-	#duplicatedIdBtn{
-	padding: 3px;
-	padding-left:15px;
-	padding-right:15px;
-	background-color: #fff;
-	border: 1px solid #333;
-	border-radius:3px; 
-	font-size: 13px;
-	}
-	
-	#btnSearchPost{
-	padding: 3px;
-	padding-left:15px;
-	padding-right:15px;
-	background-color: #fff;
-	border: 1px solid #333;
-	border-radius:3px; 
-	font-size: 13px;
-	}
-	
-	p{
-		margin: 10px;
-	}
-	input{
-		margin: 5px;
-		
-	}
-	#send{
-	 text-align: center; 
-	}
-	 label{
-    	float: left;
-		text-align: center;
-		width: 100px;
-		margin: 0 auto;
-		margin: 5px;
-   }
-   select{
-   	margin: 5px;
-   }
-   .error, .error2{
-      color:red;
-      font-size: 12px;
-      display:none;      
-   }
-   
-   #reset{
+#joinform .form-control{
+	width: 33%;
+	display: inline-block;
+}
+
+#joinform #sample6_detailAddress{
+	width: 49%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+#joinform #sample6_extraAddress{
+	width: 50%;
+	border: none;
+	background: #f1f1f1;
+	padding: 10px;
+}
+
+#joinform #sample6_postcode{
+	width:32%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+#joinform #btnSearchPost{
+	display: inline-block;
 	padding: 5px;
-	padding-left:25px;
-	padding-right:25px;
-	background-color: #fff;
-	border: 1px solid #333;
-	border-radius:3px; 
-}	
+}
 
-#ok{
-	border: 1px solid #333;
-	padding: 5px;
-	padding-left:25px;
-	padding-right:25px;
-	background-color: #333;
-	color: white;
-	border-radius:3px; 
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+.signupbtn, .cancelbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
 }
 
 
-
-#ok:HOVER {
-	background-color: black;
-	
-	
+/* Modal Content/Box */
+.content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
 }
 
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
