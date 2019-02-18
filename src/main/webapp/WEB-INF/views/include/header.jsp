@@ -6,6 +6,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <head>
 <script type="text/javascript">
 /* 메뉴 슬라이드 */
@@ -56,8 +60,9 @@ $(document).ready(function(){
 /* 팝업 */
 
 #pop{
-	background: #0c3f52;
+	background-color:#0c3f52; 
 	position: relative;
+	
 }
 #pop .wrap{
 	position: relative;
@@ -69,19 +74,25 @@ $(document).ready(function(){
 	margin: 0 auto;
 	padding: 20px 0;
 }
-
+#pop .Area ul.pop_list{
+	border-top: 0;
+	padding: 0;
+	margin: 0;
+}
 .pop_g{
 	float: left;
 	width: 49%;
-	
-
+	border-left:1px solid #01131e;
 	margin: 0 0 0 10px;
 	padding-left: 30px; 
+	
+
 }
 
-/* .pop_g:first-child{
+
+ .pop_g:first-child{
 	border-left: 0;
-} */
+} 
 .pop_g .pop_img{
 	float: left;
 	width: 130px;
@@ -90,7 +101,11 @@ $(document).ready(function(){
 	width: 130px;
 	height: 120px;
 }
-
+.pop_g dl{
+	margin: 5px 0 5px 10px;
+	float: left;
+	width: 350px;
+}
 .pop_g dl dt{
 	font-size: 18px;
 	font-weight: bold;
@@ -102,10 +117,14 @@ $(document).ready(function(){
 }
 .pop_g dl dd{
 	font-size: 13px;
-	color: #fff;
+	color:#fff;
 	margin-top: 3px;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient:vertical;
+	word-wrap:break-word;
 }
 
 #pop .pop_ctrl .pop_count{
@@ -121,7 +140,7 @@ $(document).ready(function(){
 	text-align: center;
 	 
 }
-#pop .pop_ctrl .pop_btn_Play{
+ #pop .pop_ctrl .pop_btn_Play{
 	position: absolute;
 	top: -2px;
 	left: 51px;
@@ -153,6 +172,7 @@ button{
 	clear: both;
 	display: inline-block;
 }
+
 /* 로고 */
 #swAir a{
 	color: white;
@@ -319,8 +339,16 @@ h4, .modal-title{
 .section{
 	padding: 20px 0;
 }
-
-section row pop_cont .pop_list{
+.pop_btn{
+	width: 100%;
+	color: #fff;
+	font-size: 130%;
+	background-color: #802223;
+	box-shadow: none;
+	line-height: 362%;
+	letter-spacing: -.05em;
+}
+.pop_list{
 	clear: both;
 	border-top:1px solid #ccc;
 	margin: 15px;
@@ -342,11 +370,12 @@ section row pop_cont .pop_list{
 </head>
 <body>
 
-<header>
-<div id="pop" style="display: block;">
+<header> 
+<div id="pop" style="display:none;">
 	<div class="wrap container">
 		<div class="Area">
-			<ul class="pop_list">
+
+			<ul class="pop_list" id="pop_list">
 				<li style="display: list-item;"> <!--  --> 
 					<div class="pop_g">
 						<p class="pop_img">
@@ -361,8 +390,6 @@ section row pop_cont .pop_list{
 						</dl>
 						<a href="#" role="button" class="deta_btn">자세히 보기</a>
 					</div>
-				</li>
-				<li style="display: list-item;"> <!-- style="display: none;" --> 
 					<div class="pop_g">
 						<p class="pop_img">
 							<img alt="" src="${pageContext.request.contextPath }/resources/images/POPUP_INFO_201609291045190613405561.png" class="img-responsive">
@@ -376,7 +403,7 @@ section row pop_cont .pop_list{
 						<a href="#" role="button" class="deta_btn">자세히 보기</a>
 					</div>
 				</li>
-		<%-- 		<li style="display: list-item;"> <!-- style="display: none;" --> 
+				<li > <!-- style="display: none;" --> 
 					<div class="pop_g">
 						<p class="pop_img">
 							<img alt="" src="${pageContext.request.contextPath }/resources/images/POPUP_INFO_201609291045190613405561.png" class="img-responsive">
@@ -386,28 +413,42 @@ section row pop_cont .pop_list{
 							<dd>이용객 증가에 따라 주차장이 혼잡하오니 공항 이용시 대중교통을 적극 이용하여 주시기 바랍니다.
 							</dd>
 						</dl>
+						<a href="#" role="button" class="deta_btn">자세히 보기</a>
 					</div>
-				</li> --%>
+				</li>
+				
 			</ul>
-		</div>
-		<div class="pop_ctrl">
+		 </div> 
+ 		<div class="pop_ctrl">
+ 		
+ 		<!-- <a class="carousel-control-prev" href="#demo" data-slide="prev"> -->
 			<button class="pop_btn_Prev">
-				<img alt="" src="${pageContext.request.contextPath }/resources/images/ar_prev_pop.png">
+				<img alt="" src="${pageContext.request.contextPath }/resources/images/ar_prev_pop.png" class="prev">
+				 <!--  <span class="carousel-control-prev-icon"></span> -->
 			</button>
+			<!--  </a> -->
+			 
+			 <!-- <a class="carousel-control-next" href="#demo" data-slide="next"> -->
 			<button class="pop_btn_Next">
-				<img alt="" src="${pageContext.request.contextPath }/resources/images/ar_next_pop.png">
+				<img alt="" src="${pageContext.request.contextPath }/resources/images/ar_next_pop.png" class="next" >
+				 <!--  <span class="carousel-control-prev-icon"></span> -->
 			</button>
+			<!-- </a> -->
+			
 			<span class="pop_count">
-				<strong class="count">1 / 2</strong>
+				<strong class="count">1</strong> / 2
 			</span>
 			<button class="pop_btn_Play">
 				<img alt="" src="${pageContext.request.contextPath }/resources/images/btn_rolling_stop.png">
 			</button>
 		</div>
+		
+		<!-- </div> -->
+		
 	</div>
 </div>
 <div class="container top">
-	<h1 id="swAir"><a href="#" class="navbar-logo">SW AIR</a></h1>
+	<h1 id="swAir"><a href="${pageContext.request.contextPath }" class="navbar-logo">SW AIR</a></h1>
 </div> 
 <div class="modal fade" id="loginPopModal" tabindex="-1" role="dialog" aria-labelledby="loginPopModalLabel" style="display: none;">
 		<div class="modal-dialog" role="document">
@@ -425,7 +466,7 @@ section row pop_cont .pop_list{
 				<form action="" method="post">
 					<div class="modal-body">
 						<div class="msg-log">
-							한국공항공사 홈페이지에 방문해 주셔서 감사합니다.<br>
+							SW AIR 홈페이지에 방문해 주셔서 감사합니다.<br>
 							아이디와 비밀번호를 입력해 주십시오.
 						</div>
 						<div class="section row pop_cont">
@@ -463,7 +504,7 @@ section row pop_cont .pop_list{
 										<a href="#" class="find_id" style="color:#e92949 !important; padding-left:16px">비밀번호 찾기</a>
 									</div>
 									<div class="col-md-3 kloop text-center br">
-										<a href="#" class="find_id" style="color:#5c5b5b !important">회원가입</a>
+										<a href="join/join" class="find_id" style="color:#5c5b5b !important">회원가입</a>
 									</div>
 									<div class="col-md-3 kloop text-center">
 										<a href="#" class="find_id"  style="color:#5c5b5b !important">직원로그인</a>
@@ -732,11 +773,14 @@ section row pop_cont .pop_list{
 		</div>
 	</div>
 </nav>
-<script type="text/javascript">
 
-	
+
+
+
+<!-- popup슬라이드 -->
+<script type="text/javascript">	
 $(function() {
-	$(".btn_pop_open").hide();
+	$(".btn_pop_close").hide();
 	$(".popupzone_btn").click(function() {
 		$("#pop").slideToggle();				
 		if($(".btn_pop_open").is(":hidden")==true){
@@ -744,12 +788,135 @@ $(function() {
 			$(".btn_pop_close").hide();
 
 		}else{
-			$(".btn_pop_open").hide();
 			$(".btn_pop_close").show();
-
+			$(".btn_pop_open").hide();
 		}
+		
 	});	
+	
+	
+	
 });
+
+</script>
+<script type="text/javascript">
+
+/* $('#pop_list').bxSlider({
+	  auto: true,
+	  autoControls: true,
+	  stopAutoOnClick: true,
+	  pager: false
+	
+	}); */
+
+</script>
+
+
+<script type="text/javascript">
+
+//popupzone
+(function($){	
+	$.fn.PopupZone = function(options) {
+		
+		var settings = {
+			prevBtn : '',
+			nextBtn : '',
+			playBtn : '',
+			waitingTime : ''
+		};
+		
+		$.extend(settings, options);
+		settings.areaDiv = this;
+		settings.prevBtn = $(settings.prevBtn);
+		settings.nextBtn = $(settings.nextBtn);
+		settings.playBtn = $(settings.playBtn);
+		
+		settings.cnt = settings.areaDiv.find('.pop_list li').length;		
+		settings.waitingTime = parseInt(settings.waitingTime);
+		settings.nowNum = 0;
+		settings.moveFlag = true; 
+		settings.moveType;
+		settings.setTimeOut;
+		var status=true;
+		
+		function emptySetting() {
+			settings.areaDiv.find('.count').html(settings.nowNum+1);
+			settings.areaDiv.find('.pop_list li').hide();
+		}
+		function setRolling(aniFlag) {
+			if(!settings.moveFlag){
+				if(settings.moveType=="next" || settings.moveType == null){ 
+					settings.nowNum++;
+					if(settings.nowNum == settings.cnt) settings.nowNum = 0;
+				} else if(settings.moveType=="prev") {
+					settings.nowNum--;
+					if(settings.nowNum < 0) settings.nowNum = (settings.cnt-1);
+				}
+			}			
+			emptySetting();
+			
+			if(aniFlag) settings.areaDiv.find('.pop_list li').eq(settings.nowNum).show();
+			else settings.areaDiv.find('.pop_list li').eq(settings.nowNum).fadeIn('normal');
+			 // 기본 : aniFlag 설정 없으면 fade 효과 - 조정
+			
+			aniFlag = false;
+			settings.moveFlag = false;
+			if(status){
+				settings.setTimeOut= setTimeout(setRolling , settings.waitingTime);
+			}
+		}
+		function playRolling(){
+			if(status){
+				clearTimeout(settings.setTimeOut);
+				settings.playBtn.find('img').attr('src',"/resources/images/btn_rolling_stop_on.png");
+				settings.playBtn.find('img').attr('alt',"팝업 롤링 재생");
+				status = false;
+			}else{
+				settings.playBtn.find('img').attr('src',"/resources/images/btn_rolling_stop.png");
+				settings.playBtn.find('img').attr('alt',"팝업 롤링 정지");
+				status = true;
+				setRolling();
+			}
+			return false;
+		}
+		function prevRolling(){
+			clearTimeout(settings.setTimeOut);
+			settings.moveType = "prev";
+			setRolling();
+			return false;
+		}
+		function nextRolling() {
+			clearTimeout(settings.setTimeOut);
+			settings.moveType = "next";
+			setRolling();
+			return false;
+		}
+		setRolling();
+		settings.prevBtn.click(prevRolling);
+		settings.nextBtn.click(nextRolling);
+		settings.playBtn.click(playRolling);
+		
+	};
+
+})(jQuery);
+
+$(document).ready(function(){
+	
+	try {
+	 $('#pop').PopupZone({
+		prevBtn : '.pop_btn_Prev', 
+		nextBtn : '.pop_btn_Next',
+		playBtn : '.pop_btn_Play',
+		waitingTime : '5000'
+
+	});
+	 
+	} catch(e) {}
+});
+
+</script>
+<script type="text/javascript">
+
 
 
 </script>
