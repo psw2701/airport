@@ -14,7 +14,7 @@ public class BoardVO {
 	private boolean required;
 	private List<String> files; // 첨부파일
 	private CustomerVO cusName; // 고객명
-	private AirportVO airCode; // 공항코드
+	private AirportVO airportCode; // 공항코드
 
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
@@ -101,18 +101,18 @@ public class BoardVO {
 	}
 
 	public AirportVO getAirCode() {
-		return airCode;
+		return airportCode;
 	}
 
 	public void setAirCode(AirportVO airCode) {
-		this.airCode = airCode;
+		this.airportCode = airCode;
 	}
 
 	@Override
 	public String toString() {
 		return "BoardVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", viewCnt="
 				+ viewCnt + ", open=" + open + ", progress=" + progress + ", required=" + required + ", files=" + files
-				+ ", cusName=" + cusName + ", airCode=" + airCode + "]";
+				+ ", cusName=" + cusName + ", airCode=" + airportCode + "]";
 	}
 
 }

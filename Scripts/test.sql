@@ -31,3 +31,20 @@ select concat( char(rand()*26 + 65) , round(rand() * 100), char(rand()*26 + 65),
 
 select * from customer
 where passwd = '';
+
+select * from board;
+
+insert into board(title, content, required, open, progress, customer_code, airport_code )
+		values('게시물입니다.', '내용', true, true, '접수', 'C001','GMP');
+		
+	
+select * from board 
+		where no=1;	
+		
+update board 
+		set title='수정게시물입니다.', content='수정내용', airport_code='TAE', open=false, required=false
+		where no=1;	
+		
+update board 
+		set view_cnt=view_cnt+1
+		where no=1;	

@@ -2,7 +2,7 @@ package com.psw.domain;
 
 import java.util.Date;
 
-public class AnswerVO {
+public class ReplyVO {
 	private int no;
 	private String title;
 	private String content;
@@ -10,7 +10,7 @@ public class AnswerVO {
 	private BoardVO boardNo;
 	private ManagerVO managerNo;
 
-	public AnswerVO() {
+	public ReplyVO() {
 		// TODO Auto-generated constructor stub
 	}
 

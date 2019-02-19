@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.psw.mapper.BoardMapper">
+	<insert id="insert">
+		insert into board(title, content, required, open, progress, customer_code, airport_code )
+		values(#{title}, #{content}, #{required}, #{open}, #{progress}, #{cusName.code},#{airportCode.code})
+	</insert>
+	
+	<select id="read" resultType="BoardVO">
+		select * from board 
+		where no=#{no}
+	</select>
+	
+	<update id="update">
+		update board 
+		set title=#{title}, content=#{content}, airport_code=#{airportCode.code}, open=#{open}, required=#{required}
+		where no = #{no}
+	</update>
+	
+	<delete id="delete">
+		delete from board where no = #{no}
+	</delete>
+	
+	<select id="listAll" resultType="BoardVO">
+		select * from board order by no desc
+	</select>
+	
+	<select id="listPage" resultType="BoardVO">
+		select * from board order by no desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="listCriteria" resultType="BoardVO">
+		select * from board order by no desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<update id="addCnt">
+		update board 
+		set view_cnt=view_cnt+1
+		where no = #{no}
+	</update>
+	
+	<select id="totalCount" resultType="int">
+		select count(no)
+		from board
+	</select>
+	
+	<sql id="search">
+		<if test="searchType=='t'.toString()">
+			where title like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='c'.toString()">
+			where content like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='w'.toString()">
+			where writer like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='tc'.toString()">
+			where title like concat('%', #{keyword},'%') or content like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='cw'.toString()">
+			where content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='tcw'.toString()">
+			where title like concat('%', #{keyword},'%')or content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%')
+		</if>
+	</sql>
+	
+	<select id="listSearch" resultType="BoardVO">
+		select * from board 
+		<include refid="search"></include>
+		order by no desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="searchTotalCount" resultType="int">
+		select count(no)
+		from board
+		<include refid="search"></include>
+	</select>
+	
+	<!-- <update id="updateReplyCnt">
+		update board set replycnt = replycnt +#{amount} where bno=#{bno}
+	</update>
+	
+	<insert id="addAttach">
+		insert into tbl_attach(fullname, bno) values(#{fullname}, LAST_INSERT_ID())
+	</insert>
+	
+	<select id="getAttach" resultType="String">
+		select fullname from tbl_attach where bno=#{bno} order by regdate
+	</select>
+	
+	<delete id="deleteAttachByFullName">
+		delete from tbl_attach where bno=#{bno} and fullname=#{fullname}
+	</delete>
+	
+	<delete id="delImg">
+		delete from tbl_attach where bno=#{bno}
+	</delete>
+	
+	<insert id="addAttachByBno">
+		insert into tbl_attach(fullname, bno) values (#{fullname}, #{bno})
+	</insert> -->
+	
+</mapper>
