@@ -7,7 +7,7 @@ public class ReplyVO {
 	private String title;
 	private String content;
 	private Date regDate;
-	private BoardVO boardNo;
+	private BoardVO bNo;
 	private ManagerVO managerNo;
 
 	public ReplyVO() {
@@ -46,12 +46,12 @@ public class ReplyVO {
 		this.regDate = regDate;
 	}
 
-	public BoardVO getBoardNo() {
-		return boardNo;
+	public BoardVO getbNo() {
+		return bNo;
 	}
 
-	public void setBoardNo(BoardVO boardNo) {
-		this.boardNo = boardNo;
+	public void setbNo(BoardVO bNo) {
+		this.bNo = bNo;
 	}
 
 	public ManagerVO getManagerNo() {
@@ -64,8 +64,8 @@ public class ReplyVO {
 
 	@Override
 	public String toString() {
-		return "AnswerVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate
-				+ ", boardNo=" + boardNo + ", managerNo=" + managerNo + "]";
+		return "ReplyVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", bNo="
+				+ bNo + ", managerNo=" + managerNo + "]";
 	}
 
 }

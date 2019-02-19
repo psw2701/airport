@@ -15,6 +15,7 @@ public class BoardVO {
 	private List<String> files; // 첨부파일
 	private CustomerVO cusName; // 고객명
 	private AirportVO airportCode; // 공항코드
+	private int replyCnt;// 댓글수
 
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
@@ -100,19 +101,27 @@ public class BoardVO {
 		this.cusName = cusName;
 	}
 
-	public AirportVO getAirCode() {
+	public AirportVO getAirportCode() {
 		return airportCode;
 	}
 
-	public void setAirCode(AirportVO airCode) {
-		this.airportCode = airCode;
+	public void setAirportCode(AirportVO airportCode) {
+		this.airportCode = airportCode;
+	}
+
+	public int getReplyCnt() {
+		return replyCnt;
+	}
+
+	public void setReplyCnt(int replyCnt) {
+		this.replyCnt = replyCnt;
 	}
 
 	@Override
 	public String toString() {
 		return "BoardVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", viewCnt="
 				+ viewCnt + ", open=" + open + ", progress=" + progress + ", required=" + required + ", files=" + files
-				+ ", cusName=" + cusName + ", airCode=" + airportCode + "]";
+				+ ", cusName=" + cusName + ", airportCode=" + airportCode + ", replyCnt=" + replyCnt + "]";
 	}
 
 }

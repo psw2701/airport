@@ -80,28 +80,28 @@
 		<include refid="search"></include>
 	</select>
 	
-	<!-- <update id="updateReplyCnt">
-		update board set replycnt = replycnt +#{amount} where bno=#{bno}
+ 	<update id="updateReplyCnt">
+		update board set reply_cnt = reply_cnt +#{amount} where no=#{no}
 	</update>
 	
 	<insert id="addAttach">
-		insert into tbl_attach(fullname, bno) values(#{fullname}, LAST_INSERT_ID())
+		insert into attach(fullname, bno) values(#{fullname}, LAST_INSERT_ID())
 	</insert>
 	
 	<select id="getAttach" resultType="String">
-		select fullname from tbl_attach where bno=#{bno} order by regdate
+		select fullname from attach where bno=#{bno} order by reg_date
 	</select>
 	
 	<delete id="deleteAttachByFullName">
-		delete from tbl_attach where bno=#{bno} and fullname=#{fullname}
+		delete from attach where bno=#{bno} and fullname=#{fullname}
 	</delete>
 	
 	<delete id="delImg">
-		delete from tbl_attach where bno=#{bno}
+		delete from attach where bno=#{bno}
 	</delete>
 	
 	<insert id="addAttachByBno">
-		insert into tbl_attach(fullname, bno) values (#{fullname}, #{bno})
-	</insert> -->
+		insert into attach(fullname, bno) values (#{fullname}, #{bno})
+	</insert>
 	
 </mapper>

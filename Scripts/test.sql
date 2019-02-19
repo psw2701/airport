@@ -35,7 +35,12 @@ where passwd = '';
 select * from board;
 
 insert into board(title, content, required, open, progress, customer_code, airport_code )
-		values('게시물입니다.', '내용', true, true, '접수', 'C001','GMP');
+		values('게시물입니다.', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.2', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.3', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.4', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.5', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.6', '내용', true, true, '접수', 'C001','YNY');
 		
 	
 select * from board 
@@ -48,3 +53,25 @@ update board
 update board 
 		set view_cnt=view_cnt+1
 		where no=1;	
+
+delete from board where no=1;	
+
+select * from board order by no desc;
+
+select * from board order by no desc
+		limit 1, 10
+		
+select count(no)
+		from board;		
+		
+update board set reply_cnt = reply_cnt +1 where no=1;	
+
+insert into attach(fullname, no) values('파일이름', LAST_INSERT_ID());
+
+select * from attach;
+
+select fullname from attach where no=1 order by reg_date;
+
+delete from attach where no=1 and fullname='파일이름';
+
+insert into attach(fullname, no) values ('파일이름1', 1);

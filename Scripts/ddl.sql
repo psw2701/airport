@@ -16,7 +16,8 @@ CREATE TABLE airport.board (
 	progress      VARCHAR(40) NOT NULL COMMENT '처리현황', -- 처리현황
 	file          TEXT        NULL     COMMENT '첨부파일', -- 첨부파일
 	customer_code CHAR(4)     NOT NULL COMMENT '고객번호', -- 고객번호
-	airport_code  CHAR(3)     NOT NULL COMMENT '공항코드' -- 공항코드
+	airport_code  CHAR(3)     NOT NULL COMMENT '공항코드', -- 공항코드
+	reply_cnt     INT         NOT NULL DEFAULT 0 COMMENT '댓글수' -- 댓글수
 )
 COMMENT '게시판';
 
@@ -121,6 +122,21 @@ ALTER TABLE airport.notice
 ALTER TABLE airport.notice
 	MODIFY COLUMN no INT NOT NULL AUTO_INCREMENT COMMENT '공지사항번호';
 
+-- 첨부
+CREATE TABLE airport.attach (
+	fullName VARCHAR(150) NOT NULL COMMENT '이름', -- 이름
+	reg_date TIMESTAMP    NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
+	no       INT          NOT NULL COMMENT '게시판번호' -- 게시판번호
+)
+COMMENT '첨부';
+
+-- 첨부
+ALTER TABLE airport.attach
+	ADD CONSTRAINT PK_attach -- 첨부 기본키
+		PRIMARY KEY (
+			fullName -- 이름
+		);
+
 -- 게시판
 ALTER TABLE airport.board
 	ADD CONSTRAINT FK_customer_TO_board -- 고객 -> 게시판
@@ -169,4 +185,14 @@ ALTER TABLE airport.notice
 		)
 		REFERENCES airport.manager ( -- 관리자
 			code -- 관리자코드
+		);
+
+-- 첨부
+ALTER TABLE airport.attach
+	ADD CONSTRAINT FK_board_TO_attach -- 게시판 -> 첨부
+		FOREIGN KEY (
+			no -- 게시판번호
+		)
+		REFERENCES airport.board ( -- 게시판
+			no -- 게시판번호
 		);
