@@ -21,7 +21,7 @@ public interface CustomerService {
 
 	String nextCode();
 
-	public CustomerVO login(String id, String passwd);
+	public CustomerVO login(String id, String passwd, String admin);
 
 	CustomerVO searchId(CustomerVO vo);
 
@@ -30,4 +30,6 @@ public interface CustomerService {
 	String getRandomPassword();
 
 	int changePw(CustomerVO vo);
+	
+	CustomerVO selectCustomerByPw(CustomerVO vo);
 }

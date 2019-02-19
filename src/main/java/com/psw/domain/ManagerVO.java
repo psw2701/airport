@@ -7,6 +7,16 @@ public class ManagerVO {
 	public ManagerVO() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public ManagerVO(String code, String name) {
+		super();
+		this.code = code;
+		this.name = name;
+	}
+
+
 
 	public String getCode() {
 		return code;

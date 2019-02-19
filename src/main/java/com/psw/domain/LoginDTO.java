@@ -5,6 +5,17 @@ public class LoginDTO {
 	private String name;
 	private boolean admin;
 
+	public LoginDTO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public LoginDTO(String id, String name, boolean admin) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.admin = admin;
+	}
+
 	public String getId() {
 		return id;
 	}

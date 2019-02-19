@@ -23,14 +23,13 @@ public class UserController {
 	private CustomerService service;
 
 	@RequestMapping(value = "loginPost", method = RequestMethod.POST)
-	public void loginPost(String userid, String userpw, Model model) {
+	public void loginPost(String userid, String userpw, String checkManager, Model model) {
 		logger.info("login POST--------------");
-		CustomerVO vo = service.login(userid, userpw);
+		CustomerVO vo = service.login(userid, userpw, checkManager);
 
 		if (vo == null) {
 			logger.info("loginPOST return...");
 			return;
-
 		}
 
 		LoginDTO dto = new LoginDTO();

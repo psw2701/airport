@@ -63,9 +63,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public CustomerVO login(String id, String passwd) {
+	public CustomerVO login(String id, String passwd, String admin) {
 		// TODO Auto-generated method stub
-		return dao.login(id, passwd);
+		return dao.login(id, passwd, admin);
 	}
 
 	@Override
@@ -91,6 +91,12 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		int res = dao.changePw(vo);
 		return res;
+	}
+
+	@Override
+	public CustomerVO selectCustomerByPw(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return dao.selectCustomerByPw(vo);
 	}
 
 }

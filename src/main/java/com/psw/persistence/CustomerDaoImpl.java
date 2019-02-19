@@ -67,12 +67,12 @@ public class CustomerDaoImpl implements CustomerDAO {
 	}
 
 	@Override
-	public CustomerVO login(String id, String passwd) {
+	public CustomerVO login(String id, String passwd, String admin) {
 		// TODO Auto-generated method stub
 		Map<String, String> map = new HashMap<>();
 		map.put("id", id);
 		map.put("passwd", passwd);
-
+		map.put("admin", admin);
 		return sqlSession.selectOne(namespace + ".login", map);
 	}
 
@@ -99,6 +99,12 @@ public class CustomerDaoImpl implements CustomerDAO {
 		// TODO Auto-generated method stub
 		int res = sqlSession.update(namespace + ".changePw", vo);
 		return res;
+	}
+
+	@Override
+	public CustomerVO selectCustomerByPw(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".selectCustomerByPw", vo);
 	}
 
 }
