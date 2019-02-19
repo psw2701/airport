@@ -23,9 +23,9 @@ public class UserController {
 	private CustomerService service;
 
 	@RequestMapping(value = "loginPost", method = RequestMethod.POST)
-	public void loginPost(String id, String passwd, Model model) {
+	public void loginPost(String userid, String userpw, Model model) {
 		logger.info("login POST--------------");
-		CustomerVO vo = service.login(id, passwd);
+		CustomerVO vo = service.login(userid, userpw);
 
 		if (vo == null) {
 			logger.info("loginPOST return...");
@@ -46,7 +46,7 @@ public class UserController {
 		logger.info("logout GET-----");
 		session.invalidate();
 
-		return "redirect:${pageContext.request.contextPath }";
+		return "redirect:/";
 
 	}
 }

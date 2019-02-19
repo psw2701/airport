@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class CustomerVO {
 	private String code;
-	private String Id;
+	private String id;
 	private String passwd;
 	private String name;
 	private String zipCode;
@@ -16,19 +16,6 @@ public class CustomerVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CustomerVO(String code, String id, String passwd, String name, String zipCode, String address, String phone,
-			String email) {
-		super();
-		this.code = code;
-		Id = id;
-		this.passwd = passwd;
-		this.name = name;
-		this.zipCode = zipCode;
-		this.address = address;
-		this.phone = phone;
-		this.email = email;
-	}
-
 	public String getCode() {
 		return code;
 	}
@@ -38,11 +25,11 @@ public class CustomerVO {
 	}
 
 	public String getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(String id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getPasswd() {
@@ -93,9 +80,22 @@ public class CustomerVO {
 		this.email = email;
 	}
 
+	public CustomerVO(String code, String id, String passwd, String name, String zipCode, String address, String phone,
+			String email) {
+		super();
+		this.code = code;
+		this.id = id;
+		this.passwd = passwd;
+		this.name = name;
+		this.zipCode = zipCode;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+	}
+
 	@Override
 	public String toString() {
-		return "CustomerVO [code=" + code + ", Id=" + Id + ", passwd=" + passwd + ", name=" + name + ", zipCode="
+		return "CustomerVO [code=" + code + ", id=" + id + ", passwd=" + passwd + ", name=" + name + ", zipCode="
 				+ zipCode + ", address=" + address + ", phone=" + phone + ", email=" + email + "]";
 	}
 

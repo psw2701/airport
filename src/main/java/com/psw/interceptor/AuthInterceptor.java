@@ -1,4 +1,4 @@
-/*package com.psw.interceptor;
+package com.psw.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +27,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 		}
 		if (dto == null) {// 로그인을 하지 않은 상태
 			saveDest(request);
-			response.sendRedirect(request.getContextPath() + "/user/login");
+			response.sendRedirect(request.getContextPath() +"?modal=open");
 			return false; // register controller로 가는 걸 막음
 		}
 		return true;
@@ -63,4 +63,4 @@ public class AuthInterceptor implements HandlerInterceptor {
 		}
 	}
 
-}*/
+}

@@ -57,7 +57,7 @@ public class CustomerDaoImpl implements CustomerDAO {
 	@Override
 	public CustomerVO selectCustomerById(CustomerVO vo) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + ".selectCustomerById", vo);
+		return sqlSession.selectOne(namespace + ".selectCustomerById", vo.getId());
 	}
 
 	@Override

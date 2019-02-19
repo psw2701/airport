@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -463,7 +464,7 @@ h4, .modal-title{
 							<strong>로그인</strong>
 						</h4>				
 				</div>
-				<form action="<!-- loginPost -->" method="post">
+				<form action="${pageContext.request.contextPath }/user/loginPost" method="post">
 					<div class="modal-body">
 						<div class="msg-log">
 							SW AIR 홈페이지에 방문해 주셔서 감사합니다.<br>
@@ -478,7 +479,7 @@ h4, .modal-title{
 											<label class="input-group-addon" for="user_id">
 												<img alt="" src="${pageContext.request.contextPath }/resources/images/id_img.gif">
 											</label>
-											<input type="text" class="form-control" name="id" id="userid" placeholder="아이디를 입력해주세요." autofocus="autofocus" required="required">
+											<input type="text" class="form-control" name="userid" id="userid" placeholder="아이디를 입력해주세요." autofocus="autofocus" required="required">
 										</div>
 									</div>
 									<div class="col-xs-12">
@@ -486,7 +487,7 @@ h4, .modal-title{
 											<label class="input-group-addon" for="user_pwd">
 												<img alt="" src="${pageContext.request.contextPath }/resources/images/pass_img.gif">
 											</label>
-											<input type="password" class="form-control" name="passwd" id="userpwd" placeholder="비밀번호를 입력해주세요." required="required">
+											<input type="password" class="form-control" name="userpw" id="userpwd" placeholder="비밀번호를 입력해주세요." required="required">
 										</div>
 									</div>
 								</div>	
@@ -518,9 +519,18 @@ h4, .modal-title{
 				
 				</form>
 				
+				
+				
+				
 			</div>
 		</div> 
 	</div> 
+	
+	<c:if test="${modal != null }">
+				<script>
+					$("#loginPopModal").modal("show");
+					</script>
+	</c:if>
 	<div class="etc-navi">
 	<div class="container text-right">
 		<div>
@@ -611,7 +621,14 @@ h4, .modal-title{
 					</li>
 					
 					<li class="hidden-xs hidden-sm">
-						<a href="#" id="loginBtn" data-toggle="modal" data-target="#loginPopModal" role="button">로그인</a>
+					
+						<c:if test="${login !=null }">							
+						<a href="${pageContext.request.contextPath }/user/logout" id="loginBtn" role="button">로그아웃</a>
+						</c:if>
+						<c:if test="${login==null }">
+							<a href="#" id="loginBtn" data-toggle="modal" data-target="#loginPopModal" role="button">로그인</a>
+						</c:if>
+					
 					</li>
 						
 					<li class="hidden-xs hidden-sm">

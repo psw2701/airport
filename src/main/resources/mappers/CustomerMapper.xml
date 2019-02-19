@@ -32,7 +32,7 @@
 	
 	<select id="selectCustomerById" resultType="CustomerVO">
 		select * from customer
-		where id = #{Id}
+		where id = #{id}
 	</select>
 	
 	<select id="nextCode" resultType="String">
@@ -40,8 +40,8 @@
 	</select>
 	
 	<select id="login" resultType="CustomerVO">
-		select * from tbl_member
-		where id = #{Id} and passwd = password(#{passwd})
+		select * from customer  
+		where id = #{id} and passwd = password(#{passwd})
 	</select>
 	
 	<select id="searchId" parameterType="CustomerVO" resultType="CustomerVO">

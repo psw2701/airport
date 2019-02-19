@@ -1,4 +1,4 @@
-/*package com.psw.interceptor;
+package com.psw.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +10,6 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.psw.domain.LoginDTO;
-
 
 public class LoginInterceptor implements HandlerInterceptor {
 
@@ -37,8 +36,9 @@ public class LoginInterceptor implements HandlerInterceptor {
 			session.setAttribute(LOGIN, dto);
 
 			Object dest = session.getAttribute("dest");
-			String path = dest != null ? (String) dest : request.getContextPath() + "${pageContext.request.contextPath }";
-			
+			String path = dest != null ? (String) dest
+					: request.getContextPath();
+			System.out.println("login success: path :"+path);
 			response.sendRedirect(path);
 		}
 
@@ -51,4 +51,4 @@ public class LoginInterceptor implements HandlerInterceptor {
 		logger.info("------ login afterCompletion");
 	}
 
-}*/
+}
