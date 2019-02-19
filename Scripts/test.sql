@@ -25,3 +25,9 @@ select concat('C',lpad(max(right(code,3)+1),3,'0'))  from customer;
 	select Id as id from customer
 		where name = '아이유'
 		and email =	'abc123@daum.net';
+		
+select concat( char(rand()*26 + 65) , round(rand() * 100), char(rand()*26 + 65), char(rand()*26 + 65) , round(rand() * 100), char(rand()*26 + 65)) as randomPwd;
+
+
+select * from customer
+where passwd = '';

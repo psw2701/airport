@@ -10,7 +10,6 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -39,26 +38,19 @@ public class SearchController {
 	}
 
 	@RequestMapping(value = "searchId", method = RequestMethod.POST)
-	public String postSearchId(HttpServletRequest req, Model model) {
+	public String postSearchId(CustomerVO vo, Model model) {
 		logger.info("searchId - post");
-
-		String name = req.getParameter("name");
-		String email1 = req.getParameter("email1");
-		String email2 = req.getParameter("email2");
-
-		CustomerVO customer = new CustomerVO();
-		customer.setName(name);
-		customer.setEmail(email1 + "@" + email2);
+		logger.info(vo.toString());
 
 		try {
-			customer = service.searchId(customer);
+			vo = service.searchId(vo);
 
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 
-		String id = customer.getId();
+		String id = vo.getId();
 		model.addAttribute("id", id);
 
 		return "/search/resultId";
@@ -67,54 +59,36 @@ public class SearchController {
 	@RequestMapping(value = "searchPw", method = RequestMethod.GET)
 	public String getSearchPw() {
 		logger.info("searchPw ------ get");
+
 		return "search/searchPw";
 	}
 
 	@RequestMapping(value = "searchPw", method = RequestMethod.POST)
-	public String postSearchPw(HttpServletRequest req, CustomerVO vo, Model model, HttpServletResponse res)
-			throws IOException {
+	public String postSearchPw(CustomerVO vo, Model model, HttpServletResponse res) throws IOException {
 		logger.info("postSearchPw ----- post");
+		logger.info(vo.toString());
 
 		try {
-			String name = req.getParameter("name");
-			String id = req.getParameter("id");
-			String email1 = req.getParameter("email1");
-			String email2 = req.getParameter("email2");
 
-			logger.info("name ====> " + name);
-			logger.info("id ====> " + id);
-			logger.info("email1 ====> " + email1);
-			logger.info("email2 ====> " + email2);
+			CustomerVO vo2 = service.selectCustomerByIdEmail(vo);
+			logger.info("vo ---------------->" + vo);
 
-			CustomerVO customer = new CustomerVO();
-			customer.setName(name);
-			logger.info("customer : " + customer);
-			logger.info("name : " + name);
-
-			customer.setId(id);
-			customer.setEmail(email1 + "@" + email2);
-			customer = service.selectCustomerByIdEmail(customer);
-			logger.info("customer ---------------->" + customer);
-
-			/*CustomerVO custome = new CustomerVO();
-			logger.info("custome ---------------->" + custome);*/
-			
-			
-			if (customer.getName().equals(name) || customer.getEmail().equals(email1 + "@" + email2)) {
+			if (vo2.getName().equals(vo.getName()) || vo2.getEmail().equals(vo.getEmail())) {
 
 				String newPwd = service.getRandomPassword();
-				customer.setPasswd(newPwd);
+				vo2.setPasswd(newPwd);
 
-				service.changePw(vo);
-				logger.info("vo ---------------->" + vo);
-				String newPw = customer.getPasswd();
-				req.setAttribute("newPwd", newPw);
+				int result = service.changePw(vo2);
+				logger.info("result ---------------->" + result);
+				logger.info("customer ---------------->" + vo2);
+				String newPw = vo2.getPasswd();
+				logger.info("newPw ---------------->" + newPw);
 
 				String from = "psw2701";
 				String passwd = "swan0303";
-				String[] to = { customer.getEmail() }; // º¸³¾ ¸ŞÀÏ ¸ñ·Ï
-				String subject = "WIT·»ÅÍÄ«ÀÔ´Ï´Ù ºñ¹Ğ¹øÈ£¸¦ °³ÀÎÁ¤º¸°ü¸®¿¡¼­ º¯°æÇØÁÖ¼¼¿ä"; // ¸ŞÀÏ Á¦¸ñ
-				String body = "°í°´´ÔÀÇ ÀÓ½Ã ºñ¹Ğ¹øÈ£´Â " + customer.getPasswd() + " ÀÔ´Ï´Ù ·Î±×ÀÎÇÏ¿© °³ÀÎÁ¤º¸°ü¸®¿¡¼­ ºñ¹Ğ¹øÈ£¸¦ º¯°æÇØÁÖ¼¼¿ä "; // ¸ŞÀÏ
+				String[] to = { vo2.getEmail() };// è¹‚ëŒ€ê¶ª ï§ë¶¿ì”ª ï§â‘¸ì¤‰
+				String subject = "SWAIRê³µí•­ì…ë‹ˆë‹¤. ë¹„ë°€ë²ˆí˜¸ë¥¼ ê°œì¸ì •ë³´ê´€ë¦¬ì—ì„œ ë³€ê²½í•´ì£¼ì„¸ìš”"; // ï§ë¶¿ì”ª ï¿½ì £ï§ï¿½
+				String body = "ê³ ê°ë‹˜ì˜ ì„ì‹œ ë¹„ë°€ë²ˆí˜¸ëŠ”" + vo2.getPasswd() + " ì…ë‹ˆë‹¤. ë¡œê·¸ì¸í•˜ì—¬ ê°œì¸ì •ë³´ ê´€ë¦¬ì—ì„œ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë³€ê²½í•´ì£¼ì„¸ìš” "; // ï§ë¶¿ì”ª
 
 				sendFromGMail(from, passwd, to, subject, body);
 
@@ -122,13 +96,17 @@ public class SearchController {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
-			String msg = "1";
-			req.setAttribute("msg", msg);
 			return "search/searchPw";
 		}
-		res.sendRedirect("searchResultPw");
-		return null;
 
+		return "redirect:/search/resultPw";
+
+	}
+
+	@RequestMapping(value = "resultPw", method = RequestMethod.GET)
+	public String getResultPw() {
+		logger.info("resultPw ------ get");
+		return "search/resultPw";
 	}
 
 	private void sendFromGMail(String from, String pass, String[] to, String subject, String body) {

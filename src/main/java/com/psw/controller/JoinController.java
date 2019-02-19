@@ -1,7 +1,5 @@
 package com.psw.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,32 +33,16 @@ public class JoinController {
 	}
 
 	@RequestMapping(value = "join", method = RequestMethod.POST)
-	public String postJoin(CustomerVO vo, Model model, HttpServletRequest req) {
+	public String postJoin(CustomerVO vo, Model model) {
 		logger.info("join - post");
+		logger.info(vo.toString());
 
 		String code = service.nextCode();
-		String id = req.getParameter("id");
-		String name = req.getParameter("name");
-		String passwd = req.getParameter("passwd");
-		String phone = req.getParameter("phone");
-		String phone2 = req.getParameter("phone2");
-		String phone3 = req.getParameter("phone3");
-		String email1 = req.getParameter("email1");
-		String email2 = req.getParameter("email2");
-		String zipCode = req.getParameter("zipCode");
-		String address = req.getParameter("address");
-		String detailAddr = req.getParameter("detailAddr");
-
-		CustomerVO customer = new CustomerVO(code, id, passwd, name, zipCode, (address + " " + detailAddr),
-				(phone + "-" + phone2 + "-" + phone3), (email1 + "@" + email2));
-
-		vo.setCode(service.nextCode());
-		vo.setPhone((phone + "-" + phone2 + "-" + phone3));
-		vo.setEmail((email1 + "@" + email2));
-		vo.setAddress((address + " " + detailAddr));
+		vo.setCode(code);
+		
 		service.insert(vo);
 
-		logger.info("customer====================>" + customer);
+		logger.info("customer====================>" + vo);
 
 		model.addAttribute("customerVO", vo);
 		return "home";

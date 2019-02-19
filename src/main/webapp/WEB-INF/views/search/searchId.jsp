@@ -8,7 +8,7 @@
 
 <div id="joinform">
 
-<form class="content" action="searchId" method="post">
+<form class="content" action="searchId" method="post" id="f1">
     <div class="container mt-3">
     
  		<h2><b>아이디 찾기</b></h2>
@@ -19,7 +19,7 @@
       <input type="text" placeholder="Enter Name" name="name" required >
       
       <label for="email"><b>E-mail</b></label><br>
-      <input type="text" placeholder="Enter Email" name="email1" required id="email1"> <b>@</b> <input type="text" placeholder="Enter Email" name="email2"  id="email2" required>
+      <input type="text" placeholder="Enter Email" name="email" required id="email1"> <b>@</b> <input type="text" placeholder="Enter Email" name="email2"  id="email2" required>
           
          <select name="email2" id="domain" class="form-control mb-3">
         
@@ -39,5 +39,15 @@
   </form>
   
 </div>	    
-
+ <script>
+   $("#f1").submit(function(e){
+	 
+	  var email1 = $("#email1").val();
+	  var email2 = $("#email2").val();
+	  email1 = email1 + "@" + email2;
+	  $("#email1").val(email1);
+	  
+	  return true;
+   });
+  </script>
 <%@ include file="../include/footer.jsp"%>

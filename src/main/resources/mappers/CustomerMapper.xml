@@ -53,4 +53,14 @@
 		select * from customer 
 		where Id = #{id} and email = #{email}
 	</select>
+	
+	<update id="changePw">
+		update customer 
+		set passwd=password(#{passwd}) 
+		where name = #{name} and email = #{email} and id = #{id}
+	</update>
+	
+	<select id="getRandomPassword" resultType="String">
+		select concat( char(rand()*26 + 65) , round(rand() * 100), char(rand()*26 + 65), char(rand()*26 + 65) , round(rand() * 100), char(rand()*26 + 65)) as randomPwd
+	</select>
 </mapper>

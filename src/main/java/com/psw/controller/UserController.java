@@ -14,8 +14,6 @@ import com.psw.domain.CustomerVO;
 import com.psw.domain.LoginDTO;
 import com.psw.service.CustomerService;
 
-
-
 @Controller
 @RequestMapping("/user/")
 public class UserController {
@@ -23,11 +21,6 @@ public class UserController {
 
 	@Autowired
 	private CustomerService service;
-
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public void login() {
-		logger.info("login GET------------");
-	}
 
 	@RequestMapping(value = "loginPost", method = RequestMethod.POST)
 	public void loginPost(String id, String passwd, Model model) {
@@ -39,21 +32,21 @@ public class UserController {
 			return;
 
 		}
-		
+
 		LoginDTO dto = new LoginDTO();
-		
+
 		dto.setId(vo.getId());
 		dto.setName(vo.getName());
-		
+
 		model.addAttribute("customerVO", dto);
 	}
-	
-	@RequestMapping(value = "logout", method=RequestMethod.GET)
+
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logOUTGET(HttpSession session) {
 		logger.info("logout GET-----");
 		session.invalidate();
-		
+
 		return "redirect:${pageContext.request.contextPath }";
-		
+
 	}
 }

@@ -11,7 +11,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
  
 <div id="joinform">
-  <form class="content" action="join" method="post">
+  <form class="content" action="join" method="post" id="f1">
     <div class="container mt-3">
     
       <h2><b>회원가입</b></h2>
@@ -31,7 +31,8 @@
       <input type="password" placeholder="Repeat Password" name="confirmPasswd" required>
       
       <label for="phone"><b>전화번호</b></label><br>
-     <select name="phone" id="phone" class="form-control mb-3">
+      <input type="hidden" name="phone" id="phone">
+     <select name="phone1" id="phone1" class="form-control mb-3">
         	<!-- <option selected="selected" value="opt">선택하세요</option> -->
         	<option value="010">010</option>
         	<option value="011">011</option>
@@ -40,7 +41,7 @@
       - <input type="text" name="phone2" id="phone2" required placeholder="Enter Phone"> - <input type="text" name="phone3" id="phone3" required placeholder="Enter Phone"><br>
         
       <label for="email"><b>E-mail</b></label><br>
-      <input type="text" placeholder="Enter Email" name="email1" required id="email1"> <b>@</b> <input type="text" placeholder="Enter Email" name="email2"  id="email2" required>
+      <input type="text" placeholder="Enter Email" name="email" required id="email1"> <b>@</b> <input type="text" placeholder="Enter Email" name="email2"  id="email2" required>
           
          <select name="email2" id="domain" class="form-control mb-3">
         
@@ -70,6 +71,28 @@
       </div>
     </div>
   </form>
+  
+  <script>
+   $("#f1").submit(function(e){
+	  var phone1 = $("#phone1").val();
+	  var phone2 = $("#phone2").val();
+	  var phone3 = $("#phone3").val();
+	  phone1 = phone1+"-"+phone2+"-"+phone3;
+	  $("#phone").val(phone1);
+	  
+	  var address = $("#sample6_address").val();
+	  var detailAddr = $("#sample6_detailAddress").val();
+	  address = address + " " + detailAddr;
+	  $("#sample6_address").val(address);
+	  
+	  var email1 = $("#email1").val();
+	  var email2 = $("#email2").val();
+	  email1 = email1 + "@" + email2;
+	  $("#email1").val(email1);
+	  
+	  return true;
+   });
+  </script>
  
 </div>	
 
