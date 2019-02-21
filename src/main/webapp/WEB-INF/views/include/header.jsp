@@ -247,6 +247,7 @@ header{
 
 
 .navbar{
+
 	position: relative;
 	z-index: 10;
 	height: 72px;
@@ -519,9 +520,6 @@ h4, .modal-title{
 				
 				</form>
 				
-				
-				
-				
 			</div>
 		</div> 
 	</div> 
@@ -779,7 +777,7 @@ h4, .modal-title{
 									<a href="#"><span>유실물센터</span></a>
 									</li>
 									<li>
-									<a href="#"><span>고객의 소리</span></a>
+									<a href="${pageContext.request.contextPath}/board/info"><span>고객의 소리</span></a>
 									</li>
 								</ul>
 							</div>

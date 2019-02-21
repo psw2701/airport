@@ -14,9 +14,9 @@
          folder instead of downloading all of them to reduce the load. -->
     <link href="${pageContext.request.contextPath }/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     
-    <link href="${pageContext.request.contextPath }/resources/css/form.css?Aaa" rel="stylesheet"  type="text/css">
+    <link href="${pageContext.request.contextPath }/resources/css/form.css?Aaaaaaaaa" rel="stylesheet"  type="text/css">
     
-<section class="content">
+<section class="content" id="listContent">
 		<div class="row">
 			<div class="col-sm-12">
 			<div class="box">

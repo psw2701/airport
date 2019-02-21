@@ -39,7 +39,7 @@ import com.psw.util.MediaUtils;
 import com.psw.util.UploadFileUtils;
 
 @Controller
-@RequestMapping("/board/")
+@RequestMapping("/board/*")
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
@@ -53,6 +53,12 @@ public class BoardController {
 	 * @Autowired private CustomerService cusService;
 	 */
 
+	@RequestMapping(value = "info", method = RequestMethod.GET)
+	public void info() {
+		logger.info("info----------get");
+		
+	}
+	
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public void list(SearchCriteria cri, Model model) {
 		logger.info("list ----- get");

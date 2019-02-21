@@ -26,7 +26,7 @@
 		<input type="text" name="email" class="form-control" placeholder="Enter Email" value="${login.email }" readonly="readonly"> 
 			
 		<label for="sel1">대상공항선택</label><br>			
-			<select class="form-control" id="sel1" name="AirCode">
+			<select class="form-control" id="sel1" name="AirCode" required="required">
 				<option value="ICN" ${boardVO.airportCode.code == 'ICN' ? 'selected' : ''}>인천국제공항</option>
 				<option value="GMP" ${boardVO.airportCode.code == 'GMP' ? 'selected' : ''}>김포국제공항</option>
 				<option value="YNY" ${boardVO.airportCode.code == 'YNY' ? 'selected' : ''}>양양국제공항</option>
@@ -45,10 +45,10 @@
 			</select><br> 
 			
 		<label>제목</label>
-		<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${boardVO.title }">
+		<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${boardVO.title }" required="required">
 			
 		<label>내용</label><br>
-		<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content">${boardVO.content }</textarea><br>
+		<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required">${boardVO.content }</textarea><br>
 							
 		<label>첨부파일</label>
 		<input type="file" name="addFiles" class="form-control" multiple="multiple">
