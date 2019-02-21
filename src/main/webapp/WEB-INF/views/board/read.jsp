@@ -44,7 +44,7 @@
 			</form>				
 	</div>
 	
-	<div class="container mt-3">
+	<div class="container mt-3" > <!-- style="display:none;" -->
 		<h3 class="box-title">고객의 소리 처리결과 입니다.</h3>
 		<hr>
 			<label>작성자</label>
@@ -64,6 +64,9 @@
 				</ul>
 			</div>
 	</div>
+	
+	
+	
 </div>
 
 	<!-- <div id="modifyModal" class="modal modal-primary fade" role="dialog">

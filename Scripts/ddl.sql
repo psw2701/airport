@@ -58,7 +58,7 @@ CREATE TABLE airport.reply (
 	no           INT       NOT NULL COMMENT '답변번호', -- 답변번호
 	content      TEXT      NOT NULL COMMENT '답변내용', -- 답변내용
 	reg_date     TIMESTAMP NOT NULL DEFAULT now() COMMENT '답변일', -- 답변일
-	title        TEXT      NULL     COMMENT '답변제목', -- 답변제목
+	title        TEXT      NOT NULL COMMENT '답변제목', -- 답변제목
 	bno          INT       NOT NULL COMMENT '게시판번호', -- 게시판번호
 	manager_code CHAR(4)   NOT NULL COMMENT '관리자코드' -- 관리자코드
 )
@@ -79,8 +79,12 @@ ALTER TABLE airport.reply
 
 -- 관리자
 CREATE TABLE airport.manager (
-	code CHAR(4)     NOT NULL COMMENT '관리자코드', -- 관리자코드
-	name VARCHAR(20) NOT NULL COMMENT '관리자 이름' -- 관리자 이름
+	code   CHAR(4)     NOT NULL COMMENT '관리자코드', -- 관리자코드
+	name   VARCHAR(20) NOT NULL COMMENT '이름', -- 이름
+	id     VARCHAR(40) NOT NULL COMMENT '아이디', -- 아이디
+	passwd CHAR(42)    NOT NULL COMMENT '비밀번호', -- 비밀번호
+	phone  VARCHAR(13) NOT NULL COMMENT '휴대전화', -- 휴대전화
+	email  VARCHAR(30) NOT NULL COMMENT '이메일' -- 이메일
 )
 COMMENT '관리자';
 

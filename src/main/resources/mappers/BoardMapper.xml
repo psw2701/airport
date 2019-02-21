@@ -20,9 +20,12 @@
 	</insert>
 	
 	<select id="read"  resultMap="ResultBoard">
-		 select * from board
-		left join customer on customer.code=board.customer_code
+		select * from board left join customer 
+		on customer.code=board.customer_code
+		left join airport
+		on customer.code=airport.code
 		where no=#{no}
+	
 	</select>
 	
 	<update id="update">

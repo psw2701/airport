@@ -89,7 +89,12 @@ select * from board order by no desc limit 0,10;
 select * from board order by no desc limit 0, 10;
 
 
-select *
-from board
-left join customer on customer.code=board.customer_code;
+select * from board left join customer 
+on customer.code=board.customer_code
+left join airport
+on customer.code=airport.code
+where no = 3;
 
+select * from manager;
+
+insert into manager(code, name, id, passwd, phone, email) values('M001', '나직원', 'qwerqwerqwer', password('rootroot'), '010-5858-6565', 'qwerqwerqwer@naver.com');

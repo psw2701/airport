@@ -1,10 +1,10 @@
-package com.psw.persistence;
+package com.psw.service;
 
 import java.util.List;
 
 import com.psw.domain.ManagerVO;
 
-public interface ManagerDAO {
+public interface ManagerService {
 	public void insert(ManagerVO vo);
 
 	public ManagerVO read(String code);

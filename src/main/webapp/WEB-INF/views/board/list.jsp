@@ -49,7 +49,7 @@
 								<th>TITLE</th>
 								<th>WRITER</th>
 								<th>REGDATE</th>
-								<!-- <th>PROGRESS</th> -->
+								<th>PROGRESS</th>
 								<!-- <th>ANSDATE</th> -->
 								<th>VIEWCNT</th>
 							</tr>
@@ -61,7 +61,7 @@
 									<td><a href="${pageContext.request.contextPath}/board/read?no=${boardVO.no}&page=${pageMaker.cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}">${boardVO.title } </a><strong> [${boardVO.replyCnt }]</strong></td>
 									<td>${boardVO.cusCode.name }</td> 
 									<td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
-									<%-- <td>${boardVO.progress }</td> --%>
+									<td>${boardVO.progress }</td>
 									<%-- <td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td> --%>
 									<td><span class="badge bg-red">${boardVO.viewCnt }</span></td>
 								</tr>

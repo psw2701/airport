@@ -65,5 +65,7 @@ insert into airport.airport(code, name) values('ICN','인천국제공항' ),
                               ('KUV', '군산공항'),
                               ('RSU', '여수공항');
                              
-select * from airport.airport;
-select * from customer; 
+insert into manager(code, name, id, passwd, phone, email) 
+			values('M001', '나직원', 'qwerqwerqwer', password('rootroot'), '010-5858-6565', 'qwerqwerqwer@naver.com'),
+					('M002', '너직원', 'qqqq', password('123456789'), '011-5454-8787', 'qqqq@daum.net');
+

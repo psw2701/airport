@@ -88,15 +88,15 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
-	public String registerPost(BoardVO vo,CustomerVO cusVO, String AirCode, List<MultipartFile> imageFiles, Model model) throws IOException {
+	public String registerPost(BoardVO vo, CustomerVO cusVO, String AirCode, List<MultipartFile> imageFiles,
+			Model model) throws IOException {
 		logger.info("register ----- Post");
 
 		vo.setCusCode(cusVO);
-		AirportVO airVO = new AirportVO(); 
+		AirportVO airVO = new AirportVO();
 		airVO.setCode(AirCode);
 		vo.setAirportCode(airVO);
-		
-		
+
 		List<String> files = new ArrayList<>();
 		for (MultipartFile file : imageFiles) {
 			logger.info("file name : " + file.getOriginalFilename());
@@ -109,10 +109,9 @@ public class BoardController {
 		}
 		vo.setFiles(files);
 
-		logger.info("vo==================================>>>>"+vo);
-		logger.info("cusVO=========>"+cusVO);
+		logger.info("vo==================================>>>>" + vo);
+		logger.info("cusVO=========>" + cusVO);
 		service.regist(vo);
-		
 
 		model.addAttribute("result", "success");
 		return "redirect:/board/list";
@@ -138,17 +137,30 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "modify", method = RequestMethod.GET)
-	public void modifyGet(@RequestParam("no") int no, SearchCriteria cri, Model model) {
+	public void modifyGet(@RequestParam("no") int no, SearchCriteria cri, Model model, BoardVO vo) {
 		logger.info("modify ----- Get");
-		BoardVO vo = service.read(no);
+		
+		AirportVO airVO = new AirportVO();
+		vo.setAirportCode(airVO);
+		vo = service.read(no);
+		
 		model.addAttribute("boardVO", vo);
 		model.addAttribute("cri", cri);
+		
+		logger.info("boardVO=========>" + vo);
 	}
 
 	@RequestMapping(value = "modify", method = RequestMethod.POST)
-	public String modifyPost(BoardVO vo, SearchCriteria cri, Model model, String[] delFiles,
-			List<MultipartFile> addFiles) throws IOException {
+	public String modifyPost(BoardVO vo, SearchCriteria cri, Model model, String[] delFiles, CustomerVO cusVO,
+			String AirCode, List<MultipartFile> addFiles) throws IOException {
 		logger.info("modify ----- Post");
+
+		vo.setCusCode(cusVO);
+		AirportVO airVO = new AirportVO();
+		airVO.setCode(AirCode);
+		
+		vo.setAirportCode(airVO);
+
 		System.out.println("cri--------------->" + cri);
 
 		if (delFiles != null) {
@@ -181,10 +193,10 @@ public class BoardController {
 		}
 
 		service.modifyFile(vo, delFiles, addImages);
-
 		model.addAttribute("page", cri.getPage());
 		model.addAttribute("searchType", cri.getSearchType());
 		model.addAttribute("keyword", cri.getKeyword());
+
 		return "redirect:/board/read?no=" + vo.getNo() + "&page=" + cri.getPage();
 	}
 

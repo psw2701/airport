@@ -3,20 +3,14 @@ package com.psw.domain;
 public class ManagerVO {
 	private String code;
 	private String name;
+	private String id;
+	private String passwd;
+	private String phone;
+	private String email;
 
 	public ManagerVO() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-
-	public ManagerVO(String code, String name) {
-		super();
-		this.code = code;
-		this.name = name;
-	}
-
-
 
 	public String getCode() {
 		return code;
@@ -34,9 +28,36 @@ public class ManagerVO {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return "ManagerVO [code=" + code + ", name=" + name + "]";
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
