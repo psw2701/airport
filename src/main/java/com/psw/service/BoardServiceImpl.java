@@ -36,10 +36,10 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED)
-	public BoardVO read(int bno) {
+	public BoardVO read(int no) {
 		// TODO Auto-generated method stub
-		BoardVO vo = dao.read(bno);
-		vo.setFiles(dao.getAttach(bno));
+		BoardVO vo = dao.read(no);
+		vo.setFiles(dao.getAttach(no));
 		return vo;
 	}
 
@@ -50,10 +50,10 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void remove(int bno) {
+	public void remove(int no) {
 		// TODO Auto-generated method stub
-		dao.delImg(bno);
-		dao.delete(bno);
+		dao.delImg(no);
+		dao.delete(no);
 	}
 
 	@Override
@@ -69,9 +69,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void addCnt(int bno) {
+	public void addCnt(int no) {
 		// TODO Auto-generated method stub
-		dao.addCnt(bno);
+		dao.addCnt(no);
 
 	}
 
@@ -94,9 +94,9 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void delImg(int bno) {
+	public void delImg(int no) {
 		// TODO Auto-generated method stub
-		dao.delImg(bno);
+		dao.delImg(no);
 	}
 
 	@Override

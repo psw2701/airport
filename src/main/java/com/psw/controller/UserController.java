@@ -36,6 +36,9 @@ public class UserController {
 
 		dto.setId(vo.getId());
 		dto.setName(vo.getName());
+		dto.setPhone(vo.getPhone());
+		dto.setEmail(vo.getEmail());
+		dto.setCusCode(vo.getCode());
 
 		model.addAttribute("customerVO", dto);
 	}

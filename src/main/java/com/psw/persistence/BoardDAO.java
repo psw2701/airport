@@ -9,11 +9,11 @@ import com.psw.domain.SearchCriteria;
 public interface BoardDAO {
 	public void insert(BoardVO vo);
 
-	public BoardVO read(int bno);
+	public BoardVO read(int no);
 
 	public void update(BoardVO vo);
 
-	public void delete(int bno);
+	public void delete(int no);
 
 	public List<BoardVO> listAll();
 
@@ -24,7 +24,7 @@ public interface BoardDAO {
 	public List<BoardVO> listCriteria(Criteria cri);
 
 	/*------------------------------------------------*/
-	public void addCnt(int bno);
+	public void addCnt(int no);
 
 	public int totalCount();
 
@@ -37,11 +37,13 @@ public interface BoardDAO {
 
 	public void addAttach(String fullname);
 
-	public List<String> getAttach(int bno);
+	public List<String> getAttach(int no);
 
 	public void delImg(int bno);
 
 	public void deleteAttachByFullName(int bno, String fullname);
 
 	public void addAttachByBno(String fullname, int bno);
+
+	/* public BoardVO selectById(BoardV) */
 }

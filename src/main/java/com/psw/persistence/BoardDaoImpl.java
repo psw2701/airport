@@ -27,9 +27,9 @@ public class BoardDaoImpl implements BoardDAO {
 	}
 
 	@Override
-	public BoardVO read(int bno) {
+	public BoardVO read(int no) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace + ".read", bno);
+		return sqlSession.selectOne(namespace + ".read", no);
 	}
 
 	@Override
@@ -39,8 +39,8 @@ public class BoardDaoImpl implements BoardDAO {
 	}
 
 	@Override
-	public void delete(int bno) {
-		sqlSession.delete(namespace + ".delete", bno);
+	public void delete(int no) {
+		sqlSession.delete(namespace + ".delete", no);
 
 	}
 
@@ -67,9 +67,9 @@ public class BoardDaoImpl implements BoardDAO {
 	}
 
 	@Override
-	public void addCnt(int bno) {
+	public void addCnt(int no) {
 		// TODO Auto-generated method stub
-		sqlSession.update(namespace + ".addCnt", bno);
+		sqlSession.update(namespace + ".addCnt", no);
 	}
 
 	@Override
@@ -91,9 +91,9 @@ public class BoardDaoImpl implements BoardDAO {
 	}
 
 	@Override
-	public void updateReplyCnt(int bno, int amount) {
+	public void updateReplyCnt(int no, int amount) {
 		Map<String, Object> map = new HashMap<>();
-		map.put("bno", bno);
+		map.put("no", no);
 		map.put("amount", amount);
 		sqlSession.update(namespace + ".updateReplyCnt", map);
 
@@ -106,31 +106,31 @@ public class BoardDaoImpl implements BoardDAO {
 	}
 
 	@Override
-	public List<String> getAttach(int bno) {
+	public List<String> getAttach(int no) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace + ".getAttach", bno);
+		return sqlSession.selectList(namespace + ".getAttach", no);
 	}
 
 	@Override
-	public void delImg(int bno) {
+	public void delImg(int no) {
 		// TODO Auto-generated method stub
-		sqlSession.delete(namespace + ".delImg", bno);
+		sqlSession.delete(namespace + ".delImg", no);
 	}
 
 	@Override
-	public void deleteAttachByFullName(int bno, String fullname) {
+	public void deleteAttachByFullName(int no, String fullname) {
 		// TODO Auto-generated method stub
 		Map<String, Object> map = new HashMap<>();
-		map.put("bno", bno);
+		map.put("no", no);
 		map.put("fullname", fullname);
 		sqlSession.delete(namespace + ".deleteAttachByFullName", map);
 	}
 
 	@Override
-	public void addAttachByBno(String fullname, int bno) {
+	public void addAttachByBno(String fullname, int no) {
 		// TODO Auto-generated method stub
 		Map<String, Object> map = new HashMap<>();
-		map.put("bno", bno);
+		map.put("no", no);
 		map.put("fullname", fullname);
 		sqlSession.insert(namespace + ".addAttachByBno", map);
 	}

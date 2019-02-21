@@ -2,12 +2,20 @@
  
  /* Full-width input fields */
 #joinform input[type=text], #joinform input[type=password] {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+#joinform input[type=file]{
+	width: 100%;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
 }
 
 #joinform #email1, #joinform #email2{
@@ -54,6 +62,23 @@
 #joinform #phone2, #joinform #phone3{
 	width: 32%;
 	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+	
+}
+#joinform #content,#joinform #content2{
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+	
+}
+#joinform #sel1{
+	width: 100%;
 	margin: 5px 0 22px 0;
 	display: inline-block;
 	border: none;

@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.psw.mapper.BoardMapper">
-	<insert id="insert">
-		insert into board(title, content, required, open, progress, customer_code, airport_code )
-		values(#{title}, #{content}, #{required}, #{open}, #{progress}, #{cusName.code},#{airportCode.code})
+
+<resultMap type="BoardVO" id="ResultBoard">
+		<result column="airport_code" property="airportCode.code" />
+		<result column="customer_code" property="cusCode.code" />	
+		<result column="code" property="cusCode.code" />
+		<result column="name" property="cusCode.name" />
+		<result column="email" property="cusCode.email"/>
+		<result column="phone" property="cusCode.phone"/>
+		<result column="id" property="cusCode.id"/>
+		<collection property="files" column="files" javaType="java.util.ArrayList" select="listSearch"/>
+	</resultMap>
+
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="no">
+		insert into board(title, content, required, open, customer_code, airport_code )
+		values(#{title}, #{content}, #{required}, #{open}, #{cusCode.code}, #{airportCode.code})
 	</insert>
 	
-	<select id="read" resultType="BoardVO">
-		select * from board 
+	<select id="read"  resultMap="ResultBoard">
+		 select * from board
+		left join customer on customer.code=board.customer_code
 		where no=#{no}
 	</select>
 	
@@ -67,8 +81,9 @@
 		</if>
 	</sql>
 	
-	<select id="listSearch" resultType="BoardVO">
-		select * from board 
+	<select id="listSearch" resultMap="ResultBoard">
+		 select * from board
+		left join customer on customer.code=board.customer_code
 		<include refid="search"></include>
 		order by no desc
 		limit #{pageStart}, #{perPageNum}
@@ -85,23 +100,23 @@
 	</update>
 	
 	<insert id="addAttach">
-		insert into attach(fullname, bno) values(#{fullname}, LAST_INSERT_ID())
+		insert into attach(fullname, no) values(#{fullname}, LAST_INSERT_ID())
 	</insert>
 	
 	<select id="getAttach" resultType="String">
-		select fullname from attach where bno=#{bno} order by reg_date
+		select fullname from attach where no=#{no} order by reg_date
 	</select>
 	
 	<delete id="deleteAttachByFullName">
-		delete from attach where bno=#{bno} and fullname=#{fullname}
+		delete from attach where no=#{no} and fullname=#{fullname}
 	</delete>
 	
 	<delete id="delImg">
-		delete from attach where bno=#{bno}
+		delete from attach where no=#{no}
 	</delete>
 	
 	<insert id="addAttachByBno">
-		insert into attach(fullname, bno) values (#{fullname}, #{bno})
+		insert into attach(fullname, no) values (#{fullname}, #{no})
 	</insert>
 	
 </mapper>

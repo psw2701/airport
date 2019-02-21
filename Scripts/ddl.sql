@@ -13,8 +13,7 @@ CREATE TABLE airport.board (
 	open          TINYINT(1)  NOT NULL COMMENT '공개여부', -- 공개여부
 	reg_date      TIMESTAMP   NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
 	view_cnt      INT         NOT NULL DEFAULT 0 COMMENT '조회수', -- 조회수
-	progress      VARCHAR(40) NOT NULL COMMENT '처리현황', -- 처리현황
-	file          TEXT        NULL     COMMENT '첨부파일', -- 첨부파일
+	progress      VARCHAR(40) NOT NULL DEFAULT '처리중' COMMENT '처리현황', -- 처리현황
 	customer_code CHAR(4)     NOT NULL COMMENT '고객번호', -- 고객번호
 	airport_code  CHAR(3)     NOT NULL COMMENT '공항코드', -- 공항코드
 	reply_cnt     INT         NOT NULL DEFAULT 0 COMMENT '댓글수' -- 댓글수
@@ -30,6 +29,9 @@ ALTER TABLE airport.board
 
 ALTER TABLE airport.board
 	MODIFY COLUMN no INT NOT NULL AUTO_INCREMENT COMMENT '게시판번호';
+
+ALTER TABLE airport.board
+	AUTO_INCREMENT = 1;
 
 -- 고객
 CREATE TABLE airport.customer (
@@ -57,7 +59,7 @@ CREATE TABLE airport.reply (
 	content      TEXT      NOT NULL COMMENT '답변내용', -- 답변내용
 	reg_date     TIMESTAMP NOT NULL DEFAULT now() COMMENT '답변일', -- 답변일
 	title        TEXT      NULL     COMMENT '답변제목', -- 답변제목
-	board_no     INT       NOT NULL COMMENT '게시판번호', -- 게시판번호
+	bno          INT       NOT NULL COMMENT '게시판번호', -- 게시판번호
 	manager_code CHAR(4)   NOT NULL COMMENT '관리자코드' -- 관리자코드
 )
 COMMENT '답변';
@@ -71,6 +73,9 @@ ALTER TABLE airport.reply
 
 ALTER TABLE airport.reply
 	MODIFY COLUMN no INT NOT NULL AUTO_INCREMENT COMMENT '답변번호';
+
+ALTER TABLE airport.reply
+	AUTO_INCREMENT = 1;
 
 -- 관리자
 CREATE TABLE airport.manager (
@@ -122,6 +127,9 @@ ALTER TABLE airport.notice
 ALTER TABLE airport.notice
 	MODIFY COLUMN no INT NOT NULL AUTO_INCREMENT COMMENT '공지사항번호';
 
+ALTER TABLE airport.notice
+	AUTO_INCREMENT = 1;
+
 -- 첨부
 CREATE TABLE airport.attach (
 	fullName VARCHAR(150) NOT NULL COMMENT '이름', -- 이름
@@ -161,7 +169,7 @@ ALTER TABLE airport.board
 ALTER TABLE airport.reply
 	ADD CONSTRAINT FK_board_TO_reply -- 게시판 -> 답변
 		FOREIGN KEY (
-			board_no -- 게시판번호
+			bno -- 게시판번호
 		)
 		REFERENCES airport.board ( -- 게시판
 			no -- 게시판번호

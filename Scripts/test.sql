@@ -42,7 +42,14 @@ insert into board(title, content, required, open, progress, customer_code, airpo
 				('게시물입니다.5', '내용', true, true, '접수', 'C001','YNY'),
 				('게시물입니다.6', '내용', true, true, '접수', 'C001','YNY');
 		
-	
+	insert into board(title, content, required, open, progress, customer_code, airport_code )
+		values('게시물입니다.', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.2', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.3', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.4', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.5', '내용', true, true, '접수', 'C001','YNY'),
+				('게시물입니다.6', '내용', true, true, '접수', 'C001','YNY');
+		
 select * from board 
 		where no=1;	
 		
@@ -75,3 +82,14 @@ select fullname from attach where no=1 order by reg_date;
 delete from attach where no=1 and fullname='파일이름';
 
 insert into attach(fullname, no) values ('파일이름1', 1);
+
+select * from board order by no desc limit 0,10;
+
+
+select * from board order by no desc limit 0, 10;
+
+
+select *
+from board
+left join customer on customer.code=board.customer_code;
+

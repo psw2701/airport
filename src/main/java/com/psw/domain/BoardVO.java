@@ -13,7 +13,7 @@ public class BoardVO {
 	private String progress;
 	private boolean required;
 	private List<String> files; // 첨부파일
-	private CustomerVO cusName; // 고객명
+	private CustomerVO cusCode; // 고객코드
 	private AirportVO airportCode; // 공항코드
 	private int replyCnt;// 댓글수
 
@@ -93,12 +93,12 @@ public class BoardVO {
 		this.files = files;
 	}
 
-	public CustomerVO getCusName() {
-		return cusName;
+	public CustomerVO getCusCode() {
+		return cusCode;
 	}
 
-	public void setCusName(CustomerVO cusName) {
-		this.cusName = cusName;
+	public void setCusCode(CustomerVO cusCode) {
+		this.cusCode = cusCode;
 	}
 
 	public AirportVO getAirportCode() {
@@ -121,7 +121,7 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", viewCnt="
 				+ viewCnt + ", open=" + open + ", progress=" + progress + ", required=" + required + ", files=" + files
-				+ ", cusName=" + cusName + ", airportCode=" + airportCode + ", replyCnt=" + replyCnt + "]";
+				+ ", cusCode=" + cusCode + ", airportCode=" + airportCode + ", replyCnt=" + replyCnt + "]";
 	}
 
 }
