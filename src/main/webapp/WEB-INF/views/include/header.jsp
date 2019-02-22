@@ -506,7 +506,7 @@ h4, .modal-title{
 										<a href="${pageContext.request.contextPath }/search/searchPw" class="find_id" style="color:#e92949 !important; padding-left:16px">비밀번호 찾기</a>
 									</div>
 									<div class="col-md-3 kloop text-center br">
-										<a href="${pageContext.request.contextPath }/join/join" class="find_id" style="color:#5c5b5b !important">회원가입</a>
+										<a href="${pageContext.request.contextPath }/join/joininfo" class="find_id" style="color:#5c5b5b !important">회원가입</a>
 									</div>
 									<div class="col-md-3 kloop text-center">
 										<a href="#" class="find_id"  style="color:#5c5b5b !important">직원로그인</a>

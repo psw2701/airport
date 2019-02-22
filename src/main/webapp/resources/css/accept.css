@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.terms_overflow{
+	max-height: 325px;
+    padding: 15px;
+    line-height: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #fbfbfb;
+    border: 1px solid #ddd;
+}
+
+.section {
+    padding: 20px 0;
+    
+}
+

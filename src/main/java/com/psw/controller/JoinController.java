@@ -19,11 +19,23 @@ public class JoinController {
 
 	@Autowired
 	private CustomerService service;
-
+	
 	@RequestMapping(value = "joininfo", method = RequestMethod.GET)
 	public String joinInfo() {
-		logger.info("joinInfo ------ get");
+		logger.info("joininfo ------ get");
 		return "join/joinInfo";
+	}
+
+	@RequestMapping(value = "authentication", method = RequestMethod.GET)
+	public String authentication() {
+		logger.info("authentication ------ get");
+		return "join/authentication";
+	}
+
+	@RequestMapping(value = "acceptTerms", method = RequestMethod.GET)
+	public String acceptTerms() {
+		logger.info("acceptTerms ------ get");
+		return "join/acceptTerms";
 	}
 
 	@RequestMapping(value = "join", method = RequestMethod.GET)

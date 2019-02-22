@@ -2,20 +2,37 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ include file="../include/header.jsp"%>
-<link href="${pageContext.request.contextPath }/resources/css/form.css?Aaa" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/form.css?aaaaaaaa" rel="stylesheet"  type="text/css">
+
+
 
 <!-- 다음 주소 API -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
- 
-<div id="joinform">
+<div id="container"> 
+<div id="customer_container">
+	<div id="joinform">
+	<h3>04.정보입력</h3>
+	<p>
+		<img alt="회원가입" src="${pageContext.request.contextPath }/resources/images/kcc_lg_04_01_03.jpg" class="img-responsive">
+	</p>
+	<ol class="sr-only">
+		<li>01.회원가입 안내</li>
+		<li>02.실명확인</li>
+		<li>03.약관동의</li>
+		<li>04.정보입력(현재단계)</li>
+		<li>05.가입완료</li>
+		<li></li>
+	</ol>
+
   <form class="content" action="join" method="post" id="f1">
-    <div class="container mt-3">
+ 
     
-      <h2><b>회원가입</b></h2>
-      <p>아래 내용을 빠짐없이 기재해주세요.</p>
+      <div class="text-caption">
+			<div class="h3">한국공항공사 회원가입을 위해 정보를 입력해주세요.</div>
+				
+		</div>
       <hr>
       
       <label for="name"><b>이름</b></label>
@@ -69,8 +86,15 @@
         <button type="reset" class="cancelbtn">초기화</button>
         <button type="submit" class="signupbtn">회원가입</button>
       </div>
-    </div>
+
   </form>
+  
+  	<div class="section">
+		<div class="text-center">
+			<a class=" btn_prev large4" href="${pageContext.request.contextPath}/join/acceptTerms" role="button">이전 단계</a>
+			<a class=" btn_next large4" href="${pageContext.request.contextPath}/join/" role="button">다음 단계</a>
+		</div>
+	</div>
   
   <script>
    $("#f1").submit(function(e){
@@ -95,7 +119,8 @@
   </script>
  
 </div>	
-
+</div>
+</div>
 <!-- 다음주소 API -->
 	<script src="${pageContext.request.contextPath }/resources/js/post.js?a"></script>
 <%@ include file="../include/footer.jsp"%>

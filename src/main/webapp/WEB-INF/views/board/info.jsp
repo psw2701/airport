@@ -11,7 +11,7 @@
 	<ul class="nav nav-pills  nav-justified" role="tablist">
 		<li role="presentation" class="on"><a href="${pageContext.request.contextPath}/board/info" >이용안내 페이지</a></li>
 		<li role="presentation" ><a href="${pageContext.request.contextPath}/board/register" >등록 페이지</a></li>
-		<li role="presentation" ><a href="/daegu/content/contents.do?cid=2016021616383605357&amp;menuId=4614" >나의 고객의 소리</a></li>
+		<li role="presentation" ><a href="" >나의 고객의 소리</a></li>
 	</ul>
 
 	<!--  탭메뉴 -->
