@@ -59,4 +59,6 @@ public class JoinController {
 		model.addAttribute("customerVO", vo);
 		return "home";
 	}
+	
+	
 }

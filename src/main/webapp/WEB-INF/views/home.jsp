@@ -5,8 +5,6 @@
 <link href="${pageContext.request.contextPath }/resources/css/common.css" rel="stylesheet"  type="text/css">
 <h1>
 	Hello world!!!
-	
-	
 </h1> 
  <p id="id">안녕하세요!!!</p>
 <P>  The time on the server is ${serverTime}... </P>

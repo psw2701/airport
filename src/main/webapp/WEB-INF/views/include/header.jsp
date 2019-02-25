@@ -46,9 +46,6 @@ $(document).ready(function(){
 /* 로그인 */
 </script>
 
-
-
-
 <title>Insert title here</title>
 <style type="text/css">
  body{
@@ -620,8 +617,9 @@ h4, .modal-title{
 					
 					<li class="hidden-xs hidden-sm">
 					
-						<c:if test="${login !=null }">							
-						<a href="${pageContext.request.contextPath }/user/logout" id="loginBtn" role="button">로그아웃</a>
+						<c:if test="${login !=null }">
+						<span>${login.name }</span>님 환영합니다.						
+						<a href="${pageContext.request.contextPath }/user/logout" id="loginBtn" role="button">로그아웃</a><a href="">마이페이지</a>
 						</c:if>
 						<c:if test="${login==null }">
 							<a href="#" id="loginBtn" data-toggle="modal" data-target="#loginPopModal" role="button">로그인</a>
@@ -653,10 +651,10 @@ h4, .modal-title{
 									<a href="#"><span>실시간 운항정보</span></a>
 									</li>
 									<li>
-									<a href="#"><span>항공권 예약</span></a>
+									<a href="#"><span>운항스케줄</span></a>
 									</li>
 									<li>
-									<a href="#"><span>운항스케줄</span></a>
+									<a href="#"><span></span></a>
 									</li>
 									<li>
 									<a href="#"><span></span></a>
@@ -732,29 +730,6 @@ h4, .modal-title{
 									</li>
 									<li>
 									<a href="#"><span></span></a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						
-						<li class="navi1m-loop" id="top_web_484">
-							<a href="#" class="navi1m">여행상품</a>
-							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
-								<ul>
-									<li>
-									<a href="#"><span>비행기 국내여행</span></a>
-									</li>
-									<li>
-									<a href="#"><span>비행기 해외여행</span></a>
-									</li>
-									<li>
-									<a href="#"><span>알짜여행팁</span></a>
-									</li>
-									<li>
-									<a href="#"><span>여행후기</span></a>
-									</li>
-									<li>
-									<a href="#"><span>여행지 정보</span></a>
 									</li>
 								</ul>
 							</div>
