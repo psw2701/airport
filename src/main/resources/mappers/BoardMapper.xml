@@ -121,5 +121,4 @@
 	<insert id="addAttachByBno">
 		insert into attach(fullname, no) values (#{fullname}, #{no})
 	</insert>
-	
 </mapper>

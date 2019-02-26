@@ -19,9 +19,9 @@ public class BoardVO {
 
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
-	}
+	}    
 
-	public int getNo() {
+	public int getNo() {   
 		return no;
 	}
 

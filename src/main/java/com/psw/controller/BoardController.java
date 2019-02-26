@@ -112,7 +112,7 @@ public class BoardController {
 
 			files.add(thumbPath);
 
-		}
+		} 
 		vo.setFiles(files);
 
 		logger.info("vo==================================>>>>" + vo);
