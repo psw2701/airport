@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
-
+    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aa   " rel="stylesheet"  type="text/css">
 
 
 <div id="customer_container">
@@ -468,7 +468,7 @@
 									</div>
 								</div>
 								<div class="col-sm-2">
-									<button type="submit" class="btn btn-search"><i class="fa fa-search"></i> 조회</button>
+									<button type="button" class="btn btn-search" id="airClick"><i class="fa fa-search"></i> 조회</button>
 								</div>
 							</div>
 							</form>
@@ -501,7 +501,9 @@ tr,td,th{
     position: absolute;
     right: 60px;
 }
-
+#customer_container{
+	min-height: 0px;
+}
 </style>
 
 
@@ -541,12 +543,33 @@ function airCallAjax(){
 		            output += '<td>'+myItem[i].airlineKorean+'</td>';
 		            output += '<td>'+myItem[i].airFln+'</td>';
 		            output += '<td>'+myItem[i].std+'</td>'; 
-		            output += '<td>'+myItem[i].etd+'</td>';
+		            
+		            var etds =myItem[i].etd+"";              
+			           if(etds !="undefined"){
+			        	   etds=myItem[i].etd;
+		 	            }else{
+		 	            	etds="";
+		 	            }
+		 	            
+		 	            output += '<td>'+etds+'</td>';
 		            output += '<td>'+myItem[i].boardingKor+'</td>';
 		            output += '<td>'+myItem[i].arrivedKor+'</td>';
 		            output += '<td>'+myItem[i].line+'</td>';
-		            output += '<td>'+myItem[i].gate+'</td>';
-		            output += '<td>'+myItem[i].rmkKor+'</td>';
+		            var gates =myItem[i].gate+"";   
+	 	            if(gates !="undefined"){
+	 	            	gates=myItem[i].gate;
+	 	            }else{
+	 	            	gates="";
+	 	            }
+		            output += '<td>'+gates+'</td>';
+		            
+		            var rmkKors =myItem[i].rmkKor+"";              
+			           if(rmkKors !="undefined"){
+			        	   rmkKors=myItem[i].rmkKor;
+		 	            }else{
+		 	            	rmkKors="";
+		 	            }
+		 	            output += '<td>'+rmkKors+'</td>';
 		            output += '</tr>'; 
 		           //document.body.innerHTML += output; 
 		          }
@@ -555,6 +578,7 @@ function airCallAjax(){
 		    
 		     	output += '</tbody>'
 		        output += '</table>'
+		     $("#airwrap").empty()
 		   	 $("#airwrap").append(output)
 		   	
 		        
@@ -565,7 +589,14 @@ function airCallAjax(){
 		});
 }
 
+
 airCallAjax();
+$(function() {
+	$("#airClick").click(function() {
+		
+		airCallAjax();
+	})
+})
 </script>
 
 <div id="airwrap"></div>

@@ -111,13 +111,14 @@ ALTER TABLE airport.airport
 
 -- 공지사항
 CREATE TABLE airport.notice (
-	no           INT       NOT NULL COMMENT '공지사항번호', -- 공지사항번호
-	title        TEXT      NOT NULL COMMENT '공지제목', -- 공지제목
-	content      TEXT      NOT NULL COMMENT '공지내용', -- 공지내용
-	reg_date     TIMESTAMP NOT NULL DEFAULT now() COMMENT '공지일', -- 공지일
-	view_cnt     INT       NOT NULL DEFAULT 0 COMMENT '조회수', -- 조회수
-	file         TEXT      NULL     COMMENT '첨부파일', -- 첨부파일
-	manager_code CHAR(4)   NOT NULL COMMENT '관리자코드' -- 관리자코드
+	no           INT        NOT NULL COMMENT '공지사항번호', -- 공지사항번호
+	title        TEXT       NOT NULL COMMENT '공지제목', -- 공지제목
+	content      TEXT       NOT NULL COMMENT '공지내용', -- 공지내용
+	reg_date     TIMESTAMP  NOT NULL DEFAULT now() COMMENT '공지일', -- 공지일
+	view_cnt     INT        NOT NULL DEFAULT 0 COMMENT '조회수', -- 조회수
+	file         TEXT       NULL     COMMENT '첨부파일', -- 첨부파일
+	is_notice    TINYINT(1) NOT NULL COMMENT '구분', -- 구분
+	manager_code CHAR(4)    NOT NULL COMMENT '관리자코드' -- 관리자코드
 )
 COMMENT '공지사항';
 
@@ -134,17 +135,42 @@ ALTER TABLE airport.notice
 ALTER TABLE airport.notice
 	AUTO_INCREMENT = 1;
 
--- 첨부
-CREATE TABLE airport.attach (
+-- 게시판첨부
+CREATE TABLE airport.board_attach (
 	fullName VARCHAR(150) NOT NULL COMMENT '이름', -- 이름
 	reg_date TIMESTAMP    NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
 	no       INT          NOT NULL COMMENT '게시판번호' -- 게시판번호
 )
-COMMENT '첨부';
+COMMENT '게시판첨부';
 
--- 첨부
-ALTER TABLE airport.attach
-	ADD CONSTRAINT PK_attach -- 첨부 기본키
+-- 게시판첨부
+ALTER TABLE airport.board_attach
+	ADD CONSTRAINT PK_board_attach -- 게시판첨부 기본키
+		PRIMARY KEY (
+			fullName -- 이름
+		);
+
+-- 요청매개변수
+CREATE TABLE airport.req_parameter (
+	schAirCode  CHAR(3)    NOT NULL COMMENT '공항코드', -- 공항코드
+	schStTime   INT        NOT NULL COMMENT '예정시간', -- 예정시간
+	schEdTime   INT        NOT NULL COMMENT '변경시간', -- 변경시간
+	schLineType TINYINT(1) NOT NULL COMMENT '항공편종류', -- 항공편종류
+	schOType    TINYINT(1) NOT NULL COMMENT '운행타입' -- 운행타입
+)
+COMMENT '요청매개변수';
+
+-- 공지사항첨부
+CREATE TABLE airport.notice_attach (
+	fullName VARCHAR(150) NOT NULL COMMENT '이름', -- 이름
+	reg_date TIMESTAMP    NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
+	no       INT          NOT NULL COMMENT '공지사항번호' -- 공지사항번호
+)
+COMMENT '공지사항첨부';
+
+-- 공지사항첨부
+ALTER TABLE airport.notice_attach
+	ADD CONSTRAINT PK_notice_attach -- 공지사항첨부 기본키
 		PRIMARY KEY (
 			fullName -- 이름
 		);
@@ -199,12 +225,32 @@ ALTER TABLE airport.notice
 			code -- 관리자코드
 		);
 
--- 첨부
-ALTER TABLE airport.attach
-	ADD CONSTRAINT FK_board_TO_attach -- 게시판 -> 첨부
+-- 게시판첨부
+ALTER TABLE airport.board_attach
+	ADD CONSTRAINT FK_board_TO_board_attach -- 게시판 -> 게시판첨부
 		FOREIGN KEY (
 			no -- 게시판번호
 		)
 		REFERENCES airport.board ( -- 게시판
 			no -- 게시판번호
+		);
+
+-- 요청매개변수
+ALTER TABLE airport.req_parameter
+	ADD CONSTRAINT FK_airport_TO_req_parameter -- 공항 -> 요청매개변수
+		FOREIGN KEY (
+			schAirCode -- 공항코드
+		)
+		REFERENCES airport.airport ( -- 공항
+			code -- 공항코드
+		);
+
+-- 공지사항첨부
+ALTER TABLE airport.notice_attach
+	ADD CONSTRAINT FK_notice_TO_notice_attach -- 공지사항 -> 공지사항첨부
+		FOREIGN KEY (
+			no -- 공지사항번호
+		)
+		REFERENCES airport.notice ( -- 공지사항
+			no -- 공지사항번호
 		);

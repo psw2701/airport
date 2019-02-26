@@ -83,12 +83,9 @@ $(document).ready(function(){
 	border-left:1px solid #01131e;
 	margin: 0 0 0 10px;
 	padding-left: 30px; 
-	
-
 }
 
-
- .pop_g:first-child{
+.pop_g:first-child{
 	border-left: 0;
 } 
 .pop_g .pop_img{
@@ -644,11 +641,11 @@ h4, .modal-title{
 				<div class="row">
 					<ul class="lnb-bg-wrap navbar-right">
 						<li class="navi1m-loop" id="top_web_480">
-							<a href="#" class="navi1m" >운항현황</a>
+							<a href="${pageContext.request.contextPath }/airport/air" class="navi1m" >운항현황</a>
 							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
-									<a href="#"><span>실시간 운항정보</span></a>
+									<a href="${pageContext.request.contextPath }/airport/air"><span>실시간 운항정보</span></a>
 									</li>
 									<li>
 									<a href="#"><span>운항스케줄</span></a>
@@ -789,17 +786,7 @@ $(function() {
 });
 
 </script>
-<script type="text/javascript">
 
-/* $('#pop_list').bxSlider({
-	  auto: true,
-	  autoControls: true,
-	  stopAutoOnClick: true,
-	  pager: false
-	
-	}); */
-
-</script>
 
 
 <script type="text/javascript">
