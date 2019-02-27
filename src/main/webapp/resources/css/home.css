@@ -1,0 +1,13 @@
+@charset "UTF-8";
+#homeContainer{
+	width: 100%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: auto;
+    margin-left: auto;
+
+}
+#homeContainer .item img{
+	height: 850px;
+}
+

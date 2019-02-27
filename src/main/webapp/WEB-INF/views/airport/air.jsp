@@ -13,7 +13,7 @@
 		<li role="presentation"><a href="${pageContext.request.contextPath }/airport/port">도착</a></li>
 	</ul>
 
-<div id="customer_container">
+
 
 
 <!-- 컨텐츠 내용 -->
@@ -477,7 +477,7 @@
 <hr class="thin2">
 <!-- //컨텐츠 내용 -->
 
-	</div>
+	
 </div>
 
 

@@ -173,14 +173,16 @@ button{
 	color: white;
 }
 header{
-	height: 165px;
+
 	position: relative;
+
+
 }
 	 header .container{
 		position: relative;
 	}
 	.container{
-		width: 1130px;
+		width: 100%;
 		padding-right: 15px;
 		padding-left:15px;
 		margin-right: auto;
@@ -197,11 +199,12 @@ header{
 		position: absolute;
 		left: 15px;
 		display: block;
-		padding: 2.7% 2%;
+		padding: 1.5% 1%;
 		text-align: center;
 		background-color: #802224;
 		z-index: 50;
 	}
+	
 	.navbar-logo h1{
 		width: 130px;
 		height: 91px;
@@ -241,14 +244,15 @@ header{
 
 
 .navbar{
-
 	position: relative;
 	z-index: 10;
-	height: 72px;
+    width: 50%;
 	border-radius: 0;
-	margin-bottom: 10px;
+    margin-bottom: 0px;
+    border-bottom-width: 0px;
+	
 	min-height: 50px;
-	border-bottom: 1px solid #fff;
+	
 	
 }
 .navbar #lnb-web li.navi1m-loop{
@@ -278,7 +282,7 @@ header{
 
 .navbar #lnb-web .navi2m{
 	position: absolute;
-	top:70px;
+	top:60px;
 	display: none;
 	width: 100%;
 	background-color:  rgba(0,0,0,0.5);
@@ -353,7 +357,7 @@ h4, .modal-title{
 
 .input-group{
 	margin-bottom: 10px;
-}
+} 
 
 #userid, #userpwd{
 	height: 33.64px;	
@@ -668,7 +672,7 @@ h4, .modal-title{
 							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
-									<a href="#"><span>탑승시뮬레이션</span></a>
+									
 									</li>
 									<li>
 									<a href="#"><span>빠른수속</span></a>
@@ -680,7 +684,7 @@ h4, .modal-title{
 									<a href="#"><span>항공기탑승</span></a>
 									</li>
 									<li>
-									<a href="#"><span>도착시뮬레이션</span></a>
+									
 									</li>
 								</ul>
 							</div>
@@ -697,10 +701,10 @@ h4, .modal-title{
 									<a href="#"><span>대중교통</span></a>
 									</li>
 									<li>
-									<a href="#"><span>렌터카</span></a>
+									
 									</li>
 									<li>
-									<a href="#"><span>렌터카예약</span></a>
+									
 									</li>
 									<li>
 									<a href="#"><span>주차안내</span></a>
@@ -723,7 +727,7 @@ h4, .modal-title{
 									<a href="#"><span>공항시설</span></a>
 									</li>
 									<li>
-									<a href="#"><span>모바일앱 소개</span></a>
+									
 									</li>
 									<li>
 									<a href="#"><span></span></a>
@@ -740,13 +744,13 @@ h4, .modal-title{
 									<a href="#"><span>공지사항</span></a>
 									</li>
 									<li>
-									<a href="#"><span>이벤트 정보</span></a>
+									
 									</li>
 									<li>
-									<a href="#"><span>FAQ</span></a>
+									
 									</li>
 									<li>
-									<a href="#"><span>유실물센터</span></a>
+									
 									</li>
 									<li>
 									<a href="${pageContext.request.contextPath}/board/info"><span>고객의 소리</span></a>
@@ -845,11 +849,11 @@ $(function() {
 		function playRolling(){
 			if(status){
 				clearTimeout(settings.setTimeOut);
-				settings.playBtn.find('img').attr('src',"/resources/images/btn_rolling_stop_on.png");
+				settings.playBtn.find('img').attr('src',"${pageContext.request.contextPath }/resources/images/btn_rolling_stop_on.png");
 				settings.playBtn.find('img').attr('alt',"팝업 롤링 재생");
 				status = false;
 			}else{
-				settings.playBtn.find('img').attr('src',"/resources/images/btn_rolling_stop.png");
+				settings.playBtn.find('img').attr('src',"${pageContext.request.contextPath }/resources/images/btn_rolling_stop.png");
 				settings.playBtn.find('img').attr('alt',"팝업 롤링 정지");
 				status = true;
 				setRolling();

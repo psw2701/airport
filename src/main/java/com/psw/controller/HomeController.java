@@ -5,10 +5,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 import org.apache.cxf.helpers.IOUtils;
+import org.apache.cxf.jaxws.interceptors.HolderOutInterceptor;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
@@ -38,6 +41,7 @@ public class HomeController {
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
@@ -51,16 +55,29 @@ public class HomeController {
 	public ResponseEntity<Object> air() throws IOException, ParseException {
 		logger.info("airsch--------get");
 		
+		
+		Date date = new Date();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.HOUR, 3);
+		String tday = sdf.format(date);
+		String tday2 = sdf.format(cal.getTime());
+		
+
+		
 		String addr = "http://openapi.airport.co.kr/service/rest/FlightStatusList/getFlightStatusList?ServiceKey=";
 		String serviceKey = "8FUtO6dnWvp42zWov7WnWewDjZ3Hj%2FzqyvSqrq92ZLcecL3YJ2h4rKZ%2FSRthW%2BSj0JZ8rLLjiw97ApFh%2BMkLdA%3D%3D";
 		String parameter = "";
+		
 
-		parameter = parameter + "&" + "schStTime=1700"; // 예정시간
-		parameter = parameter + "&" + "schEdTime=1900"; // 변경시간
+		parameter = parameter + "&" + "schStTime="+tday; // 예정시간
+		parameter = parameter + "&" + "schEdTime="+tday2; // 변경시간
 		parameter = parameter + "&" + "schLineType="; // 항공편 종류 (국내 / 국제)
-		parameter = parameter + "&" + "schIOType=O"; // 운행 타입(도착 / 출발)
+		parameter = parameter + "&" + "schIOType=O"; // 운행 타입(출발)
 		parameter = parameter + "&" + "schAirCode=TAE"; // 공항코드
-		parameter = parameter + "&" + "numOfRows=5"; // 공항코드
+		parameter = parameter + "&" + "numOfRows=5"; 
 		parameter = parameter + "&" + "_type=json";
 
 		addr = addr + serviceKey + parameter;
@@ -92,17 +109,26 @@ public class HomeController {
 	@RequestMapping(value = "portsch", method = RequestMethod.GET)
 	public ResponseEntity<Object> airport() throws IOException, ParseException {
 		logger.info("portsch--------get");
+		Date date = new Date();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.HOUR, 3);
+		
+		String tday = sdf.format(date);
+		String tday2 = sdf.format(cal.getTime());
 		
 		String addr = "http://openapi.airport.co.kr/service/rest/FlightStatusList/getFlightStatusList?ServiceKey=";
 		String serviceKey = "8FUtO6dnWvp42zWov7WnWewDjZ3Hj%2FzqyvSqrq92ZLcecL3YJ2h4rKZ%2FSRthW%2BSj0JZ8rLLjiw97ApFh%2BMkLdA%3D%3D";
 		String parameter = "";
 		
-		parameter = parameter + "&" + "schStTime=1700"; // 예정시간
-		parameter = parameter + "&" + "schEdTime=1900"; // 변경시간
+		parameter = parameter + "&" + "schStTime="+tday; // 예정시간
+		parameter = parameter + "&" + "schEdTime="+tday2; // 변경시간
 		parameter = parameter + "&" + "schLineType="; // 항공편 종류 (국내 / 국제)
-		parameter = parameter + "&" + "schIOType=I"; // 운행 타입(도착 / 출발)
+		parameter = parameter + "&" + "schIOType=I"; // 운행 타입(도착)
 		parameter = parameter + "&" + "schAirCode=TAE"; // 공항코드
-		parameter = parameter + "&" + "numOfRows=5"; // 공항코드
+		parameter = parameter + "&" + "numOfRows=5"; 
 		parameter = parameter + "&" + "_type=json";
 
 		addr = addr + serviceKey + parameter;
