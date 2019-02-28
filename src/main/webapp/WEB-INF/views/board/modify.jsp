@@ -7,7 +7,7 @@
 <link href="${pageContext.request.contextPath }/resources/css/form.css?Aaaaaaaaaa" rel="stylesheet"  type="text/css">
     
 
-
+<div id="cusvoc"> 
 <div id="joinform">	
 <form action="modify" method="post" enctype="multipart/form-data">
 	<div class="container mt-3">
@@ -99,7 +99,7 @@
 			
 					
 		<div class="clearfix">
-       			<button type="submit" class="btn btn-warning" id="btnModify">Modify</button>
+       			<button type="submit" class="btn btn-warning" id="btnModify">수정</button>
       	</div>	
 	
 				<input type="hidden" name="no" value="${boardVO.no }">
@@ -110,5 +110,5 @@
 	</div>
 	</form>
 </div>
-
+</div>
 <%@ include file="../include/footer.jsp"%>	

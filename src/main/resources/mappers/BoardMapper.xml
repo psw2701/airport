@@ -103,22 +103,22 @@
 	</update>
 	
 	<insert id="addAttach">
-		insert into attach(fullname, no) values(#{fullname}, LAST_INSERT_ID())
+		insert into board_attach(fullname, no) values(#{fullname}, LAST_INSERT_ID())
 	</insert>
 	
 	<select id="getAttach" resultType="String">
-		select fullname from attach where no=#{no} order by reg_date
+		select fullname from board_attach where no=#{no} order by reg_date
 	</select>
 	
 	<delete id="deleteAttachByFullName">
-		delete from attach where no=#{no} and fullname=#{fullname}
+		delete from board_attach where no=#{no} and fullname=#{fullname}
 	</delete>
 	
 	<delete id="delImg">
-		delete from attach where no=#{no}
+		delete from board_attach where no=#{no}
 	</delete>
 	
 	<insert id="addAttachByBno">
-		insert into attach(fullname, no) values (#{fullname}, #{no})
+		insert into board_attach(fullname, no) values (#{fullname}, #{no})
 	</insert>
 </mapper>

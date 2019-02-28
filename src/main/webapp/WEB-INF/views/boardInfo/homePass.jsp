@@ -16,7 +16,7 @@
 
 
 	<div class="section">
-		<img alt="홈탑승권" src="${pageContext.request.contextPath }/resources/images/kcc_rf_01_02_01_w.png">			
+		<img alt="홈탑승권" src="${pageContext.request.contextPath }/resources/images/kcc_rf_01_02_01_w.png" width="1130px">			
 	</div>
 
 </div>

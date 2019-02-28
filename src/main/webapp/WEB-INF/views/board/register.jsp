@@ -3,16 +3,15 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
+<link href="${pageContext.request.contextPath }/resources/css/form.css?Aaaaaaa" rel="stylesheet"  type="text/css">
 
-    <link href="${pageContext.request.contextPath }/resources/css/form.css?Aaaabbbbbb" rel="stylesheet"  type="text/css">
-
-    
+<div id="cusvoc">  
 <div id="joinform">
   <form class="content" action="register" method="post" id="f1" enctype="multipart/form-data">
     <div class="container mt-3">
     
       <h2><b>고객의 소리 등록</b></h2>
-    
+     
       <hr>
       
       <input type="hidden" name="code" value="${login.cusCode }"> 
@@ -75,6 +74,6 @@
   </form>
  
    </div>	 
-
+</div>  
  
 <%@ include file="../include/footer.jsp"%>

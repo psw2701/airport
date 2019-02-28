@@ -99,7 +99,11 @@ select * from manager;
 
 insert into manager(code, name, id, passwd, phone, email) values('M001', '나직원', 'qwerqwerqwer', password('rootroot'), '010-5858-6565', 'qwerqwerqwer@naver.com');
 
-
+select * from board left join customer 
+		on customer.code=board.customer_code
+		left join airport
+		on customer.code=airport.code
+		where no=1;
 
 
 

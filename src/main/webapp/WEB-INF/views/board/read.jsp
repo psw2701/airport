@@ -8,7 +8,7 @@
     <link href="${pageContext.request.contextPath }/resources/css/form.css?Aaaaaaaaaa" rel="stylesheet"  type="text/css">
     
 
-			
+<div id="cusvoc">  			
 <div id="joinform">	
 	<div class="container mt-3">
 		<h3 class="box-title">고객의 소리 입니다.</h3>
@@ -32,8 +32,8 @@
 					
 			<div class="clearfix">
        			<button type="submit" class="btn btn-primary" id="btnList">목록</button>
-						<button type="submit" class="btn btn-warning" id="btnModify">Modify</button>
-						<button type="submit" class="btn btn-danger" id="btnRemove">Remove</button>
+						<button type="submit" class="btn btn-warning" id="btnModify">수정</button>
+						<button type="submit" class="btn btn-danger" id="btnRemove">제거</button>
       		</div>	
 					
 			<form id="f1" action="" method="post">
@@ -68,7 +68,7 @@
 	
 	
 </div>
-
+</div>
 	<!-- <div id="modifyModal" class="modal modal-primary fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">

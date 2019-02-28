@@ -13,9 +13,6 @@
 		<li role="presentation" class="on"><a href="${pageContext.request.contextPath }/airport/port">도착</a></li>
 	</ul>
 
-<div id="customer_container">
-
-
 <!-- 컨텐츠 내용 -->
 
 <div class="section">

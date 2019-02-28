@@ -4,7 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../include/header.jsp"%>
-    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aa   " rel="stylesheet"  type="text/css">
+    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aaaaaaaaa" rel="stylesheet"  type="text/css">
+     <link href="${pageContext.request.contextPath }/resources/css/boardInfo.css?aaaaa" rel="stylesheet"  type="text/css">
 <div id="container">
 <div id="customer_container">
 	<!--  탭메뉴 -->
@@ -18,12 +19,7 @@
 						
 	<!-- 컨텐츠 내용 -->
 <div id="contentRemark">
-								
-								
-								    
-								    
-								    
-									<div class="section">
+	<div class="section">
     <h4>여분 리튬배터리 휴대허용 기준</h4>
     <div class="table-responsive">
         <table class="table table3_1 text-center mt20" summary="리튬배터리 용량 규격,휴대하는 짐,부치는 짐 등의 정보를 제공하고 있습니다">

@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+#contentRemark h4{
+	color: #444;
+    font-size: 130% !important;
+    margin: 10px 0;
+    padding-left: 12px;
+    font-weight: 700;
+    letter-spacing: -.05em;
+    margin-bottom: 25px;
+}
+	
+.ml15{
+	margin-left: 15px;
+}
+h5{
+	font-weight: 700;
+    font-size: 115%;
+    color: #333;
+    padding-left: 12px;
+    margin-bottom: 10px;	
+}
+.ml30{
+	margin-left: 30px;
+}
+.ul_list{
+	margin-left: 15px;
+    letter-spacing: -.05em;
+}
+.ul_list_img{
+	overflow: hidden;
+}
+.ul_list_img li{
+	float: left;
+	margin: 0 5px 5px;
+}
+.box03{
+	background: #f2fafc;
+    padding: 20px 30px 10px;
+    font-size: 88%;
+}
+
+/* 테이블 */
+.table3_1{
+	border-top: 1px solid #b4b4b4;
+	border-left: 1px solid #b4b4b4;
+	border-right: 1px solid #b4b4b4;
+    border-bottom: 1px solid #b4b4b4;
+}
+
+.mt20{
+	margin-top:20px !important;
+}
+.table3_1 > thead > tr > th{
+	color: #393939;
+    text-align: center;
+    vertical-align: middle;
+    background: #d2dfe5;
+   
+}
+.table3_1 > tbody > tr > td{
+	padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 15px 20px;
+    vertical-align: middle;
+ 
+    font-size: 90%;
+}
+.bg_pink{
+	background: #fbe1e1;
+}
+.table4_1{
+	width: 1129px;
+}
+.table4_1 > thead > tr > th{
+	color: #393939;
+    text-align: center;
+    vertical-align: middle;
+    background: #d2dfe5;
+    border-color: #aaa !important;
+
+}
+.table4_1 > tbody > tr > td{
+	padding-top: 10px;
+    padding-bottom: 10px;
+    padding: 15px 20px;
+    vertical-align: middle;
+    font-size: 90%;
+}
+/* text */
+.txt_802224, .txt_dr{
+	color: #802224;
+}
+
+.mb40{
+	margin-bottom: 40px;
+}
+
+.table6{
+	width:1129px;
+    background: #fff;
+}
+.b_t0{
+	border-top:0;
+}
+.table6 > tbody > tr > th{
+	background: #f2fafc;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	padding: 8px;
+    line-height: 1.42857143;
+/*     vertical-align: top; */
+    border: 1px solid #ddd;
+}

@@ -4,7 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../include/header.jsp"%>
-    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aa   " rel="stylesheet"  type="text/css">
+    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aaaaaaaaaaaa" rel="stylesheet"  type="text/css">
+     <link href="${pageContext.request.contextPath }/resources/css/boardInfo.css?Aaaaa" rel="stylesheet"  type="text/css">
 <div id="container">
 <div id="customer_container">
 	<!--  탭메뉴 -->

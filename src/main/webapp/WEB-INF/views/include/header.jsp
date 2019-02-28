@@ -175,18 +175,18 @@ button{
 header{
 
 	position: relative;
-
+	border-bottom:1px solid #ccc;
 
 }
 	 header .container{
 		position: relative;
 	}
 	.container{
-		width: 100%;
+		/* width: 100%; */
 		padding-right: 15px;
 		padding-left:15px;
-		margin-right: auto;
-		margin-left: auto;
+		margin-right: auto 0;
+		margin-left: auto 0;
 	}
 	.text-right{
 		text-align: right;
@@ -246,12 +246,11 @@ header{
 .navbar{
 	position: relative;
 	z-index: 10;
-    width: 50%;
+    width: 75%;
 	border-radius: 0;
     margin-bottom: 0px;
     border-bottom-width: 0px;
-	
-	min-height: 50px;
+	/* min-height: 50px; */
 	
 	
 }
@@ -269,12 +268,14 @@ header{
 	color: black;
 	font-size: 135%;
 	font-weight: 700;
-	line-height: 50px;
+	/* line-height: 50px; */
 	text-align: center;
 	text-decoration: none;
 	border-right: 0;
-	padding: 0 38px;
+	/* padding: 0 38px; */
+	mar
 }
+
 
 .navbar #lnb-web a.navi1m span{
 	padding: 0 10px;
@@ -282,7 +283,7 @@ header{
 
 .navbar #lnb-web .navi2m{
 	position: absolute;
-	top:60px;
+	top:50px;
 	display: none;
 	width: 100%;
 	background-color:  rgba(0,0,0,0.5);
@@ -447,9 +448,10 @@ h4, .modal-title{
 		
 	</div>
 </div>
-<div class="container top">
-	<h1 id="swAir"><a href="${pageContext.request.contextPath }" class="navbar-logo">SW AIR</a></h1>
+<div class="container top" style="padding-top: 0px; padding-bottom: 0px;">
+	<h1 id="swAir"><a href="${pageContext.request.contextPath }" class="navbar-logo">SWAIR</a></h1>
 </div> 
+
 <div class="modal fade" id="loginPopModal" tabindex="-1" role="dialog" aria-labelledby="loginPopModalLabel" style="display: none;">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -528,7 +530,7 @@ h4, .modal-title{
 					</script>
 	</c:if>
 	<div class="etc-navi">
-	<div class="container text-right">
+	<div class="container text-right" style="padding-top: 0px;padding-bottom: 15px; ">
 		<div>
 			<div class="etc_navi">
 				<ul>
@@ -600,7 +602,7 @@ h4, .modal-title{
 							</li>
 							
 						</ul>
-					</li>
+					</li>    
 					
 					<li class="dropdown hidden-xs hidden-sm">
 						<a href="#" type="button" data-toggle="dropdown" class="dept1">LANGUAGE</a>
@@ -610,16 +612,14 @@ h4, .modal-title{
 							<li><a href="#">日本語</a></li>
 							<li><a href="#">中國語</a></li>
 						</ul>
-					</li> 
+					</li>   
 					
-					<li class="hidden-xs hidden-sm">
-						<a href="#">사이트맵</a>
-					</li>
+					
 					
 					<li class="hidden-xs hidden-sm">
 					
 						<c:if test="${login !=null }">
-						<span>${login.name }</span>님 환영합니다.						
+						<span>${login.name }(${login.id })</span> 님, 환영합니다!						
 						<a href="${pageContext.request.contextPath }/user/logout" id="loginBtn" role="button">로그아웃</a><a href="">마이페이지</a>
 						</c:if>
 						<c:if test="${login==null }">
@@ -641,7 +641,7 @@ h4, .modal-title{
 <nav class="navbar">
 	<div id="lnb-web" class="lnb hidden-xs hidden-sm">
 		<div class="lnb-bg">
-			<div class="container">
+			<div class="container" style="padding-bottom: 0px; padding-top: 0px;">
 				<div class="row">
 					<ul class="lnb-bg-wrap navbar-right">
 						<li class="navi1m-loop" id="top_web_480">
@@ -668,7 +668,7 @@ h4, .modal-title{
 						</li>
 						
 						<li class="navi1m-loop" id="top_web_481">
-							<a href="#" class="navi1m">탑승안내</a>
+							<a href="${pageContext.request.contextPath }/boardInfo/homePass" class="navi1m">탑승안내</a>
 							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
