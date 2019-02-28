@@ -172,8 +172,8 @@ button{
 #swAir a{
 	color: white;
 }
-header{
-
+header{  
+	background-color:rgba(0,0,0,0.2); 
 	position: relative;
 	border-bottom:1px solid #ccc;
 
@@ -652,7 +652,7 @@ h4, .modal-title{
 									<a href="${pageContext.request.contextPath }/airport/air"><span>실시간 운항정보</span></a>
 									</li>
 									<li>
-									<a href="#"><span>운항스케줄</span></a>
+									<a href="#"><span></span></a>
 									</li>
 									<li>
 									<a href="#"><span></span></a>
