@@ -8,7 +8,9 @@
 #customer_container{
 	min-height: 530px;
 	overflow: hidden;
+	margin: 50px auto;
 }
+
 
 .nav-pills{
 	margin-bottom: 20px;
