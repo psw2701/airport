@@ -43,7 +43,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td rowspan="3" class="bor_left_none"><img src="/uploads/CONTENTS/2016/08/CONTENTS_201608041419467753288821.jpg" alt=""></td>
+                    <td rowspan="3" class="bor_left_none"><img src="${pageContext.request.contextPath }/resources/images/CONTENTS_201608041419467753288821.jpg" alt=""></td>
                     <td class="text-left">여분 배터리(100Wh 이하)</td>
                     <td>허용</td>
                     <td class="bg_pink">금지</td>
@@ -76,9 +76,9 @@
             </colgroup>
             <tbody>
                 <tr>
-                    <td><img src="/uploads/CONTENTS/2016/08/CONTENTS_201608041419470304076858.jpg" alt="휴대폰 배터리(10Wh) 사진"></td>
-                    <td><img src="/uploads/CONTENTS/2016/08/CONTENTS_201608041419471709511392.jpg " alt="여분 배터리(36Wh)"></td>
-                    <td><img src="/uploads/CONTENTS/2016/08/CONTENTS_201608041419478111914355.jpg " alt="카베라 배터리(9.6Wh)"></td>
+                    <td><img src="${pageContext.request.contextPath }/resources/images/CONTENTS_201608041419470304076858.jpg" alt="휴대폰 배터리(10Wh) 사진"></td>
+                    <td><img src="${pageContext.request.contextPath }/resources/images/CONTENTS_201608041419471709511392.jpg " alt="여분 배터리(36Wh)"></td>
+                    <td><img src="${pageContext.request.contextPath }/resources/images/CONTENTS_201608041419478111914355.jpg " alt="카베라 배터리(9.6Wh)"></td>
                 </tr>
                 <tr>
                     <th scope="col">휴대폰 배터리(10Wh)</th>

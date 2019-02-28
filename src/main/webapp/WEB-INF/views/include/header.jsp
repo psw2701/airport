@@ -698,7 +698,7 @@ h4, .modal-title{
 									<a href="#"><span>오시는길</span></a>
 									</li>
 									<li>
-									<a href="#"><span>대중교통</span></a>
+									
 									</li>
 									<li>
 									
@@ -721,7 +721,7 @@ h4, .modal-title{
 									<a href="#"><span>공항소개</span></a>
 									</li>
 									<li>
-									<a href="#"><span>공항이용 가이드</span></a>
+									<a href="${pageContext.request.contextPath }/airportInfo/pregnantchildren"><span>공항이용 가이드</span></a>
 									</li>
 									<li>
 									<a href="#"><span>공항시설</span></a>
