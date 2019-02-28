@@ -484,7 +484,7 @@
 <style>
 #airwrap, #customer_container{
 	width: 1130px;
-	margin: 0 auto;
+	margin: 50px auto;
 }
 tr,td,th{
 	text-align: center;

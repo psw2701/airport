@@ -675,7 +675,7 @@ h4, .modal-title{
 									
 									</li>
 									<li>
-									<a href="#"><span>빠른수속</span></a>
+									<a href="${pageContext.request.contextPath }/boardInfo/homePass"><span>빠른수속</span></a>
 									</li>
 									<li>
 									<a href="#"><span>보안검색</span></a>

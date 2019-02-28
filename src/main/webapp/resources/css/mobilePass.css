@@ -1,0 +1,94 @@
+@charset "UTF-8";
+.air-app-service{
+	margin: 25px;
+    color: #333;
+    font-size: 150%;
+    text-align: center;
+    line-height: 145%;
+    letter-spacing: -.05em;
+}
+.air-app-service strong{
+	color: #ed4f24;
+    font-size: 180%;
+}
+.air-app-header{
+	overflow: hidden;
+	line-height: 150%;
+	padding: 14px 0;
+	border-top-left-radius:10px;
+	border-top-right-radius: 10px;
+	
+}
+.air-app-header .pull-left{
+	color: #fff;
+    font-size: 130%;
+    margin-left: 20px;
+}
+.air-app-header .pull-left em{
+	color: #f9af0f;
+    font-size: 170%;
+    font-style: normal;
+    vertical-align: middle;
+}
+.air-app-header .pull-left span{
+	position: relative;
+	top: 2px;
+}
+.air-app-header .pull-right{
+	position: relative;
+    top: 2px;
+    color: #a59578;
+    font-size: 90%;
+    margin-right: 20px;
+}
+.clear{
+	clear: both;
+}
+.air-app-wrap{
+	width:1100px;
+	margin: 25px 0;
+    background-repeat:no-repeat;
+    background-image:url("../images/air-app-wrap.png");
+    border-radius: 10px;
+}
+.air-app-body{
+	padding: 40px 20px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.air-app-body .row{
+	margin: 0 -5px;
+}
+.air-app-body .row .rloop{
+	width:14%;
+	padding: 0 5 px;
+	color: #fff;
+	font-size: 110%;
+	text-align: center;
+}
+.air-app-body .row .rloop .img-area img{
+	display: block;
+	margin: 0 auto 12px;
+	border-radius: 12px;
+}
+.air-app-body .row .rloop .btn-area{
+	margin-top: 20px;
+}
+.air-app-body .row .rloop .btn-area a{
+	    display: block;
+    width: 100%;
+    height: 24px;
+    max-width: 115px;
+    margin: 2px auto;
+    color: #fff;
+    font-size: 75%;
+    text-align: left;
+    line-height: 22px;
+    text-indent: 26px;
+    text-decoration: none;
+    border: 1px solid #6694a2;
+    background:url("../images/ico-gplay.png") no-repeat 50% 50%;
+}
+.air-app-body .row .rloop .btn-area a.ico-appstore{
+	background-image: url("../images/ico-appstore.png");
+}
