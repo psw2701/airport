@@ -678,10 +678,10 @@ h4, .modal-title{
 									<a href="${pageContext.request.contextPath }/boardInfo/homePass"><span>빠른수속</span></a>
 									</li>
 									<li>
-									<a href="#"><span>보안검색</span></a>
+									<a href="${pageContext.request.contextPath }/boardInfo/security"><span>보안검색</span></a>
 									</li>
 									<li>
-									<a href="#"><span>항공기탑승</span></a>
+									<a href="${pageContext.request.contextPath }/boardInfo/flightEtiquette"><span>항공기탑승</span></a>
 									</li>
 									<li>
 									
