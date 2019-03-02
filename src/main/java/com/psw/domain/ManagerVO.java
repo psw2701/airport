@@ -60,4 +60,12 @@ public class ManagerVO {
 		this.email = email;
 	}
 
+	@Override
+	public String toString() {
+		return "ManagerVO [code=" + code + ", name=" + name + ", id=" + id + ", passwd=" + passwd + ", phone=" + phone
+				+ ", email=" + email + "]";
+	}
+	
+	
+
 }

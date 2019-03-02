@@ -11,7 +11,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import org.apache.cxf.helpers.IOUtils;
-import org.apache.cxf.jaxws.interceptors.HolderOutInterceptor;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;

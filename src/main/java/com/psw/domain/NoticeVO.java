@@ -11,6 +11,7 @@ public class NoticeVO {
 	private int viewCnt;
 	private List<String> files;
 	private ManagerVO managerCode;
+	private boolean isNotice;
 
 	public NoticeVO() {
 		// TODO Auto-generated constructor stub
@@ -71,11 +72,22 @@ public class NoticeVO {
 	public void setManagerCode(ManagerVO managerCode) {
 		this.managerCode = managerCode;
 	}
+	
+	public boolean isNotice() {
+		return isNotice;
+	}
+
+	public void setNotice(boolean isNotice) {
+		this.isNotice = isNotice;
+	}
 
 	@Override
 	public String toString() {
 		return "NoticeVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate
-				+ ", viewCnt=" + viewCnt + ", files=" + files + ", managerCode=" + managerCode + "]";
+				+ ", viewCnt=" + viewCnt + ", files=" + files + ", managerCode=" + managerCode + ", isNotice="
+				+ isNotice + "]";
 	}
+
+	
 
 }

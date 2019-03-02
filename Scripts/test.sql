@@ -106,6 +106,12 @@ select * from board left join customer
 		where no=1;
 
 
+select * from notice order by no desc;
+
+insert into notice (title, content,is_notice, manager_code) values('공지사항입니다.', '내용입니다.', false, 'M001');
 
 
-
+select * from notice
+		left join manager on manager.code=notice.manager_code
+		order by no desc
+		limit 1, 1;

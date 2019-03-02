@@ -56,9 +56,9 @@ public class BoardController {
 	@RequestMapping(value = "info", method = RequestMethod.GET)
 	public void info() {
 		logger.info("info----------get");
-		
+
 	}
-	
+
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public void list(SearchCriteria cri, Model model) {
 		logger.info("list ----- get");
@@ -112,7 +112,7 @@ public class BoardController {
 
 			files.add(thumbPath);
 
-		} 
+		}
 		vo.setFiles(files);
 
 		logger.info("vo==================================>>>>" + vo);
@@ -145,14 +145,14 @@ public class BoardController {
 	@RequestMapping(value = "modify", method = RequestMethod.GET)
 	public void modifyGet(@RequestParam("no") int no, SearchCriteria cri, Model model, BoardVO vo) {
 		logger.info("modify ----- Get");
-		
+
 		AirportVO airVO = new AirportVO();
 		vo.setAirportCode(airVO);
 		vo = service.read(no);
-		
+
 		model.addAttribute("boardVO", vo);
 		model.addAttribute("cri", cri);
-		
+
 		logger.info("boardVO=========>" + vo);
 	}
 
@@ -164,7 +164,7 @@ public class BoardController {
 		vo.setCusCode(cusVO);
 		AirportVO airVO = new AirportVO();
 		airVO.setCode(AirCode);
-		
+
 		vo.setAirportCode(airVO);
 
 		System.out.println("cri--------------->" + cri);

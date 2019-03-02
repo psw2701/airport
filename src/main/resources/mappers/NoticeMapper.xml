@@ -1,5 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.psw.mapper.BoardMapper">
+<mapper namespace="com.psw.mapper.NoticeMapper">
 
+<resultMap type="NoticeVO" id="ResultNotice">
+<result column="manager_code" property="managerCode.code" />
+<result column="code" property="managerCode.code" />
+<result column="name" property="managerCode.name" />
+<result column="email" property="managerCode.email"/>
+<result column="phone" property="managerCode.phone"/>
+<result column="id" property="managerCode.id"/>
+<result column="is_notice" property="isNotice"/>
+<collection property="files" column="files" javaType="java.util.ArrayList" select="listSearch"/>
+</resultMap>
+
+<insert id="insert" useGeneratedKeys="true" keyProperty="no">
+		insert into notice (title, content, is_notice, manager_code)
+		values(#{title}, #{content}, #{is_notice}, #{manager_code})
+</insert>
+	
+	<select id="read"  resultMap="ResultNotice">
+		select * from notice left join customer 
+		on customer.code=board.customer_code
+		left join airport
+		on customer.code=airport.code
+		where no=#{no}
+	
+	</select>
+	
+	<update id="update">
+		update notice 
+		set title=#{title}, content=#{content}, airport_code=#{airportCode.code}, open=#{open}, required=#{required}
+		where no = #{no}
+	</update>
+	
+	<delete id="delete">
+		delete from notice where no = #{no}
+	</delete>
+	
+	<select id="listAll" resultType="NoticeVO">
+		select * from notice order by no desc
+	</select>
+	
+	<select id="listPage" resultType="NoticeVO">
+		select * from notice order by no desc
+		limit #{page}, 10
+	</select>
+	
+	<select id="listCriteria" resultType="NoticeVO">
+		select * from notice order by no desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<update id="addCnt">
+		update notice 
+		set view_cnt=view_cnt+1
+		where no = #{no}
+	</update>
+	
+	<select id="totalCount" resultType="int">
+		select count(no)
+		from notice
+	</select>
+	
+	<sql id="search">
+		<if test="searchType=='t'.toString()">
+			where title like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='c'.toString()">
+			where content like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='w'.toString()">
+			where writer like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='tc'.toString()">
+			where title like concat('%', #{keyword},'%') or content like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='cw'.toString()">
+			where content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%')
+		</if>
+		<if test="searchType=='tcw'.toString()">
+			where title like concat('%', #{keyword},'%')or content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%')
+		</if>
+	</sql>
+	
+	<select id="listSearch" resultMap="ResultNotice">
+		select * from notice
+		left join manager on manager.code=notice.manager_code
+		<include refid="search"></include>
+		order by no desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+	
+	<select id="searchTotalCount" resultType="int">
+		select count(no)
+		from notice
+		<include refid="search"></include>
+	</select>
+	
+ 	<update id="updateReplyCnt">
+		update notice set reply_cnt = reply_cnt +#{amount} where no=#{no}
+	</update>
+	
+	<insert id="addAttach">
+		insert into notice_attach(fullname, no) values(#{fullname}, LAST_INSERT_ID())
+	</insert>
+	
+	<select id="getAttach" resultType="String">
+		select fullname from notice_attach where no=#{no} order by reg_date
+	</select>
+	
+	<delete id="deleteAttachByFullName">
+		delete from notice_attach where no=#{no} and fullname=#{fullname}
+	</delete>
+	
+	<delete id="delImg">
+		delete from notice_attach where no=#{no}
+	</delete>
+	
+	<insert id="addAttachByBno">
+		insert into notice_attach(fullname, no) values (#{fullname}, #{no})
+	</insert>
 </mapper>

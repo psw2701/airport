@@ -737,11 +737,11 @@ h4, .modal-title{
 						</li>
 						
 						<li class="navi1m-loop" id="top_web_485">
-							<a href="#" class="navi1m">고객센터</a>
+							<a href="${pageContext.request.contextPath}/notice/list" class="navi1m">고객센터</a>
 							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
-									<a href="#"><span>공지사항</span></a>
+									<a href="${pageContext.request.contextPath}/notice/list"><span>공지사항</span></a>
 									</li>
 									<li>
 									

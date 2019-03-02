@@ -35,7 +35,7 @@
 					</select>
 					<input type="text" name="keyword" id="keywordInput">
 					<button id="btnSearch" class="btn btn-default">Search</button>
-					<button id="btnNewBoard" class="btn btn-default">New Board</button>
+					<button id="btnNewNotice" class="btn btn-default">New Notice</button>
 				</div>
 				</div>
 			<div class="box">
@@ -45,25 +45,25 @@
 
 						<thead>
 							<tr>
-								<th>BNO</th>
+								<th>NO</th>
 								<th>TITLE</th>
 								<th>WRITER</th>
 								<th>REGDATE</th>
-								<th>PROGRESS</th>
+								
 								<!-- <th>ANSDATE</th> -->
 								<th>VIEWCNT</th>
 							</tr>
 						</thead>
 						<tbody>
-							 <c:forEach items="${list }" var="boardVO">
+							 <c:forEach items="${list }" var="noticeVO">
 								<tr>
-									<td>${boardVO.no }</td>
-									<td><a href="${pageContext.request.contextPath}/board/read?no=${boardVO.no}&page=${pageMaker.cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}">${boardVO.title } </a><strong> [${boardVO.replyCnt }]</strong></td>
-									<td>${boardVO.cusCode.name }</td> 
-									<td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
-									<td>${boardVO.progress }</td>
-									<%-- <td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td> --%>
-									<td><span class="badge bg-red">${boardVO.viewCnt }</span></td>
+									<td>${noticeVO.no }</td>
+									<td><a href="${pageContext.request.contextPath}/notice/read?no=${noticeVO.no}&page=${pageMaker.cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}">${noticeVO.title } </a></td>
+									<td>${noticeVO.managerCode.name }</td> 
+									<td><fmt:formatDate value="${noticeVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
+									
+									<%-- <td><fmt:formatDate value="${noticeVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td> --%>
+									<td><span class="badge bg-red">${noticeVO.viewCnt }</span></td>
 								</tr>
 							</c:forEach> 
 						</tbody>
@@ -73,13 +73,13 @@
 					<div class="text-center">
 						<ul class="pagination">
 						<c:if test="${pageMaker.prev }">
-                        <li><a href="${pageContext.request.contextPath}/board/list?page=${pageMaker.startPage-1}&searchType=${cri.searchType}&keyword=${cri.keyword}">&laquo;</a></li>
+                        <li><a href="${pageContext.request.contextPath}/notice/list?page=${pageMaker.startPage-1}&searchType=${cri.searchType}&keyword=${cri.keyword}">&laquo;</a></li>
                      </c:if>                     
                      <c:forEach var="idx" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-                        <li ${pageMaker.cri.page == idx ? 'class="active"':''}><a href="${pageContext.request.contextPath}/sboard/list?page=${ idx}&searchType=${cri.searchType}&keyword=${cri.keyword}">${ idx}</a></li> 
+                        <li ${pageMaker.cri.page == idx ? 'class="active"':''}><a href="${pageContext.request.contextPath}/notice/list?page=${ idx}&searchType=${cri.searchType}&keyword=${cri.keyword}">${ idx}</a></li> 
                      </c:forEach>
                      <c:if test="${pageMaker.next }">
-                        <li><a href="${pageContext.request.contextPath}/board/list?page=${pageMaker.endPage+1}&searchType=${cri.searchType}&keyword=${cri.keyword}">&raquo;</a></li>
+                        <li><a href="${pageContext.request.contextPath}/notice/list?page=${pageMaker.endPage+1}&searchType=${cri.searchType}&keyword=${cri.keyword}">&raquo;</a></li>
                      </c:if>   
 						</ul>
 					</div>
@@ -94,9 +94,9 @@
 			$("#btnSearch").click(function(){
 				var searchType = $("select[name='searchType']").val();
 				var keyword = $("#keywordInput").val();
-				location.href = "${pageContext.request.contextPath}/sboard/list?searchType="+searchType+"&keyword="+keyword;
+				location.href = "${pageContext.request.contextPath}/notice/list?searchType="+searchType+"&keyword="+keyword;
 			})
-			$("#btnNewBoard").click(function(){
+			$("#btnNewNotice").click(function(){
 				location.href = "register";
 			})
 		})

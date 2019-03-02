@@ -1,6 +1,5 @@
 package com.psw.domain;
 
-
 public class CustomerVO {
 	private String code;
 	private String id;
@@ -14,16 +13,12 @@ public class CustomerVO {
 	public CustomerVO() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 	public CustomerVO(String id, String passwd) {
 		super();
 		this.id = id;
 		this.passwd = passwd;
 	}
-
-
 
 	public String getCode() {
 		return code;

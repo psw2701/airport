@@ -45,7 +45,7 @@
 
 						<thead>
 							<tr>
-								<th>BNO</th>
+								<th>NO</th>
 								<th>TITLE</th>
 								<th>WRITER</th>
 								<th>REGDATE</th>
@@ -76,7 +76,7 @@
                         <li><a href="${pageContext.request.contextPath}/board/list?page=${pageMaker.startPage-1}&searchType=${cri.searchType}&keyword=${cri.keyword}">&laquo;</a></li>
                      </c:if>                     
                      <c:forEach var="idx" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-                        <li ${pageMaker.cri.page == idx ? 'class="active"':''}><a href="${pageContext.request.contextPath}/sboard/list?page=${ idx}&searchType=${cri.searchType}&keyword=${cri.keyword}">${ idx}</a></li> 
+                        <li ${pageMaker.cri.page == idx ? 'class="active"':''}><a href="${pageContext.request.contextPath}/board/list?page=${ idx}&searchType=${cri.searchType}&keyword=${cri.keyword}">${ idx}</a></li> 
                      </c:forEach>
                      <c:if test="${pageMaker.next }">
                         <li><a href="${pageContext.request.contextPath}/board/list?page=${pageMaker.endPage+1}&searchType=${cri.searchType}&keyword=${cri.keyword}">&raquo;</a></li>
@@ -94,7 +94,7 @@
 			$("#btnSearch").click(function(){
 				var searchType = $("select[name='searchType']").val();
 				var keyword = $("#keywordInput").val();
-				location.href = "${pageContext.request.contextPath}/sboard/list?searchType="+searchType+"&keyword="+keyword;
+				location.href = "${pageContext.request.contextPath}/board/list?searchType="+searchType+"&keyword="+keyword;
 			})
 			$("#btnNewBoard").click(function(){
 				location.href = "register";

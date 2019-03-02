@@ -54,7 +54,7 @@
 		<input type="file" name="addFiles" class="form-control" multiple="multiple">
 			
 			<div class="form-group">	 
-				<c:forEach var="file" items="${boardVO.files }">
+				<c:forEach var="file" items="${noticeVO.files }">
 					<div class="item" id="previewBox">
 						<img alt="" src="displayFile?filename=${file }">
 						<span>${fn:substring(file,51,-1) }</span>
@@ -86,14 +86,14 @@
 						
 		<label>답변필요여부</label>  
  			<div class="radio">
-      			<label><input type="radio" name=required value="true" ${boardVO.required == 'true' ? 'checked' : ''}>예</label>
-      			<label><input type="radio" name="required" value="false" ${boardVO.required == 'false' ? 'checked' : ''}>아니오</label>
+      			<label><input type="radio" name=required value="true" ${noticeVO.required == 'true' ? 'checked' : ''}>예</label>
+      			<label><input type="radio" name="required" value="false" ${noticeVO.required == 'false' ? 'checked' : ''}>아니오</label>
     		</div>
 	
 		<label>공개여부</label>  
 			<div class="radio">
-				<label><input type="radio" name="open" value="true" ${boardVO.open == 'true' ? 'checked' : ''}>예</label>
-      			<label><input type="radio" name="open" value="false"  ${boardVO.open == 'false' ? 'checked' : ''}>아니오</label>
+				<label><input type="radio" name="open" value="true" ${noticeVO.open == 'true' ? 'checked' : ''}>예</label>
+      			<label><input type="radio" name="open" value="false"  ${noticeVO.open == 'false' ? 'checked' : ''}>아니오</label>
      			<p>※비공개 선택시 회원가입자에 한해서만 내용을 확인하실 수 있으니 회원가입후 고객의소리를 작성하여 주세요.</p>
     		</div>
 			
@@ -102,7 +102,7 @@
        			<button type="submit" class="btn btn-warning" id="btnModify">수정</button>
       	</div>	
 	
-				<input type="hidden" name="no" value="${boardVO.no }">
+				<input type="hidden" name="no" value="${noticeVO.no }">
 				<input type="hidden" name="page" value="${cri.page }">
 				<input type="hidden" name="searchType" value="${cri.searchType}">
 				<input type="hidden" name="keyword" value="${cri.keyword}">
