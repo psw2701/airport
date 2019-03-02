@@ -1,0 +1,72 @@
+@charset "UTF-8";
+#container{
+	width:1130px;
+	margin:0 auto;
+	margin-bottom: 40px;
+}
+#customer_container{
+	min-height: 530px;
+	overflow: hidden;
+}
+.section{
+	padding: 20px 0;
+}
+.mb20{
+	margin-bottom: 20px;
+}
+.con_txt strong{
+	font-size: 125%;
+}
+.con_txt{
+	font-size: 160%;
+    color: #333;
+    line-height: 1.2;
+}
+.con_txt strong span{
+	font-size: 150%;
+}
+.txt_org{
+	color: #ed4f24 !important;
+}
+.introduce_section{
+	position: relative;
+}
+
+.introduce_section img{
+	width: 100%;
+}
+
+.introduce_section .cap_text{
+	position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    font-size: 90%;
+    padding: 25px 40px;
+}
+.history_tit{
+	border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    padding: 5px 0;
+}
+.history_info{
+	font-size: 90%;
+    height: 120px;
+    padding: 15px 0;
+    /* border-left: 1px solid #b4b4b4; */
+    background: url(../images/dot_line2.gif) repeat-y 6px 0;
+}
+.history_info dl dt{
+	color: #c7c7c7;
+    font-size: 200%;
+    background: url(../images/dot7.png) no-repeat 0 50%;
+    padding-left: 25px;
+}
+.history_info dl dd{
+	padding-left: 25px;
+}

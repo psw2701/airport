@@ -34,4 +34,10 @@ public class AirportInfoController {
 		logger.info("business--------get");
 
 	}
+	
+	@RequestMapping(value = "airIntro", method = RequestMethod.GET)
+	public void airIntro() {
+		logger.info("airIntro--------get");
+
+	}
 }

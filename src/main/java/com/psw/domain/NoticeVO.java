@@ -1,6 +1,7 @@
 package com.psw.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class NoticeVO {
 	private int no;
@@ -8,7 +9,7 @@ public class NoticeVO {
 	private String content;
 	private Date regDate;
 	private int viewCnt;
-	private String file;
+	private List<String> files;
 	private ManagerVO managerCode;
 
 	public NoticeVO() {
@@ -55,12 +56,12 @@ public class NoticeVO {
 		this.viewCnt = viewCnt;
 	}
 
-	public String getFile() {
-		return file;
+	public List<String> getFiles() {
+		return files;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setFiles(List<String> files) {
+		this.files = files;
 	}
 
 	public ManagerVO getManagerCode() {
@@ -74,7 +75,7 @@ public class NoticeVO {
 	@Override
 	public String toString() {
 		return "NoticeVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate
-				+ ", viewCnt=" + viewCnt + ", file=" + file + ", managerCode=" + managerCode + "]";
+				+ ", viewCnt=" + viewCnt + ", files=" + files + ", managerCode=" + managerCode + "]";
 	}
 
 }

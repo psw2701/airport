@@ -714,11 +714,11 @@ h4, .modal-title{
 						</li>
 						
 						<li class="navi1m-loop" id="top_web_483">
-							<a href="#" class="navi1m">공항정보</a>
+							<a href="${pageContext.request.contextPath }/airportInfo/airIntro" class="navi1m">공항정보</a>
 							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
-								<ul>
+								<ul> 
 									<li>
-									<a href="#"><span>공항소개</span></a>
+									<a href="${pageContext.request.contextPath }/airportInfo/airIntro"><span>공항소개</span></a>
 									</li>
 									<li>
 									<a href="${pageContext.request.contextPath }/airportInfo/pregnantchildren"><span>공항이용 가이드</span></a>

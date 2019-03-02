@@ -52,5 +52,8 @@ public class BoardInfoController {
 		logger.info("notice--------get");
 
 	}
+	
+	
+
 
 }
