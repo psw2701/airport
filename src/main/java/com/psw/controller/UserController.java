@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.psw.domain.CustomerVO;
 import com.psw.domain.LoginDTO;
+import com.psw.domain.ManagerVO;
 import com.psw.service.CustomerService;
+import com.psw.service.ManagerService;
 
 @Controller
 @RequestMapping("/user/")
@@ -21,6 +23,9 @@ public class UserController {
 
 	@Autowired
 	private CustomerService service;
+
+	@Autowired
+	private ManagerService mService;
 
 	@RequestMapping(value = "loginPost", method = RequestMethod.POST)
 	public void loginPost(String userid, String userpw, String checkManager, Model model) {
@@ -49,6 +54,32 @@ public class UserController {
 		session.invalidate();
 
 		return "redirect:/";
+
+	}
+
+	@RequestMapping(value = "mLogin", method = RequestMethod.GET)
+	public void mLoginGet() {
+		logger.info("mLogin GET--------------");
+	}
+
+	@RequestMapping(value = "mLogin", method = RequestMethod.POST)
+	public void mLoginPost(String id, String pw, String checkManager, Model model) {
+		logger.info("mLoginPost POST--------------");
+		ManagerVO vo = mService.login(id, pw, checkManager);
+		logger.info("vo===========================>" + vo);
+		if (vo == null) {
+			logger.info("mLoginPost POST return");
+			return;
+		}
+
+		LoginDTO dto = new LoginDTO();
+		dto.setId(vo.getId());
+		dto.setName(vo.getName());
+		dto.setPhone(vo.getPhone());
+		dto.setEmail(vo.getEmail());
+
+		model.addAttribute("managerVO", dto);
+		logger.info("dto===============>" + dto);
 
 	}
 }

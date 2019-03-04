@@ -9,7 +9,7 @@
 <result column="email" property="managerCode.email"/>
 <result column="phone" property="managerCode.phone"/>
 <result column="id" property="managerCode.id"/>
-<result column="is_notice" property="isNotice"/>
+<result column="isNotice" property="isNotice"/>
 <collection property="files" column="files" javaType="java.util.ArrayList" select="listSearch"/>
 </resultMap>
 
@@ -19,10 +19,7 @@
 </insert>
 	
 	<select id="read"  resultMap="ResultNotice">
-		select * from notice left join customer 
-		on customer.code=board.customer_code
-		left join airport
-		on customer.code=airport.code
+		select * from notice 
 		where no=#{no}
 	
 	</select>

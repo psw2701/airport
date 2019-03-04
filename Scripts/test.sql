@@ -115,3 +115,9 @@ select * from notice
 		left join manager on manager.code=notice.manager_code
 		order by no desc
 		limit 1, 1;
+
+	select * from manager  
+		where id = 'qwerqwerqwer' and passwd = password('rootroot')
+		
+select * from notice 
+		where no=#{no}		

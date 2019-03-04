@@ -5,6 +5,9 @@
 		insert into manager(code, name, id, passwd, phone, email) 
 		values((#{code}, #{name}, #{id}, password(#{passwd}), #{phone}, #{email})
 	</insert>
-	
-	<select id="read"></select>
+
+	<select id="login" resultType="ManagerVO">
+		select * from manager  
+		where id = #{id} and passwd = password(#{passwd})
+	</select>
 </mapper>

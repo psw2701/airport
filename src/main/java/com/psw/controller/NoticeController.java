@@ -67,7 +67,7 @@ public class NoticeController {
 	public void read(@RequestParam("no") int no, SearchCriteria cri, Model model) {
 		NoticeVO vo = service.read(no);
 		service.addCnt(no);
-		model.addAttribute("NoticeVO", vo);
+		model.addAttribute("noticeVO", vo);
 		model.addAttribute("cri", cri);
 	}
 

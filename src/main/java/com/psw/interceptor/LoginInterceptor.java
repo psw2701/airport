@@ -31,9 +31,23 @@ public class LoginInterceptor implements HandlerInterceptor {
 		logger.info("------ login postHandle");
 
 		LoginDTO dto = (LoginDTO) modelAndView.getModel().get("customerVO");
+		
 		if (dto != null) {// 회원이 로그인 시도
 			HttpSession session = request.getSession();
 			session.setAttribute(LOGIN, dto);
+
+			Object dest = session.getAttribute("dest");
+			String path = dest != null ? (String) dest
+					: request.getContextPath();
+			System.out.println("login success: path :"+path);
+			response.sendRedirect(path);
+		}
+		
+		LoginDTO mdto = (LoginDTO) modelAndView.getModel().get("managerVO");
+		
+		if(mdto != null) {// 직원이 로그인 시도
+			HttpSession session = request.getSession();
+			session.setAttribute(LOGIN, mdto);
 
 			Object dest = session.getAttribute("dest");
 			String path = dest != null ? (String) dest

@@ -40,6 +40,10 @@
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 		<interceptor>
+			<mapping path="/user/mLogin"/>
+			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+		<interceptor>
 			<mapping path="/board/register"/>
 			<mapping path="/board/read"/>
 			<mapping path="/board/remove"/>

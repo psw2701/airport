@@ -11,18 +11,19 @@
 <div id="cusvoc">  			
 <div id="joinform">	
 	<div class="container mt-3">
-		<h3 class="box-title">고객의 소리 입니다.</h3>
+		<h3 class="box-title">공지사항</h3>
 		<hr>
 			<label>제목</label>
-			<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${boardVO.title }" readonly="readonly">
+			<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${noticeVO.title }" readonly="readonly">
 			
 			<label>내용</label><br>
-			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" readonly="readonly">${boardVO.content }</textarea><br>
+			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" readonly="readonly">${noticeVO.content }</textarea><br>
 						
 			<label>작성자</label>
-			<input type="text" name="writer" class="form-control" placeholder="Enter Writer"  value="${boardVO.cusCode.name }" readonly="readonly">
+			${noticeVO.managerCode.name }
+			<input type="text" name="writer" class="form-control" placeholder="Enter Writer"  value="${noticeVO.managerCode.name }" readonly="readonly">
 			<div class="form-group">	 
-				<c:forEach var="file" items="${boardVO.files }">
+				<c:forEach var="file" items="${noticeVO.files }">
 					<div class="item" id="previewBox">
 						<img alt="" src="displayFile?filename=${file }">
 						<span>${fn:substring(file,51,-1) }</span>
@@ -37,64 +38,22 @@
       		</div>	
 					
 			<form id="f1" action="" method="post">
-				<input type="hidden" name="no" value="${boardVO.no }">
+				<input type="hidden" name="no" value="${noticeVO.no }">
 				<input type="hidden" name="page" value="${cri.page }">
 				<input type="hidden" name="searchType" value="${cri.searchType}">
 				<input type="hidden" name="keyword" value="${cri.keyword}">
 			</form>				
 	</div>
 	
-	<div class="container mt-3" > <!-- style="display:none;" -->
-		<h3 class="box-title">고객의 소리 처리결과 입니다.</h3>
-		<hr>
-			<label>작성자</label>
-			<input type="text" class="form-control" placeholder="User Id" id="newReplyWriter" readonly="readonly">
-			<label>내용</label><br>
-			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content2"></textarea><br>
-			
-			<ul class="timeline">
-				<li class="time-label" id="repliesDiv">
-				<%-- 	<span class="bg-green" >Replies List <span id="replycnt">[${boardVO.replycnt }]</span></span> --%>
-				</li>
-				
-				
-			</ul>
-			<div class="text-center">
-				<ul id="pagination" class="pagination pagination-sm no-margin">
-				</ul>
-			</div>
-	</div>
-	
-	
-	
 </div>
 </div>
-	<!-- <div id="modifyModal" class="modal modal-primary fade" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-				
-				</div>
-				<div class="modal-body">
-					<p><input type="text" id="replytext" class="form-control"></p>내용 들어감 
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-info" id="btnReplyMod"  data-rno="" >Modify</button>
-					<button type="button" class="btn btn-default" data-dismiss=modal>Close</button>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <script>
 	
 	 $(function() {
 		$("#btnList").click(function() {
-			location.href = "${pageContext.request.contextPath}/board/list?no=${boardVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
+			location.href = "${pageContext.request.contextPath}/notice/list?no=${noticeVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
 			$("#f1").attr("action", "list");
 			$("#f1").attr("method", "get");
 			$("#f1").submit();
@@ -102,7 +61,7 @@
 		})
 		$("#btnRemove").click(function() {
 			//#f1(form)를 submit 보냄
-			location.href = "${pageContext.request.contextPath}/board/list?no=${boardVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
+			location.href = "${pageContext.request.contextPath}/notice/list?no=${noticeVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
 			$("#f1").attr("method", "post");
 			$("#f1").attr("action", "remove");
 			$("#f1").submit();
@@ -112,7 +71,7 @@
 			$("#f1").attr("action", "modifyPage");
 			$("#f1").attr("method", "get");
 			$("#f1").submit();
-			location.href = "${pageContext.request.contextPath}/board/modify?no=${boardVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
+			location.href = "${pageContext.request.contextPath}/notice/modify?no=${noticeVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
 		})
 	}) 
 </script>
