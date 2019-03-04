@@ -9,13 +9,13 @@
 <result column="email" property="managerCode.email"/>
 <result column="phone" property="managerCode.phone"/>
 <result column="id" property="managerCode.id"/>
-<result column="isNotice" property="isNotice"/>
+<result column="is_notice" property="isNotice"/>
 <collection property="files" column="files" javaType="java.util.ArrayList" select="listSearch"/>
 </resultMap>
 
 <insert id="insert" useGeneratedKeys="true" keyProperty="no">
 		insert into notice (title, content, is_notice, manager_code)
-		values(#{title}, #{content}, #{is_notice}, #{manager_code})
+		values(#{title}, #{content}, #{isNotice}, #{manager_code})
 </insert>
 	
 	<select id="read"  resultMap="ResultNotice">
