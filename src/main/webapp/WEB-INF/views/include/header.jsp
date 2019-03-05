@@ -688,14 +688,14 @@ h4, .modal-title{
 									</li>
 								</ul>
 							</div>
-						</li>
+						</li> 
 						
 						<li class="navi1m-loop" id="top_web_482">
-							<a href="#" class="navi1m">교통/주차</a>
+							<a href="${pageContext.request.contextPath }/traffic/come" class="navi1m">교통/주차</a>
 							<div class="navi2m" style="display: none; height: 155px; padding-top: 20px; margin-top: 0px; padding-bottom: 20px; margin-bottom: 0px;">
 								<ul>
 									<li>
-									<a href="#"><span>오시는길</span></a>
+									<a href="${pageContext.request.contextPath }/traffic/come"><span>오시는길</span></a>
 									</li>
 									<li>
 									
@@ -707,7 +707,7 @@ h4, .modal-title{
 									
 									</li>
 									<li>
-									<a href="#"><span>주차안내</span></a>
+									<a href="${pageContext.request.contextPath }/traffic/park"><span>주차안내</span></a>
 									</li>
 								</ul>
 							</div>

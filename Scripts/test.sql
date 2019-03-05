@@ -158,3 +158,10 @@ where no = 12;
 
 
 select *from notice;
+
+insert into notice(title, content, reg_date, view_cnt, file, is_notice, manager_code)
+(select title, content, reg_date, view_cnt, file, is_notice, manager_code from notice);
+
+
+
+
