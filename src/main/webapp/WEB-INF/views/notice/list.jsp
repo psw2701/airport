@@ -62,7 +62,12 @@
 						<tbody>
 							 <c:forEach items="${list }" var="noticeVO">
 								<tr>
-									<td>${noticeVO.no }</td>
+									<c:if test="${noticeVO.notice ==true}">
+										<td>[ 공지 ]</td>
+									</c:if>
+									<c:if test="${noticeVO.notice ==false}">
+										<td>${noticeVO.no }</td>
+									</c:if>
 									<td><a href="${pageContext.request.contextPath}/notice/read?no=${noticeVO.no}&page=${pageMaker.cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}">${noticeVO.title } </a></td>
 									<td>${noticeVO.managerCode.name }</td> 
 									<td><fmt:formatDate value="${noticeVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>

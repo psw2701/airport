@@ -45,5 +45,7 @@ public interface NoticeDAO {
 	public void deleteAttachByFullName(int no, String fullname);
 
 	public void addAttachByBno(String fullname, int no);
+	
+	public List<NoticeVO> notice(SearchCriteria cri);
 
 }

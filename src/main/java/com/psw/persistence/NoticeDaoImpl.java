@@ -136,4 +136,10 @@ public class NoticeDaoImpl implements NoticeDAO {
 		sqlSession.insert(namespace + ".addAttachByBno", map);
 	}
 
+	@Override
+	public List<NoticeVO> notice(SearchCriteria cri) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace + ".notice", cri);
+	}
+
 }

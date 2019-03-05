@@ -63,10 +63,13 @@
 		})
 		$("#btnRemove").click(function() {
 			//#f1(form)를 submit 보냄
-			location.href = "${pageContext.request.contextPath}/notice/list?no=${noticeVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
-			$("#f1").attr("method", "post");
-			$("#f1").attr("action", "remove");
-			$("#f1").submit();
+			if(confirm("정말로 삭제하시겠습니까?")){
+				location.href = "${pageContext.request.contextPath}/notice/list?no=${noticeVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
+				$("#f1").attr("method", "post");
+				$("#f1").attr("action", "remove");
+				$("#f1").submit();
+			}
+			
 
 		})
 		$("#btnModify").click(function() {

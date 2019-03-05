@@ -112,4 +112,10 @@ public class NoticeServiceImpl implements NoticeService {
 		dao.delImg(no);
 	}
 
+	@Override
+	public List<NoticeVO> notice(SearchCriteria cri) {
+		// TODO Auto-generated method stub
+		return dao.notice(cri);
+	}
+
 }

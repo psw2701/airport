@@ -122,3 +122,39 @@ select * from notice
 select * from notice
 left join manager on manager.code=notice.manager_code
 		where no=1;
+		
+	
+update notice 
+set title=#{title}, content=#{content},is_notice=#{isNotice}
+		where no = #{no}	
+		
+		
+insert into notice(title, content, writer)
+(select title, content, writer from tbl_board);	
+
+
+select * from notice
+where is_notice = 1;
+
+select * from notice
+where is_notice =0;
+
+select * from notice
+left join manager on manager.code=notice.manager_code
+	where is_notice = 1
+	order by no desc
+	
+select * from board;
+
+select * from board
+where open = 1
+
+select * from notice;
+order by no desc;
+
+update notice 
+set title='수정', content='수정',is_notice=true
+where no = 12;
+
+
+select *from notice;

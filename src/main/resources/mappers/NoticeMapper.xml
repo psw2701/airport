@@ -17,6 +17,15 @@
 		insert into notice (title, content, is_notice, manager_code)
 		values(#{title}, #{content}, #{isNotice}, #{managerCode.code})
 </insert>
+
+<select id="notice" resultMap="ResultNotice">
+	select * from notice
+	left join manager on manager.code=notice.manager_code
+	where is_notice = 1
+	order by no desc
+</select>
+
+
 	
 	<select id="read"  resultMap="ResultNotice">
 		select * from notice 
@@ -27,7 +36,7 @@
 	
 	<update id="update">
 		update notice 
-		set title=#{title}, content=#{content}, airport_code=#{airportCode.code}, open=#{open}, required=#{required}
+		set title=#{title}, content=#{content}, is_notice=#{isNotice}
 		where no = #{no}
 	</update>
 	
@@ -62,22 +71,25 @@
 	
 	<sql id="search">
 		<if test="searchType=='t'.toString()">
-			where title like concat('%', #{keyword},'%')
+			where title like concat('%', #{keyword},'%') and is_notice = 0
 		</if>
 		<if test="searchType=='c'.toString()">
-			where content like concat('%', #{keyword},'%')
+			where content like concat('%', #{keyword},'%') and is_notice = 0
 		</if>
 		<if test="searchType=='w'.toString()">
-			where writer like concat('%', #{keyword},'%')
+			where writer like concat('%', #{keyword},'%') and is_notice = 0
 		</if>
 		<if test="searchType=='tc'.toString()">
-			where title like concat('%', #{keyword},'%') or content like concat('%', #{keyword},'%')
+			where title like concat('%', #{keyword},'%') or content like concat('%', #{keyword},'%') and is_notice = 0
 		</if>
 		<if test="searchType=='cw'.toString()">
-			where content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%')
+			where content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%') and is_notice = 0
 		</if>
 		<if test="searchType=='tcw'.toString()">
-			where title like concat('%', #{keyword},'%')or content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%')
+			where title like concat('%', #{keyword},'%')or content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%') and is_notice = 0
+		</if>
+		<if test="searchType==''.toString()||searchType==null">
+			where is_notice = 0
 		</if>
 	</sql>
 	

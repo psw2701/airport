@@ -31,8 +31,8 @@
   
     <label>공지</label>  	
  	<div class="radio">
-      <label><input type="radio" name=isNotice checked value="true">예</label>
-      <label><input type="radio" name="isNotice" value="false">아니오</label>
+      <label><input type="radio" name="notice" checked value="true">예</label>
+      <label><input type="radio" name="notice" value="false">아니오</label>
     </div>
 	
       <div class="clearfix">

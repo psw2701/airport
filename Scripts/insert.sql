@@ -68,4 +68,40 @@ insert into airport.airport(code, name) values('ICN','인천국제공항' ),
 insert into manager(code, name, id, passwd, phone, email) 
 			values('M001', '나직원', 'qwerqwerqwer', password('rootroot'), '010-5858-6565', 'qwerqwerqwer@naver.com'),
 					('M002', '너직원', 'qqqq', password('123456789'), '011-5454-8787', 'qqqq@daum.net');
+				
+				
+INSERT INTO notice (title, content, reg_date, view_cnt, file, is_notice, manager_code)
+VALUES('공지사항1', '공지사항', sysdate(), 0, null, 1, 'M001'),
+('공지사항2', '공지사항', sysdate(), 0, null, 1, 'M002'),
+('공지사항3', '공지사항', sysdate(), 0, null, 1, 'M001'),
+('공지사항4', '공지사항', sysdate(), 0, null, 1, 'M001'),
+('공지사항5', '공지사항', sysdate(), 0, null, 1, 'M002'),
+('공지1', '공지사항', sysdate(), 0, null, 0, 'M002'),
+('공지2', '공지사항', sysdate(), 0, null, 0, 'M002'),
+('공지3', '공지사항', sysdate(), 0, null, 0, 'M001'),
+('공지4', '공지사항', sysdate(), 0, null, 0, 'M001'),
+('공지5', '공지사항', sysdate(), 0, null, 0, 'M002'),
+('공지6', '공지사항', sysdate(), 0, null, 0, 'M002'),
+('공지7', '공지사항', sysdate(), 0, null, 0, 'M001');
+
+
+INSERT INTO board
+(title, content, required, `open`, reg_date, view_cnt, progress, customer_code, airport_code, reply_cnt)
+VALUES('고객1', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객2', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객3', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객4', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객5', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리1', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리2', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리3', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리4', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리5', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리6', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리7', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리8', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리9', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리10', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0);
+
+
 

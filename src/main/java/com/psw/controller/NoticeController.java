@@ -50,16 +50,25 @@ public class NoticeController {
 	private NoticeService service;
 
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public void list(SearchCriteria cri, Model model) {
+	public void list(NoticeVO vo,SearchCriteria cri, Model model) {
 		logger.info("list ----- get");
 		System.out.println(cri);
+		
+		
+		List<NoticeVO> noticeList=service.notice(cri);
+		int cntNotice = noticeList.size();
+		int cntPage = cri.getPerPageNum();
+		cri.setPerPageNum(cntPage-cntNotice);
 		List<NoticeVO> list = service.listSearch(cri);
-
+		noticeList.addAll(list);
+		System.out.println("================>"+list.size());
+		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.searchTotalCount(cri));
-
-		model.addAttribute("list", list);
+		
+		model.addAttribute("noticeVO", vo);
+		model.addAttribute("list", noticeList);
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("cri", cri);
 	}
@@ -138,7 +147,7 @@ public class NoticeController {
 
 		vo = service.read(no);
 
-		model.addAttribute("NoticeVO", vo);
+		model.addAttribute("noticeVO", vo);
 		model.addAttribute("cri", cri);
 
 		logger.info("NoticeVO=========>" + vo);
@@ -146,7 +155,7 @@ public class NoticeController {
 
 	@RequestMapping(value = "modify", method = RequestMethod.POST)
 	public String modifyPost(NoticeVO vo, SearchCriteria cri, Model model, String[] delFiles, CustomerVO cusVO,
-			String AirCode, List<MultipartFile> addFiles) throws IOException {
+			String AirCode, List<MultipartFile> imageFiles) throws IOException {
 		logger.info("modify ----- Post");
 
 		System.out.println("cri--------------->" + cri);
@@ -166,8 +175,8 @@ public class NoticeController {
 			}
 		}
 		List<String> addImages = new ArrayList<>();
-		if (addFiles != null) {
-			for (MultipartFile file : addFiles) {
+		if (imageFiles != null) {
+			for (MultipartFile file : imageFiles) {
 				logger.info("file name : " + file.getOriginalFilename());
 				logger.info("file size : " + file.getSize());
 
@@ -181,6 +190,7 @@ public class NoticeController {
 		}
 
 		service.modifyFile(vo, delFiles, addImages);
+		logger.info("=======>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+vo);
 		model.addAttribute("page", cri.getPage());
 		model.addAttribute("searchType", cri.getSearchType());
 		model.addAttribute("keyword", cri.getKeyword());

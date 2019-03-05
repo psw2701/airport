@@ -31,5 +31,6 @@ public interface NoticeService {
 	public int searchTotalCount(SearchCriteria cri);
 
 	public void delImg(int no);
-
+	
+	public List<NoticeVO> notice(SearchCriteria cri);
 }
