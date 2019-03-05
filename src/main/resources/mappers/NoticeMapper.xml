@@ -15,11 +15,12 @@
 
 <insert id="insert" useGeneratedKeys="true" keyProperty="no">
 		insert into notice (title, content, is_notice, manager_code)
-		values(#{title}, #{content}, #{isNotice}, #{manager_code})
+		values(#{title}, #{content}, #{isNotice}, #{managerCode.code})
 </insert>
 	
 	<select id="read"  resultMap="ResultNotice">
 		select * from notice 
+		left join manager on manager.code=notice.manager_code
 		where no=#{no}
 	
 	</select>

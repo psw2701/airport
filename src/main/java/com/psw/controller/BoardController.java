@@ -105,12 +105,15 @@ public class BoardController {
 
 		List<String> files = new ArrayList<>();
 		for (MultipartFile file : imageFiles) {
-			logger.info("file name : " + file.getOriginalFilename());
-			logger.info("file size : " + file.getSize());
+			if(file.getSize()!=0) {
+				logger.info("file name : " + file.getOriginalFilename());
+				logger.info("file size : " + file.getSize());
 
-			String thumbPath = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+				String thumbPath = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
 
-			files.add(thumbPath);
+				files.add(thumbPath);
+			}
+			
 
 		}
 		vo.setFiles(files);

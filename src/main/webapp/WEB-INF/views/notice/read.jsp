@@ -20,7 +20,7 @@
 			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" readonly="readonly">${noticeVO.content }</textarea><br>
 						
 			<label>작성자</label>
-			${noticeVO.managerCode.name }
+			
 			<input type="text" name="writer" class="form-control" placeholder="Enter Writer"  value="${noticeVO.managerCode.name }" readonly="readonly">
 			<div class="form-group">	 
 				<c:forEach var="file" items="${noticeVO.files }">
@@ -32,9 +32,11 @@
 			</div> 
 					
 			<div class="clearfix">
-       			<button type="submit" class="btn btn-primary" id="btnList">목록</button>
-						<button type="submit" class="btn btn-warning" id="btnModify">수정</button>
-						<button type="submit" class="btn btn-danger" id="btnRemove">제거</button>
+       			<c:if test="${login.mngCode !=null }">
+	       			<button type="submit" class="btn btn-primary" id="btnList">목록</button>
+					<button type="submit" class="btn btn-warning" id="btnModify">수정</button>
+					<button type="submit" class="btn btn-danger" id="btnRemove">제거</button>
+				</c:if>
       		</div>	
 					
 			<form id="f1" action="" method="post">

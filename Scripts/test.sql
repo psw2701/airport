@@ -119,5 +119,6 @@ select * from notice
 	select * from manager  
 		where id = 'qwerqwerqwer' and passwd = password('rootroot')
 		
-select * from notice 
-		where no=#{no}		
+select * from notice
+left join manager on manager.code=notice.manager_code
+		where no=1;

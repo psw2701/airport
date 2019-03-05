@@ -77,7 +77,7 @@ public class UserController {
 		dto.setName(vo.getName());
 		dto.setPhone(vo.getPhone());
 		dto.setEmail(vo.getEmail());
-
+		dto.setMngCode(vo.getCode());
 		model.addAttribute("managerVO", dto);
 		logger.info("dto===============>" + dto);
 

@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
-    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aa   " rel="stylesheet"  type="text/css">
+    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aaaaaaaaaaa" rel="stylesheet"  type="text/css">
 
 
 <div id="customer_container">

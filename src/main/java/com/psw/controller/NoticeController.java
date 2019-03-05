@@ -30,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.psw.domain.CustomerVO;
 import com.psw.domain.LoginDTO;
+import com.psw.domain.ManagerVO;
 import com.psw.domain.NoticeVO;
 import com.psw.domain.PageMaker;
 import com.psw.domain.SearchCriteria;
@@ -83,24 +84,29 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
-	public String registerPost(NoticeVO vo, CustomerVO cusVO, List<MultipartFile> imageFiles, Model model)
+	public String registerPost(NoticeVO vo, ManagerVO mngVO, List<MultipartFile> imageFiles, Model model)
 			throws IOException {
 		logger.info("register ----- Post");
 
 		List<String> files = new ArrayList<>();
+		
 		for (MultipartFile file : imageFiles) {
-			logger.info("file name : " + file.getOriginalFilename());
-			logger.info("file size : " + file.getSize());
+			if(file.getSize()!=0) {
+				logger.info("file name : " + file.getOriginalFilename());
+				logger.info("file size : " + file.getSize());
 
-			String thumbPath = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+				String thumbPath = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
 
-			files.add(thumbPath);
+				files.add(thumbPath);
 
+			}
+			
 		}
 		vo.setFiles(files);
 
 		logger.info("vo==================================>>>>" + vo);
-		logger.info("cusVO=========>" + cusVO);
+		logger.info("mngVO=========>" + mngVO);
+		vo.setManagerCode(mngVO);
 		service.regist(vo);
 
 		model.addAttribute("result", "success");

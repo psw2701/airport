@@ -10,8 +10,8 @@
 <div id="customer_container">
 	<!--  탭메뉴 -->
 	<ul class="nav nav-pills  nav-justified" role="tablist">
-		<li role="presentation" class="on"><a href="${pageContext.request.contextPath }/boardInfo/security" >기내반입금지물품</a></li>
-		<li role="presentation" ><a href="${pageContext.request.contextPath }/boardInfo/lithium" >리튬배터리 휴대기준</a></li>
+		<li role="presentation" ><a href="${pageContext.request.contextPath }/boardInfo/security" >기내반입금지물품</a></li>
+		<li role="presentation" class="on"><a href="${pageContext.request.contextPath }/boardInfo/lithium" >리튬배터리 휴대기준</a></li>
 		<li role="presentation" ><a href="${pageContext.request.contextPath }/boardInfo/cultural" >문화재 반출입 제한</a></li>
 	</ul>
 

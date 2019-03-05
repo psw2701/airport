@@ -4,13 +4,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../include/header.jsp"%>
-    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aaaaa" rel="stylesheet"  type="text/css">
+    <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aaaaaaaaaaasssaa" rel="stylesheet"  type="text/css">
 <div id="container">
 <div id="customer_container">
 	<!--  탭메뉴 -->
 	<ul class="nav nav-pills  nav-justified" role="tablist">
-		<li role="presentation" class="on"><a href="${pageContext.request.contextPath }/airportInfo/pregnantchildren" >임산부 및 유아, 어린이 동반</a></li>
-		<li role="presentation" ><a href="${pageContext.request.contextPath }/airportInfo/trafficAbbreviation" >교통약자 동반</a></li>
+		<li role="presentation" ><a href="${pageContext.request.contextPath }/airportInfo/pregnantchildren" >임산부 및 유아, 어린이 동반</a></li>
+		<li role="presentation" class="on"><a href="${pageContext.request.contextPath }/airportInfo/trafficAbbreviation" >교통약자 동반</a></li>
 		<li role="presentation" ><a href="${pageContext.request.contextPath }/airportInfo/pets" >애완동물 동반</a></li>
 		<li role="presentation" ><a href="${pageContext.request.contextPath }/airportInfo/business" >기업인우대</a></li>
 	</ul>

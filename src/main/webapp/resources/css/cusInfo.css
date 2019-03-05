@@ -35,9 +35,9 @@
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover, .nav-pills>li.on>a, .nav-pills>li.on>a:focus, .nav-pills>li.on>a:hover{
-	border-top: 1px solid #ccc;
-	border-right:1px solid #ccc;
-	border-left:1px solid #ccc;
+	border-top: 3px solid #aaa;
+	border-right:3px solid #aaa;
+	border-left:3px solid #aaa;
 	background:#f4f4f4;
 }
 .nav-pills>li>a{

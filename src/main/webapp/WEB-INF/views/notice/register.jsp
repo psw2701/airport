@@ -13,6 +13,8 @@
       <h2><b>공지사항 등록</b></h2>
      
       <hr>
+      
+       <input type="hidden" name="code" value="${login.mngCode }"> 
 
 	<label>이름</label>
 	<input type="text" name="name" class="form-control" placeholder="Enter Name" value="${login.name }" readonly="readonly">
@@ -25,7 +27,7 @@
 	<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required"></textarea><br>
       
  	<label>첨부파일</label><br>
-	<input type="file" name="file" class="form-control" placeholder="이미지를 선택하세요" multiple="multiple"> 
+	<input type="file" name="imageFiles" class="form-control" placeholder="이미지를 선택하세요" multiple="multiple"> 
   
     <label>공지</label>  	
  	<div class="radio">

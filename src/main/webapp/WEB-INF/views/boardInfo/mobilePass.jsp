@@ -3,15 +3,15 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
-<link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aa" rel="stylesheet"  type="text/css">
-<link href="${pageContext.request.contextPath }/resources/css/mobilePass.css?Aaaaa" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?aaaaaa" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/mobilePass.css?Aaaaaaaaa" rel="stylesheet"  type="text/css">
 
 
 <div id="customer_container">
 		
 	<ul class="nav nav-pills  nav-justified" role="tablist">
-		<li role="presentation" class="on"><a href="${pageContext.request.contextPath }/boardInfo/homePass">홈탑승권 서비스</a></li>
-		<li role="presentation"><a href="${pageContext.request.contextPath }/boardInfo/mobilePass">모바일탑승권 서비스</a></li>
+		<li role="presentation" ><a href="${pageContext.request.contextPath }/boardInfo/homePass">홈탑승권 서비스</a></li>
+		<li role="presentation"class="on"><a href="${pageContext.request.contextPath }/boardInfo/mobilePass">모바일탑승권 서비스</a></li>
 	</ul>
    
                       

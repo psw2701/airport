@@ -35,7 +35,12 @@
 					</select>
 					<input type="text" name="keyword" id="keywordInput">
 					<button id="btnSearch" class="btn btn-default">Search</button>
+					
+				
+					<c:if test="${login.mngCode !=null }">
 					<button id="btnNewNotice" class="btn btn-default">New Notice</button>
+					</c:if>
+					
 				</div>
 				</div>
 			<div class="box">
