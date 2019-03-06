@@ -83,12 +83,6 @@
 				$(this).parent().remove();
 					})
 			</script>
-						
-		<label>답변필요여부</label>  
- 			<div class="radio">
-      			<label><input type="radio" name=required value="true" ${boardVO.required == 'true' ? 'checked' : ''}>예</label>
-      			<label><input type="radio" name="required" value="false" ${boardVO.required == 'false' ? 'checked' : ''}>아니오</label>
-    		</div>
 	
 		<label>공개여부</label>  
 			<div class="radio">

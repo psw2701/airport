@@ -129,22 +129,22 @@ VALUES('주차장 요금 사후할인 신청서', '증빙서류 미비로 출차
 
 
 INSERT INTO board
-(title, content, required, `open`, reg_date, view_cnt, progress, customer_code, airport_code, reply_cnt)
-VALUES('고객1', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객2', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객3', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객4', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객5', '내용입니다', 0, 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리1', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리2', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리3', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리4', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리5', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리6', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리7', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리8', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리9', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
-('고객의 소리10', '내용입니다', 0, 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0);
+(title, content, `open`, reg_date, view_cnt, progress, customer_code, airport_code, reply_cnt)
+VALUES('고객1', '내용입니다', 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객2', '내용입니다', 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객3', '내용입니다', 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객4', '내용입니다', 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객5', '내용입니다', 1, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리1', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리2', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리3', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리4', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리5', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리6', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리7', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리8', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리9', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0),
+('고객의 소리10', '내용입니다', 0, sysdate(), 0, '처리중', 'C001', 'GMP', 0);
 
 insert into notice(title, content, reg_date, view_cnt, file, is_notice, manager_code)
 (select title, content, reg_date, view_cnt, file, is_notice, manager_code from notice);

@@ -9,7 +9,6 @@ CREATE TABLE airport.board (
 	no            INT         NOT NULL COMMENT '게시판번호', -- 게시판번호
 	title         TEXT        NOT NULL COMMENT '제목', -- 제목
 	content       TEXT        NOT NULL COMMENT '내용', -- 내용
-	required      TINYINT(1)  NOT NULL COMMENT '답변필요여부', -- 답변필요여부
 	open          TINYINT(1)  NOT NULL COMMENT '공개여부', -- 공개여부
 	reg_date      TIMESTAMP   NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
 	view_cnt      INT         NOT NULL DEFAULT 0 COMMENT '조회수', -- 조회수

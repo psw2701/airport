@@ -48,6 +48,7 @@
 			<mapping path="/board/read"/>
 			<mapping path="/board/remove"/>
 			<mapping path="/board/modify"/>
+			<mapping path="/notice/register"/>
 			<beans:ref bean="AuthInterceptor"/>
 		</interceptor>
 	</interceptors>

@@ -11,7 +11,6 @@ public class BoardVO {
 	private int viewCnt;
 	private boolean open;
 	private String progress;
-	private boolean required;
 	private List<String> files; // 첨부파일
 	private CustomerVO cusCode; // 고객코드
 	private AirportVO airportCode; // 공항코드
@@ -77,14 +76,6 @@ public class BoardVO {
 		this.progress = progress;
 	}
 
-	public boolean isRequired() {
-		return required;
-	}
-
-	public void setRequired(boolean required) {
-		this.required = required;
-	}
-
 	public List<String> getFiles() {
 		return files;
 	}
@@ -120,8 +111,8 @@ public class BoardVO {
 	@Override
 	public String toString() {
 		return "BoardVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", viewCnt="
-				+ viewCnt + ", open=" + open + ", progress=" + progress + ", required=" + required + ", files=" + files
-				+ ", cusCode=" + cusCode + ", airportCode=" + airportCode + ", replyCnt=" + replyCnt + "]";
+				+ viewCnt + ", open=" + open + ", progress=" + progress + ", files=" + files + ", cusCode=" + cusCode
+				+ ", airportCode=" + airportCode + ", replyCnt=" + replyCnt + "]";
 	}
 
 }

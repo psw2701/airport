@@ -15,8 +15,8 @@
 
 
 	<insert id="insert" useGeneratedKeys="true" keyProperty="no">
-		insert into board(title, content, required, open, customer_code, airport_code )
-		values(#{title}, #{content}, #{required}, #{open}, #{cusCode.code}, #{airportCode.code})
+		insert into board(title, content, open, customer_code, airport_code )
+		values(#{title}, #{content},  #{open}, #{cusCode.code}, #{airportCode.code})
 	</insert>
 	
 	<select id="read"  resultMap="ResultBoard">
@@ -30,7 +30,7 @@
 	
 	<update id="update">
 		update board 
-		set title=#{title}, content=#{content}, airport_code=#{airportCode.code}, open=#{open}, required=#{required}
+		set title=#{title}, content=#{content}, airport_code=#{airportCode.code}, open=#{open}
 		where no = #{no}
 	</update>
 	

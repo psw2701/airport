@@ -55,21 +55,26 @@
 							</tr>
 						</thead>
 						<tbody>
+						
 							 <c:forEach items="${list }" var="boardVO">
-				
+									
 								<tr>
-									<td>${boardVO.no }</td>
+							
+
+								<td>${boardVO.no }</td>
 									<td><a href="${pageContext.request.contextPath}/board/read?no=${boardVO.no}&page=${pageMaker.cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}">${boardVO.title } </a></td>
 									<td>${boardVO.cusCode.name }</td> 
 									<td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 									<td>${boardVO.progress }</td>
 									<%-- <td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td> --%>
 									<td><span class="badge bg-red">${boardVO.viewCnt }</span></td>
+									<td>${boardVO.open}</td>
+								
+
 								</tr>
 								
-								
-							
 							</c:forEach> 
+						
 						</tbody>
 					</table>
 				</div>

@@ -52,12 +52,6 @@
       
  	<label>첨부파일</label><br>
 	<input type="file" name="file" class="form-control" placeholder="이미지를 선택하세요" multiple="multiple" value="${BoardVO.file }"> 
-    
-	<label>답변필요여부</label>  
- 	<div class="radio">
-      <label><input type="radio" name=required checked value="true">예</label>
-      <label><input type="radio" name="required" value="false">아니오</label>
-    </div>
 	
 	<label>공개여부</label>  
 	<div class="radio">

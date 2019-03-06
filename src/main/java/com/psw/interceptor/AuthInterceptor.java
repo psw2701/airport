@@ -18,7 +18,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
+			throws Exception {//controller 가기 전 발생 
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		LoginDTO dto = (LoginDTO) session.getAttribute("login");

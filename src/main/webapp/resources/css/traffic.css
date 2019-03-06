@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.txt_dg3{
+	color: #323232;
+}
+.img-responsive{
+	width: 100%;
+}
+.b1{
+	border: 1px solid #c7c7c7;
+}
+.map_info{
+	min-height: 356px;
+    border-top: 2px solid #e3e3e3;
+    border-bottom: 2px solid #e3e3e3;
+    padding: 30px 0;
+}
+.location_title{
+	border-bottom: 1px solid #5c5c5c;
+    color: #333;
+    font-size: 130%;
+    margin-bottom: 20px;
+}
+.dl_list dt{
+	background: url("../images/dot6.png") no-repeat 0 8px;
+	padding-left: 14px;
+    color: #494949;
+    font-size: 105%;
+}
+.dl_list dd{
+	padding-left: 14px;
+    font-size: 95%;
+    margin-bottom: 20px;
+}
+.ul_list4{
+	letter-spacing: -.05em;
+}
+.ul_list4 li{
+	background: url("../images/dot6.png") no-repeat 0 8px;
+	padding-left: 12px;
+}
+.ul_list4 li strong{
+	font-weight: 700;
+    font-size: 105%;
+    color: #333;
+}
