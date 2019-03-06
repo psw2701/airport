@@ -30,5 +30,8 @@ public interface BoardService {
 	public int searchTotalCount(SearchCriteria cri);
 
 	public void delImg(int no);
+	
+	public List<BoardVO> listSearchMyBoard (SearchCriteria cri, String cusCode);
 
+	public int searchTotalCountMy(SearchCriteria cri, String cusCode);
 }

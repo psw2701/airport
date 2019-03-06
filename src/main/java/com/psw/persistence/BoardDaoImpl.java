@@ -135,4 +135,23 @@ public class BoardDaoImpl implements BoardDAO {
 		sqlSession.insert(namespace + ".addAttachByBno", map);
 	}
 
+	@Override
+	public List<BoardVO> listSearchMyBoard(SearchCriteria cri, String cusCode) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<>();
+		map.put("cri", cri);
+		map.put("cusCode", cusCode);
+		
+		return sqlSession.selectList(namespace+".listSearchMyBoard", map);
+	}
+
+	@Override
+	public int searchTotalCountMy(SearchCriteria cri, String cusCode) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<>();
+		map.put("cri", cri);
+		map.put("cusCode", cusCode);
+		return sqlSession.selectOne(namespace + ".searchTotalCountMy", map);
+	}
+
 }

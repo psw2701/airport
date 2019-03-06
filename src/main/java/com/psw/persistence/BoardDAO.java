@@ -46,4 +46,8 @@ public interface BoardDAO {
 	public void addAttachByBno(String fullname, int bno);
 
 	/* public BoardVO selectById(BoardV) */
+	
+	public List<BoardVO> listSearchMyBoard (SearchCriteria cri, String cusCode);
+	
+	public int searchTotalCountMy(SearchCriteria cri,String cusCode);
 }

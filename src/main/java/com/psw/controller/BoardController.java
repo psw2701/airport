@@ -22,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -250,5 +251,24 @@ public class BoardController {
 
 		return entity;
 	}
+	
+	@RequestMapping(value = "myBoard", method = RequestMethod.GET)
+	public void myBoard(SearchCriteria cri, Model model, HttpSession session) {
+		logger.info("myBoard ----- get");
+		System.out.println(cri);
+		
+		LoginDTO dto = (LoginDTO) session.getAttribute(LOGIN);
+	
+		List<BoardVO> list = service.listSearchMyBoard(cri, dto.getCusCode());
+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.searchTotalCountMy(cri, dto.getCusCode()));
+
+		model.addAttribute("list", list);
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("cri", cri);
+	}
+
 
 }

@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+hr.thin2{
+	margin-top: 5px;
+    margin-bottom: 5px;
+    border-top-color: #d7d8d8;
+    box-shadow: 1px 1px 0 #fff;
+}
+
+.park_table{
+	width: 100%;
+    font-size: 95%;
+    border-collapse: separate;
+    border: solid #ccc 1px;
+    border-radius: 4px;
+}
+.park_table th{
+	text-align: center;
+    color: #555;
+    font-weight: 400;
+    border-radius: 7px;
+    background: #eee;
+    padding: 3px 12px;
+}
+.park_table td{
+	padding: 3px 12px;
+    border-left: 1px solid #ccc;
+    background: #eee;
+}
+.park_table label{
+	margin-right: 10px !important;
+    margin-left: 0 !important;
+}
+.park_table td input{
+	vertical-align: -1px;
+    position: relative !important;
+    margin-right: 5px;
+}
+.radio-inline input{
+	position: relative;
+	top: 2px;
+}
+
+.input-group .form-control, .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+	z-index: 0;
+}
+
+.form-control{
+	box-shadow: none;
+	border-radius: 3px;
+}
+.datetimepicker, .datepicker{
+	font-size: 90%;
+    background-image: url("../img/calendar_icon2.png");
+    background-repeat: no-repeat;
+    background-position: 94% 50%;
+}
+.input-group-addon{
+	min-width: 73px;
+	font-size: 95%;
+	letter-spacing: -.05em;
+}
+.btn.btn-search{
+	width: 100%;
+	color: #fff;
+	background-color: #2e7aba;
+	box-shadow: none;
+	line-height: 362%;
+	letter-spacing: -.05em;
+}
+
+.txt_dg{
+	color: #333;
+}
+.large2{
+	font-size: 200%;
+}
+
+.price_info{
+	display: inline-block;
+	background: url("../img/line3.gif") repeat-x 0 100%;
+    padding: 0 20px;
+}

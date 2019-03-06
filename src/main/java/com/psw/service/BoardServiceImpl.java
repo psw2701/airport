@@ -116,4 +116,16 @@ public class BoardServiceImpl implements BoardService {
 
 	}
 
+	@Override
+	public List<BoardVO> listSearchMyBoard(SearchCriteria cri, String cusCode) {
+		// TODO Auto-generated method stub
+		return dao.listSearchMyBoard(cri, cusCode);
+	}
+
+	@Override
+	public int searchTotalCountMy(SearchCriteria cri, String cusCode) {
+		// TODO Auto-generated method stub
+		return dao.searchTotalCountMy(cri, cusCode);
+	}
+
 }

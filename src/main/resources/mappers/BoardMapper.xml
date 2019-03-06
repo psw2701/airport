@@ -64,7 +64,7 @@
 		select count(no)
 		from board
 	</select>
-	
+	<!-- ==================================================================================================================================================================== -->
 	<sql id="search">
 		<if test="searchType=='t'.toString()">
 			where title like concat('%', #{keyword},'%')
@@ -105,9 +105,7 @@
 		<if test="searchType==null or searchType.equals('') and isOpenAll.equals(true)"  >
 			where open = true
 		</if>		
-	</sql>
-	
-	
+	</sql>	
 	
 	
 	<select id="listSearch" resultMap="ResultBoard">
@@ -123,7 +121,52 @@
 		from board
 		<include refid="search"></include>
 	</select>
+	<!-- ==================================================================================================================================================================== -->
 	
+	<!-- MyBoard 구분 where절  -->
+	
+	<!-- ==================================================================================================================================================================== -->
+	<sql id="searchMyBoard">
+		<if test="cri.searchType=='t'.toString()">
+			where title like concat('%', #{cri.keyword},'%') and customer.code=#{cusCode}
+		</if>
+		<if test="cri.searchType=='c'.toString()">
+			where content like concat('%', #{cri.keyword},'%')  and customer.code=#{cusCode}
+		</if>
+		<if test="cri.searchType=='w'.toString()">
+			where writer like concat('%', #{cri.keyword},'%') and customer.code=#{cusCode}
+		</if>
+		<if test="cri.searchType=='tc'.toString()">
+			where title like concat('%', #{cri.keyword},'%') or content like concat('%', #{cri.keyword},'%') and customer.code=#{cusCode}
+		</if>
+		<if test="cri.searchType=='cw'.toString()">
+			where content like concat('%', #{cri.keyword},'%') or writer like concat('%', #{cri.keyword},'%') and customer.code=#{cusCode}
+		</if>
+		<if test="cri.searchType=='tcw'.toString()">
+			where title like concat('%', #{cri.keyword},'%')or content like concat('%', #{cri.keyword},'%') or writer like concat('%', #{cri.keyword},'%') and customer.code=#{cusCode}
+		</if>
+		<if test="cri.searchType==null or cri.searchType.equals('') and cusCode!=null"  >
+			where customer.code=#{cusCode}
+		</if>	
+	</sql>
+	
+	<!-- listSearchMyBoard  바꾸면 searchTotalCountMy도 바꿔야된다.-->
+	<select id="listSearchMyBoard" resultMap="ResultBoard">
+		 select * from board
+		left join customer on customer.code=board.customer_code
+		<include refid="searchMyBoard"></include>
+		order by no desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="searchTotalCountMy" resultType="int">
+		select count(no)
+		from board
+		left join customer on customer.code=board.customer_code
+		<include refid="searchMyBoard"></include>
+	</select>
+	
+	<!-- ==================================================================================================================================================================== -->
  	<update id="updateReplyCnt">
 		update board set reply_cnt = reply_cnt +#{amount} where no=#{no}
 	</update>
