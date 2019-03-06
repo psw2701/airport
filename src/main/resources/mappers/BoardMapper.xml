@@ -14,6 +14,8 @@
 	</resultMap>
 
 
+	
+
 	<insert id="insert" useGeneratedKeys="true" keyProperty="no">
 		insert into board(title, content, open, customer_code, airport_code )
 		values(#{title}, #{content},  #{open}, #{cusCode.code}, #{airportCode.code})
@@ -66,23 +68,47 @@
 	<sql id="search">
 		<if test="searchType=='t'.toString()">
 			where title like concat('%', #{keyword},'%')
+			<if test="isOpenAll==true"> 
+				and open = true
+			</if>
 		</if>
 		<if test="searchType=='c'.toString()">
-			where content like concat('%', #{keyword},'%')
+			where content like concat('%', #{keyword},'%') 
+			<if test="isOpenAll==true"> 
+				and open = true
+			</if>
 		</if>
 		<if test="searchType=='w'.toString()">
 			where writer like concat('%', #{keyword},'%')
+			<if test="isOpenAll==true"> 
+				and open = true
+			</if>
 		</if>
 		<if test="searchType=='tc'.toString()">
 			where title like concat('%', #{keyword},'%') or content like concat('%', #{keyword},'%')
+			<if test="isOpenAll==true"> 
+				and open = true
+			</if>
 		</if>
 		<if test="searchType=='cw'.toString()">
 			where content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%')
+			<if test="isOpenAll==true"> 
+				and open = true
+			</if>
 		</if>
 		<if test="searchType=='tcw'.toString()">
 			where title like concat('%', #{keyword},'%')or content like concat('%', #{keyword},'%') or writer like concat('%', #{keyword},'%')
+			<if test="isOpenAll==true"> 
+				and open = true
+			</if>
 		</if>
+		<if test="searchType==null or searchType.equals('') and isOpenAll.equals(true)"  >
+			where open = true
+		</if>		
 	</sql>
+	
+	
+	
 	
 	<select id="listSearch" resultMap="ResultBoard">
 		 select * from board

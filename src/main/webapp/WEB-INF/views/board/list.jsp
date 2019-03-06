@@ -34,8 +34,14 @@
 						<option value="tcw" ${cri.searchType == 'tcw' ? 'selected' : '' }>Title or Content or Writer</option>
 					</select>
 					<input type="text" name="keyword" id="keywordInput">
+					
 					<button id="btnSearch" class="btn btn-default">Search</button>
+					
+					<c:if test="${login.mngCode ==null }">
 					<button id="btnNewBoard" class="btn btn-default">New Board</button>
+					</c:if>
+					
+					
 				</div>
 				</div>
 			<div class="box">
@@ -68,9 +74,6 @@
 									<td>${boardVO.progress }</td>
 									<%-- <td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td> --%>
 									<td><span class="badge bg-red">${boardVO.viewCnt }</span></td>
-									<td>${boardVO.open}</td>
-								
-
 								</tr>
 								
 							</c:forEach> 

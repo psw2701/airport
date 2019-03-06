@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.psw.domain.AirportVO;
 import com.psw.domain.BoardVO;
@@ -42,7 +43,8 @@ import com.psw.util.UploadFileUtils;
 @RequestMapping("/board/*")
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
-
+	private static final String LOGIN = "login";
+	
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
@@ -60,9 +62,20 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public void list(SearchCriteria cri, Model model) {
+	public void list(SearchCriteria cri, Model model, HttpSession session) {
 		logger.info("list ----- get");
 		System.out.println(cri);
+		
+		LoginDTO mdto = (LoginDTO) session.getAttribute(LOGIN);
+		
+		cri.setOpenAll(true);
+		
+		if(mdto !=null &&  mdto.getMngCode()!=null  ) {
+			cri.setOpenAll(false);
+		}
+		logger.info("==================================>>>>>>>>>>>>>>>"+mdto);
+		logger.info("==================================>>>>>>>>>>>>>>>"+cri);
+		
 		List<BoardVO> list = service.listSearch(cri);
 
 		PageMaker pageMaker = new PageMaker();

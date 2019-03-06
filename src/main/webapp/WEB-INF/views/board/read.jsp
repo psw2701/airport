@@ -32,8 +32,12 @@
 					
 			<div class="clearfix">
        			<button type="submit" class="btn btn-primary" id="btnList">목록</button>
+       				<c:if test="${login.mngCode !=null || login.cusCode == boardVO.cusCode.code }">
 						<button type="submit" class="btn btn-warning" id="btnModify">수정</button>
+					</c:if>
+					<c:if test="${login.cusCode == boardVO.cusCode.code }">
 						<button type="submit" class="btn btn-danger" id="btnRemove">제거</button>
+					</c:if>	
       		</div>	
 					
 			<form id="f1" action="" method="post">
@@ -102,11 +106,13 @@
 		})
 		$("#btnRemove").click(function() {
 			//#f1(form)를 submit 보냄
-			location.href = "${pageContext.request.contextPath}/board/list?no=${boardVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
-			$("#f1").attr("method", "post");
-			$("#f1").attr("action", "remove");
-			$("#f1").submit();
-
+			if(confirm("정말로 삭제하시겠습니까?")){
+				location.href = "${pageContext.request.contextPath}/board/list?no=${boardVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
+				$("#f1").attr("method", "post");
+				$("#f1").attr("action", "remove");
+				$("#f1").submit();
+			}
+			
 		})
 		$("#btnModify").click(function() {
 			$("#f1").attr("action", "modifyPage");
