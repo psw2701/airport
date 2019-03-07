@@ -154,5 +154,10 @@ public class HomeController {
 
 		return entity;
 	}
-
+	@RequestMapping(value = "test", method = RequestMethod.GET)
+	String  test(Locale locale, Model model, String modal) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		return "test";
+	}
+		
 }

@@ -92,5 +92,8 @@ address {
     	</div>
     </div>
    </footer>
+     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/css/jquery.datetimepicker.css"/>
+<script src="${pageContext.request.contextPath }/resources/js/jquery.datetimepicker.full.min.js"></script>
  </body>
+ 
 </html>  

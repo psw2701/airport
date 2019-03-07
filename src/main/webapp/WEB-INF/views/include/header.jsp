@@ -472,7 +472,7 @@ h4, .modal-title{
 							아이디와 비밀번호를 입력해 주십시오.
 						</div>
 						<div class="section row pop_cont">
-						
+						         
 							<div class="col-md-9">
 								<div class="row">
 									<div class="col-xs-12">
@@ -480,7 +480,7 @@ h4, .modal-title{
 											<label class="input-group-addon" for="user_id">
 												<img alt="" src="${pageContext.request.contextPath }/resources/images/id_img.gif">
 											</label>
-											<input type="text" class="form-control" name="userid" id="userid" placeholder="아이디를 입력해주세요." autofocus="autofocus" required="required">
+											<input type="text" class="form-control" name="userid" id="userid" placeholder="아이디를 입력해주세요." autofocus="autofocus" required="required" autocomplete="off">
 										</div>
 									</div>
 									<div class="col-xs-12">
@@ -488,7 +488,7 @@ h4, .modal-title{
 											<label class="input-group-addon" for="user_pwd">
 												<img alt="" src="${pageContext.request.contextPath }/resources/images/pass_img.gif">
 											</label>
-											<input type="password" class="form-control" name="userpw" id="userpwd" placeholder="비밀번호를 입력해주세요." required="required">
+											<input type="password" class="form-control" name="userpw" id="userpwd" placeholder="비밀번호를 입력해주세요." required="required"  autocomplete="off">
 										</div>
 									</div>
 								</div>	

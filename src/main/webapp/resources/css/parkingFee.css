@@ -60,13 +60,19 @@ hr.thin2{
 	font-size: 95%;
 	letter-spacing: -.05em;
 }
+
+.col-md-12{
+	
+	text-align:center;
+}
 .btn.btn-search{
-	width: 100%;
-	color: #fff;
-	background-color: #2e7aba;
+	width: 97.5%;
+	color: black;
+	background-color: #ccc;
 	box-shadow: none;
 	line-height: 362%;
 	letter-spacing: -.05em;
+	
 }
 
 .txt_dg{
@@ -80,4 +86,97 @@ hr.thin2{
 	display: inline-block;
 	background: url("../img/line3.gif") repeat-x 0 100%;
     padding: 0 20px;
+}
+.table2{
+	border-top: 2px solid #000;
+    border-bottom: 1px solid  #0c0c0c;
+    background: #fff;
+}
+.b_b, tr.b_b th, tr.b_b td{
+	border-bottom:1px solid #0c0c0c !important;
+}
+
+.table2 > thead > tr > th:first-child{
+	background-color: #d2dfe5;
+}
+.table2 > thead > tr > th{
+	color: #393939;
+    text-align: center;
+    vertical-align: middle;
+    border-color:  #0c0c0c !important;
+    border-top: 3px solid #555 !important;
+    border-bottom: 1px solid #888 !important;
+    font-size: 90%;
+}
+
+.table2 > tbody > tr > td{
+	padding: 5px;
+    vertical-align: middle;
+    border-left: 1px solid #d3d3d3;
+    border-top: 1px solid #0c0c0c;
+}
+.bg_b2{
+	background: #f2fafc;
+}
+
+.small-hb{
+	font-size:95%;
+}
+h5, .h5, .con_title3{
+	font-weight: 700;
+    font-size: 115%;
+    color: #333;
+    background: url("../img/dot5.png") no-repeat 0 6px;
+    padding-left: 12px;
+    margin-bottom: 10px;
+}
+.ul_list2{
+	letter-spacing: -.05em;
+    margin-left: 15px;
+    margin-bottom: 0;
+}
+
+.mb30{
+	margin-bottom: 30px;
+}
+.ul_list2 li{
+	background: url("../img/dot_li.png") no-repeat 0 10px !important;
+	padding-left: 10px;
+    line-height: 1.6em;
+}
+.ul_list2 li strong{
+	color: #323232;
+}
+.ul_list2 li li{
+	background: none;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 90%;
+}
+.table6{
+	border: 1px solid #b4b4b4;
+    border-top: 2px solid #5d6e94;
+    background: #fff;
+}
+.table6 > tbody > tr > td{
+	padding: 10px;
+    vertical-align: middle;
+    white-space: normal 
+}
+.b_t0{
+	border-top:0px;
+}
+.table{
+	width: 99.9%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid #0c0c0c;
+
 }

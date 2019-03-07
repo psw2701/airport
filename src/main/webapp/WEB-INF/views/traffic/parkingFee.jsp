@@ -3,8 +3,8 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
-<link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aaa" rel="stylesheet"  type="text/css">
-<link href="${pageContext.request.contextPath }/resources/css/parkingFee.css?Aaaaaaa" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aaaaaaa" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/parkingFee.css?aaaaaaaa" rel="stylesheet"  type="text/css">
 
 <div id="container">
 	<div id="customer_container">
@@ -22,9 +22,9 @@
 
 				<hr class="thin2">
 				<div class="section row">
-					<div class="col-md-10">
-						<div class="row mb10">
-							<div class="col-sm-4">
+					<div class="col-md-12">
+					
+							<div class="col-sm-3">
 								
 								<table class="park_table">
 									<caption class="sr-only">자동차 종류 선택의 정보가 있습니다.</caption>
@@ -47,23 +47,8 @@
 									</tbody>
 								</table>
 							</div>
-						</div>
-						
-						<div class="row mb10">
-							<div class="col-sm-4">
-								<div class="input-group">
-									<label class="input-group-addon" for="findAirline">입차일시</label>
-									<input type="text" class="form-control datetimepicker ml12" name="stDateTime" id="stParkingDate" placeholder="입차일시를 선택해주세요.">
-								</div>
-							</div>
-						<div class="col-sm-4">
-						
-							<div class="input-group">
-								<label class="input-group-addon" for="findAirline">출차일시</label>
-								<input type="text" class="form-control datetimepicker ml12" name="edDateTime" id="edParkingDate" placeholder="출차일시를 선택해주세요.">
-							</div>
-						</div>
-						<div class="col-sm-4">
+							
+							<div class="col-sm-3">
 							<div class="input-group">
 								<label class="input-group-addon" for="parkDcSelect">할인</label>
 									<select class="form-control" id="parkDcSelect" name="parkDcSelect" title="할인">
@@ -77,34 +62,47 @@
 									</select>
 							</div>
 						</div>
+						 
+						  
+							<div class="col-sm-3">
+								<div class="input-group">
+									<label class="input-group-addon" for="findAirline">입차일시</label>
+									<input type="text" class="form-control datetimepicker ml12" name="stDateTime" id="stParkingDate" placeholder="입차일시 입력해주세요." autocomplete="off">
+								</div>
+							</div>
+						<div class="col-sm-3">
+						 
+							<div class="input-group">
+								<label class="input-group-addon" for="findAirline">출차일시</label>
+								<input type="text" class="form-control datetimepicker ml12" name="edDateTime" id="edParkingDate" placeholder="출차일시 입력해주세요." autocomplete="off">
+							</div>
 						</div>
-					</div>
+	
 					
-					<div class="col-md-2">
-					<button class="btn btn-search" onclick="javascript:jf_parkingPrice();"><i class="fa fa-search"></i> 요금조회</button>
+					</div>  
+					
+					<div class="col-md-12">
+					<button class="btn btn-search" onclick="javascript:jf_parkingPrice();" style="margin-top: 10px;"><i class="fa fa-search"></i> 요금조회</button>
 					</div>
 				</div>
 				
 				<hr class="thin2">
 				
-				<div class="section text-center">
+				<div class="section text-center" style="padding-bottom: 0px;">
 					<div class="txt_dg large2">
 						<strong>귀하의 예상 주차요금은 <span class="price_info" name="parkPrice" id="parkPrice">0</span>원 입니다.</strong>
 					</div>
 
-			</div>&nbsp;</div>
+			</div>
+			&nbsp;
+			</div>
 
-			<h4>주차요금 체계<span style="color: red; font-size: 15px;">&nbsp;&nbsp;※ 2018년 12월 1일부터 적용되는 요금입니다.</span></h4>
+			<h4 style="margin-bottom: 0px; margin-top: 0px;">주차요금 체계<span style="color: red; font-size: 15px;">&nbsp;&nbsp;※ 2018년 12월 1일부터 적용되는 요금입니다.</span></h4>
 
 				<div class="table-responsive">
 					<table class="table table2 b_b" summary="소형, 대형별 주차요금의 정보가 있습니다.">
 						<caption class="sr-only">주차요금 체계</caption>
-						<colgroup>
-							<col width="*">
-							<col width="*">
-							<col width="*">
-							<col width="*">
-						</colgroup>
+						
 						<thead>
 							<tr>
 								<th scope="col">구분</th>
@@ -156,8 +154,8 @@
 				</div>
 
 				<p class="small-hb">※ 상기요금은 입차시간 기준이며 24시간마다 기준변경 반복적용</p>
-
-				<div class="section">
+    
+				<div class="section" style="padding-top: 0px; padding-bottom: 0px;">
 					<h4>주차요금 할인 안내</h4>
 	
 					<h5>주차요금 할인 안내</h5>
@@ -293,14 +291,14 @@
 		</div>
 </div>
 
-<div class="section">
+<div class="section" style="padding-top: 0px; padding-bottom: 0px;">
 <h4>주차요금 하이패스(Hi-pass)결제</h4>
 
 <ul class="ul_list2">
 	<li>2017. 9. 1일부 서비스 개시(주차장 A 출구 하이패스 차로 이용)&nbsp;</li>
 </ul>
-<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ※ 단, 5만원 이상 결제차량 및 할인차량 제외<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - </strong>5만원 이상 결제 : 유인정산소 또는 무인정산기 이용<br>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ※ 단, 5만원 이상 결제차량 및 할인차량 제외<br></strong>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 5만원 이상 결제 : 유인정산소 또는 무인정산기 이용<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 할인차량 : 유인정산소 이용
 <h4><br>
 기타 이용안내</h4>
@@ -317,4 +315,17 @@
 	</div>
 </div>
 </div>
+<script>
+  $( function() {
+	    $( "#stParkingDate" ).datetimepicker({
+	    	formatDate:'YYYY-mm-dd',
+	    });
+	    
+	    $( "#edParkingDate" ).datetimepicker({
+	 	   
+	    }); 
+	    
+	  } );
+  </script>
+
 <%@ include file="../include/footer.jsp"%>	
