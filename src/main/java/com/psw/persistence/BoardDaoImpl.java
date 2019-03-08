@@ -81,6 +81,7 @@ public class BoardDaoImpl implements BoardDAO {
 	@Override
 	public List<BoardVO> listSearch(SearchCriteria cri) {
 		// TODO Auto-generated method stub
+		System.out.println("dao.listSearch====================="+cri);
 		return sqlSession.selectList(namespace + ".listSearch", cri);
 	}
 

@@ -102,8 +102,10 @@
 				and open = true
 			</if>
 		</if>
-		<if test="searchType==null or searchType.equals('') and isOpenAll.equals(true)"  >
-			where open = true
+		<if test="searchType==null or searchType.equals('')"  >
+		   <if test="isOpenAll.equals(true)">
+		   where open = true
+		   </if>			
 		</if>		
 	</sql>	
 	
