@@ -2,6 +2,7 @@ package com.psw.persistence;
 
 import java.util.List;
 
+
 import com.psw.domain.Criteria;
 import com.psw.domain.ReplyVO;
 
@@ -14,11 +15,13 @@ public interface ReplyDAO {
 
 	public void update(ReplyVO vo);
 
-	public void delete(int rno);
+	public void delete(int no);
 
 	public List<ReplyVO> listPage(Criteria cri, int bno);
 
 	public int totalCount(int bno);
 	
-	public ReplyVO selectByRno(int rno);
+	public ReplyVO selectByRno(int no);
+	
+	public ReplyVO selectByBno(int no);
 }

@@ -16,6 +16,7 @@ public class BoardVO {
 	private AirportVO airportCode; // 공항코드
 	private int replyCnt;// 댓글수
 
+
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -107,6 +108,7 @@ public class BoardVO {
 	public void setReplyCnt(int replyCnt) {
 		this.replyCnt = replyCnt;
 	}
+	
 
 	@Override
 	public String toString() {

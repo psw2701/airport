@@ -99,10 +99,9 @@ select * from manager;
 
 insert into manager(code, name, id, passwd, phone, email) values('M001', '나직원', 'qwerqwerqwer', password('rootroot'), '010-5858-6565', 'qwerqwerqwer@naver.com');
 
-select * from board left join customer 
-		on customer.code=board.customer_code
-		left join airport
-		on customer.code=airport.code
+select * from board 
+left join customer on customer.code=board.customer_code
+left join airport on customer.code=airport.code
 		where no=1;
 
 
@@ -163,5 +162,36 @@ insert into notice(title, content, reg_date, view_cnt, file, is_notice, manager_
 (select title, content, reg_date, view_cnt, file, is_notice, manager_code from notice);
 
 
+select * from reply;
+
+INSERT INTO airport.reply
+(content, reg_date, title, bno, manager_code)
+VALUES('답변', sysdate(), '답변제목', 1, 'M001');
+
+select * from board;
+select * from reply
+left join manager on reply.manager_code = manager.code
+where bno = ;
+
+select * from reply;
 
 
+select * from reply
+left join manager on reply.manager_code = manager.code
+where bno = 15;
+
+
+select * from board
+left join reply on board.no = reply.bno
+where bno = 1;
+
+select * from reply where no = 15;
+
+select * from reply 
+		left join reply on 
+		where bno=1;
+		
+INSERT INTO airport.reply
+(content, reg_date, title, is_reply, bno, manager_code)
+VALUES('답변', sysdate(), '답변제목', 1, 1, 'M001');
+		

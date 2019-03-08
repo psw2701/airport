@@ -32,12 +32,22 @@
 					
 			<div class="clearfix">
        			<button type="submit" class="btn btn-primary" id="btnList">목록</button>
-       				<c:if test="${login.mngCode !=null || login.cusCode == boardVO.cusCode.code }">
+       			
+					<c:if test="${login.cusCode == boardVO.cusCode.code }">
 						<button type="submit" class="btn btn-warning" id="btnModify">수정</button>
 					</c:if>
-					<c:if test="${login.cusCode == boardVO.cusCode.code }">
+					<c:if test="${login.mngCode !=null || login.cusCode == boardVO.cusCode.code }">
 						<button type="submit" class="btn btn-danger" id="btnRemove">제거</button>
-					</c:if>	
+						
+						<c:if test="${login.mngCode !=null }">
+							<c:if test="${replyVO.reply == false || replyVO.reply==null}">
+								<button type="submit" class="btn btn-success" id="btnAddReply">답변</button>
+							</c:if>
+						</c:if>
+					</c:if>
+					
+		
+						
       		</div>	
 					
 			<form id="f1" action="" method="post">
@@ -49,24 +59,17 @@
 	</div>
 	
 	<div class="container mt-3" > <!-- style="display:none;" -->
+	
 		<h3 class="box-title">고객의 소리 처리결과 입니다.</h3>
-		<hr>
+		<hr>  
+			<input type="hidden" name="bno" value="${boardVO.no }">
 			<label>작성자</label>
-			<input type="text" class="form-control" placeholder="User Id" id="newReplyWriter" readonly="readonly">
+			<input type="text" class="form-control" placeholder="User Id" id="newReplyWriter" readonly="readonly" required="required" value="${replyVO.managerCode.name }">
+			<label>제목</label>
+			<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${replyVO.title }" readonly="readonly"><br>
 			<label>내용</label><br>
-			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content2"></textarea><br>
+			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="newReplyText">${replyVO.content }</textarea><br>
 			
-			<ul class="timeline">
-				<li class="time-label" id="repliesDiv">
-				<%-- 	<span class="bg-green" >Replies List <span id="replycnt">[${boardVO.replycnt }]</span></span> --%>
-				</li>
-				
-				
-			</ul>
-			<div class="text-center">
-				<ul id="pagination" class="pagination pagination-sm no-margin">
-				</ul>
-			</div>
 	</div>
 	
 	
@@ -119,6 +122,14 @@
 			$("#f1").attr("method", "get");
 			$("#f1").submit();
 			location.href = "${pageContext.request.contextPath}/board/modify?no=${boardVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
+		})
+		
+		$("#btnAddReply").click(function() {
+			location.href = "${pageContext.request.contextPath}/reply/reply?no=${boardVO.no}&page=${cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}";
+			$("#f1").attr("action", "reply");
+			$("#f1").attr("method", "get");
+			$("#f1").submit();
+
 		})
 	}) 
 </script>

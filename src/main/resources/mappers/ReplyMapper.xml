@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.psw.mapper.ReplyMapper">
-<select id="list" resultType="ReplyVO">
-		select * from reply where bno = #{bNo.no}
-		order by no desc
-	</select>
-	<insert id="create">
-		insert into reply (no, managerNo, content)
-		values(#{no}, #{managerNo.name}, #{content})
+
+<resultMap type="ReplyVO" id="ResultReply">
+	<result column="bno" property="bNo.no"/>
+	<result column="manager_code" property="managerCode.code"/>
+	<result column="name" property="managerCode.name"/>
+	<result column="is_reply" property="isReply"/>
+</resultMap>
+
+	<insert id="create" useGeneratedKeys="true" keyProperty="no">
+		insert into reply ( content, title, bno, is_reply, manager_code)
+		values( #{content}, #{title}, #{bNo.no},1, #{managerCode.code})
 	</insert>
 	<update id="update">
-		update tbl_reply set content = #{content}, title = #{title}
+		update reply set content = #{content}, title = #{title}
 		where no = #{no}
 	</update>
 	<delete id="delete">
 		delete from reply where no = #{no}
 	</delete>
-	<select id="listPage" resultType="ReplyVO">
+	
+	
+	<select id="list" resultMap="ResultReply">
 		select * from reply
-		where bno=#{bNo}
+	</select>
+	
+	<select id="listPage" resultMap="ResultReply">
+		select * from reply
+		where bno=#{bNo.no}
 		order by no desc
 		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
@@ -28,10 +38,16 @@
 		where bno=#{bNo.no}
 	</select>
 	
-	<select id="selectByRno" resultType="ReplyVO">
+	<select id="selectByRno"  resultMap="ResultReply">
 		select * from reply 
-		where no = #{no}
+		left join manager on reply.manager_code = manager.code
+		where bno=#{bNo.no}
 	</select>
 	
+	<select id="selectByBno" resultType="int">
+		select * from board
+		left join reply on board.no = reply.bno
+		where bno=#{bNo.no}
+	</select>
 	
 </mapper>

@@ -34,9 +34,12 @@ import com.psw.domain.AirportVO;
 import com.psw.domain.BoardVO;
 import com.psw.domain.CustomerVO;
 import com.psw.domain.LoginDTO;
+import com.psw.domain.ManagerVO;
 import com.psw.domain.PageMaker;
+import com.psw.domain.ReplyVO;
 import com.psw.domain.SearchCriteria;
 import com.psw.service.BoardService;
+import com.psw.service.ReplyService;
 import com.psw.util.MediaUtils;
 import com.psw.util.UploadFileUtils;
 
@@ -45,12 +48,15 @@ import com.psw.util.UploadFileUtils;
 public class BoardController {
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	private static final String LOGIN = "login";
-	
+
 	@Resource(name = "uploadPath")
 	private String uploadPath;
 
 	@Autowired
 	private BoardService service;
+	
+	@Autowired
+	private ReplyService ReplyService;
 
 	/*
 	 * @Autowired private CustomerService cusService;
@@ -63,29 +69,35 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public void list(SearchCriteria cri, Model model, HttpSession session) {
+	public void list(SearchCriteria cri, Model model, HttpSession session/*, @RequestParam("no") int no*/ ) {
 		logger.info("list ----- get");
 		System.out.println(cri);
-		
+
 		LoginDTO mdto = (LoginDTO) session.getAttribute(LOGIN);
-		
+
 		cri.setOpenAll(true);
-		
-		if(mdto !=null &&  mdto.getMngCode()!=null  ) {
+
+		if (mdto != null && mdto.getMngCode() != null) {
 			cri.setOpenAll(false);
 		}
-		logger.info("==================================>>>>>>>>>>>>>>>"+mdto);
-		logger.info("==================================>>>>>>>>>>>>>>>"+cri);
-		
+		logger.info("==================================>>>>>>>>>>>>>>>" + mdto);
+		logger.info("==================================>>>>>>>>>>>>>>>" + cri);
+
 		List<BoardVO> list = service.listSearch(cri);
+		/*BoardVO vo = service.read(no);
+		service.addCnt(no);
+		List<ReplyVO> rList = ReplyService.list(no);*/
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.searchTotalCount(cri));
 
 		model.addAttribute("list", list);
+	/*	model.addAttribute("rList", rList);*/
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("cri", cri);
+		
+	/*	logger.info("rList==================================>>>>>>>>>>>>>>>" + rList);*/
 	}
 
 	@RequestMapping(value = "read", method = RequestMethod.GET)
@@ -93,6 +105,16 @@ public class BoardController {
 		BoardVO vo = service.read(no);
 		service.addCnt(no);
 		model.addAttribute("boardVO", vo);
+		vo.setNo(no);
+
+		ReplyVO rVO = new ReplyVO();
+		rVO  = ReplyService.selectByRno(no);
+		
+		
+		logger.info("no : "+no);
+		
+		
+		model.addAttribute("replyVO", rVO);
 		model.addAttribute("cri", cri);
 	}
 
@@ -119,7 +141,7 @@ public class BoardController {
 
 		List<String> files = new ArrayList<>();
 		for (MultipartFile file : imageFiles) {
-			if(file.getSize()!=0) {
+			if (file.getSize() != 0) {
 				logger.info("file name : " + file.getOriginalFilename());
 				logger.info("file size : " + file.getSize());
 
@@ -127,7 +149,6 @@ public class BoardController {
 
 				files.add(thumbPath);
 			}
-			
 
 		}
 		vo.setFiles(files);
@@ -251,14 +272,14 @@ public class BoardController {
 
 		return entity;
 	}
-	
+
 	@RequestMapping(value = "myBoard", method = RequestMethod.GET)
 	public void myBoard(SearchCriteria cri, Model model, HttpSession session) {
 		logger.info("myBoard ----- get");
 		System.out.println(cri);
-		
+
 		LoginDTO dto = (LoginDTO) session.getAttribute(LOGIN);
-	
+
 		List<BoardVO> list = service.listSearchMyBoard(cri, dto.getCusCode());
 
 		PageMaker pageMaker = new PageMaker();
@@ -270,5 +291,36 @@ public class BoardController {
 		model.addAttribute("cri", cri);
 	}
 
+	@RequestMapping(value = "reply", method = RequestMethod.GET)
+	public void replyGet(ReplyVO rVO, Model model, HttpServletRequest request, @RequestParam("no") int no,
+			SearchCriteria cri) {
+		logger.info("replyGet ----- get");
+		BoardVO bVO = service.read(no);
+		service.addCnt(no);
+		model.addAttribute("boardVO", bVO);
+		model.addAttribute("cri", cri);
+		model.addAttribute("replyVO", rVO);
+
+		HttpSession session = request.getSession();
+		LoginDTO dto = (LoginDTO) session.getAttribute("login");
+		logger.info("register ----- dto" + dto);
+
+	}
+
+	@RequestMapping(value = "reply", method = RequestMethod.POST)
+	public String replyPost(ReplyVO rVO,  ManagerVO mVO, int boardNo, Model model) {
+		logger.info("replyPost ----- post");
+
+		BoardVO bVO = new BoardVO();
+		bVO.setNo(boardNo);
+		rVO.setbNo(bVO);
+		rVO.setManagerCode(mVO);
+	
+		logger.info("managerCode:"+mVO);
+		logger.info("boardNo:"+boardNo);
+		
+		ReplyService.create(rVO);
+		return "redirect:/board/list";
+	}
 
 }

@@ -50,7 +50,7 @@
 					<table class="table">
 
 						<thead>
-							<tr>
+							<tr>  
 								<th>NO</th>
 								<th>TITLE</th>
 								<th>WRITER</th>
@@ -63,20 +63,29 @@
 						<tbody>
 						
 							 <c:forEach items="${list }" var="boardVO">
-									
+									<%-- <input type="hidden" value="${boardVO.no}" name="no"> --%>
 								<tr>
-							
-
+								
+								
 								<td>${boardVO.no }</td>
 									<td><a href="${pageContext.request.contextPath}/board/read?no=${boardVO.no}&page=${pageMaker.cri.page}&searchType=${cri.searchType}&keyword=${cri.keyword}">${boardVO.title } </a></td>
 									<td>${boardVO.cusCode.name }</td> 
 									<td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 									<td>${boardVO.progress }</td>
+									
+									<%-- <c:if test="${replyVO.reply == true }">
+										<td>답변완료</td>
+									</c:if>
+									<c:if test="${replyVO.reply == false }">
+										<td>${boardVO.progress }</td>
+									</c:if> --%>
+									
+									
 									<%-- <td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td> --%>
 									<td><span class="badge bg-red">${boardVO.viewCnt }</span></td>
 								</tr>
-								
-							</c:forEach> 
+								</c:forEach> 
+					
 						
 						</tbody>
 					</table>

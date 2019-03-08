@@ -54,12 +54,13 @@ ALTER TABLE airport.customer
 
 -- 답변
 CREATE TABLE airport.reply (
-	no           INT       NOT NULL COMMENT '답변번호', -- 답변번호
-	content      TEXT      NOT NULL COMMENT '답변내용', -- 답변내용
-	reg_date     TIMESTAMP NOT NULL DEFAULT now() COMMENT '답변일', -- 답변일
-	title        TEXT      NOT NULL COMMENT '답변제목', -- 답변제목
-	bno          INT       NOT NULL COMMENT '게시판번호', -- 게시판번호
-	manager_code CHAR(4)   NOT NULL COMMENT '관리자코드' -- 관리자코드
+	no           INT        NOT NULL COMMENT '답변번호', -- 답변번호
+	content      TEXT       NOT NULL COMMENT '답변내용', -- 답변내용
+	reg_date     TIMESTAMP  NOT NULL DEFAULT now() COMMENT '답변일', -- 답변일
+	title        TEXT       NOT NULL COMMENT '답변제목', -- 답변제목
+	is_reply     TINYINT(1) NOT NULL DEFAULT 0 COMMENT '답변유무', -- 답변유무
+	bno          INT        NOT NULL COMMENT '게시판번호', -- 게시판번호
+	manager_code CHAR(4)    NOT NULL COMMENT '관리자코드' -- 관리자코드
 )
 COMMENT '답변';
 
@@ -174,31 +175,31 @@ ALTER TABLE airport.notice_attach
 			fullName -- 이름
 		);
 
--- 주차요금
-CREATE TABLE airport.parking_fee (
-	no       INT        NOT NULL COMMENT '번호', -- 번호
-	car_type TINYINT(1) NOT NULL COMMENT '차량유형', -- 차량유형
-	discount INT        NULL     COMMENT '할인' -- 할인
+-- 차량종류
+CREATE TABLE airport.car_type (
+	no   INT         NOT NULL COMMENT '차량종류번호', -- 차량종류번호
+	type VARCHAR(50) NOT NULL COMMENT '차량종류', -- 차량종류
+	no2  INT         NULL     COMMENT '차량종류번호2' -- 차량종류번호2
 )
-COMMENT '주차요금';
+COMMENT '차량종류';
 
--- 주차요금
-ALTER TABLE airport.parking_fee
-	ADD CONSTRAINT PK_parking_fee -- 주차요금 기본키
+-- 차량종류
+ALTER TABLE airport.car_type
+	ADD CONSTRAINT PK_car_type -- 차량종류 기본키
 		PRIMARY KEY (
-			no -- 번호
+			no -- 차량종류번호
 		);
 
-ALTER TABLE airport.parking_fee
-	MODIFY COLUMN no INT  NOT NULL AUTO_INCREMENT COMMENT '번호';
+ALTER TABLE airport.car_type
+	MODIFY COLUMN no INT  NOT NULL AUTO_INCREMENT COMMENT '차량종류번호';
 
-ALTER TABLE airport.parking_fee
+ALTER TABLE airport.car_type
 	AUTO_INCREMENT = 1;
 
 -- 할인
 CREATE TABLE airport.discount (
-	no   INT         NOT NULL COMMENT '번호', -- 번호
-	type VARCHAR(50) NOT NULL COMMENT '유형', -- 유형
+	no   INT         NOT NULL COMMENT '할인번호', -- 할인번호
+	type VARCHAR(50) NOT NULL COMMENT '할인유형', -- 할인유형
 	rate INT         NOT NULL COMMENT '할인율' -- 할인율
 )
 COMMENT '할인';
@@ -207,14 +208,29 @@ COMMENT '할인';
 ALTER TABLE airport.discount
 	ADD CONSTRAINT PK_discount -- 할인 기본키
 		PRIMARY KEY (
-			no -- 번호
+			no -- 할인번호
 		);
 
 ALTER TABLE airport.discount
-	MODIFY COLUMN no INT NOT NULL AUTO_INCREMENT COMMENT '번호';
+	MODIFY COLUMN no INT NOT NULL AUTO_INCREMENT COMMENT '할인번호';
 
 ALTER TABLE airport.discount
 	AUTO_INCREMENT = 1;
+
+-- 차량이용시간
+CREATE TABLE airport.car_use (
+	no   INT NOT NULL COMMENT '차량이용시간번호', -- 차량이용시간번호
+	hour INT NOT NULL COMMENT '이용시간', -- 이용시간
+	fee  INT NOT NULL COMMENT '주차요금' -- 주차요금
+)
+COMMENT '차량이용시간';
+
+-- 차량이용시간
+ALTER TABLE airport.car_use
+	ADD CONSTRAINT PK_car_use -- 차량이용시간 기본키
+		PRIMARY KEY (
+			no -- 차량이용시간번호
+		);
 
 -- 게시판
 ALTER TABLE airport.board
@@ -296,12 +312,12 @@ ALTER TABLE airport.notice_attach
 			no -- 공지사항번호
 		);
 
--- 주차요금
-ALTER TABLE airport.parking_fee
-	ADD CONSTRAINT FK_discount_TO_parking_fee -- 할인 -> 주차요금
+-- 차량종류
+ALTER TABLE airport.car_type
+	ADD CONSTRAINT FK_car_type_TO_car_type -- 차량종류 -> 차량종류
 		FOREIGN KEY (
-			discount -- 할인
+			no2 -- 차량종류번호2
 		)
-		REFERENCES airport.discount ( -- 할인
-			no -- 번호
+		REFERENCES airport.car_type ( -- 차량종류
+			no -- 차량종류번호
 		);

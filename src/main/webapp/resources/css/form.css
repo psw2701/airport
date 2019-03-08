@@ -109,7 +109,7 @@ h3, .h3{
 	background: #f1f1f1;
 	
 }
-#joinform #content,#joinform #content2{
+#joinform #content, #joinform #newReplyText{
 	width: 100%;
 	padding: 10px;
 	margin: 5px 0 22px 0;
@@ -173,7 +173,7 @@ button:hover {
   margin: 0 auto;  /* 5% from the top, 15% from the bottom and centered */
   padding:5px;
 /*   border: 1px solid #888; */
-  width: 95%; /* Could be more or less, depending on screen size */
+  width: 100%; /* Could be more or less, depending on screen size */
 }
 #listContent {
 	background:none;

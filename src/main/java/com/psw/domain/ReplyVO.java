@@ -8,8 +8,8 @@ public class ReplyVO {
 	private String content;
 	private Date regDate;
 	private BoardVO bNo;
-	private ManagerVO managerNo;
-
+	private ManagerVO managerCode;
+	private boolean isReply;
 	public ReplyVO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -54,18 +54,27 @@ public class ReplyVO {
 		this.bNo = bNo;
 	}
 
-	public ManagerVO getManagerNo() {
-		return managerNo;
+	public ManagerVO getManagerCode() {
+		return managerCode;
 	}
 
-	public void setManagerNo(ManagerVO managerNo) {
-		this.managerNo = managerNo;
+	public void setManagerCode(ManagerVO managerCode) {
+		this.managerCode = managerCode;
+	}
+
+	public boolean isReply() {
+		return isReply;
+	}
+
+	public void setReply(boolean isReply) {
+		this.isReply = isReply;
 	}
 
 	@Override
 	public String toString() {
 		return "ReplyVO [no=" + no + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", bNo="
-				+ bNo + ", managerNo=" + managerNo + "]";
+				+ bNo + ", managerCode=" + managerCode + ", isReply=" + isReply + "]";
 	}
 
+	
 }
