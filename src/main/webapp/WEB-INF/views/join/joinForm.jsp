@@ -9,14 +9,15 @@
 
 <!-- 다음 주소 API -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
  <script type="text/javascript">
+ var clickDuplicateId = false;
    $(function() {
 	   $("#duplicatedIdBtn").click(function(){
 	       var id = $("input[name='id']").val();
+	       clickDuplicateId = false;
 	       
 	       $.ajax({
-	          url:"${pageContext.request.contextPath }/board/duplicatedId",
+	        url:"${pageContext.request.contextPath }/join/duplicatedId",
 	          type:"get",
 	          data:{"id":id},
 	          dataType:"json",
@@ -26,10 +27,12 @@
 	                alert("사용중인 ID입니다.");
 	             }else{
 	                alert("ID를 사용할 수 있습니다.");
+	                clickDuplicateId=true;
 	             }
 	          }
 	       })
 	    })
+
 })
 </script>
 <div id="container"> 
@@ -56,9 +59,9 @@
 				
 		</div>
       <hr>
-        
-      <label for="name"><b>이름</b></label>    
-      <input type="text" placeholder="Enter Name" name="name" required >
+         
+      <label for="name"><b>이름</b></label><br>  
+      <input type="text" placeholder="Enter Name" name="name" required ><br>
    
       
       <label for="id"><b>아이디</b></label><br>  
@@ -116,12 +119,7 @@
 
   </form>
   
-  	<div class="section">
-		<div class="text-center">
-			<a class=" btn_prev large4" href="${pageContext.request.contextPath}/join/acceptTerms" role="button">이전 단계</a>
-			<a class=" btn_next large4" href="${pageContext.request.contextPath}/join/successJoin" role="button">다음 단계</a>
-		</div>
-	</div>
+  	
   
   <script>
    $("#f1").submit(function(e){
@@ -141,9 +139,15 @@
 	  var email2 = $("#email2").val();
 	  email1 = email1 + "@" + email2;
 	  $("#email1").val(email1);
+	
+	  if(clickDuplicateId==true){
+		  alert("고객님의 회원가입을 축하합니다.");
+  		return true;
+  	  }
+  		alert("중복확인 버튼을 눌러주세요.")
+		return false;
 	  
-	  alert("고객님의 회원가입을 축하합니다.");
-	  return true;
+	 
    });
   </script>
 

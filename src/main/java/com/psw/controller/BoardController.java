@@ -323,14 +323,6 @@ public class BoardController {
 		ReplyService.create(rVO);
 		return "redirect:/board/list";
 	}
-	
-	@RequestMapping(value = "duplicatedId", method = RequestMethod.GET)
-	public ResponseEntity<Object> duplicatedId(){
-	
-		ResponseEntity<Object> entity = new ResponseEntity<>(HttpStatus.OK);
-		return entity;
-		
-	}
-	
+
 
 }

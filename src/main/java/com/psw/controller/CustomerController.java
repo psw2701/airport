@@ -70,4 +70,12 @@ public class CustomerController {
 		logger.info("modifyCus ------ post");
 		return "customer/resultCus";
 	}
+	
+	@RequestMapping(value = "remove", method = RequestMethod.POST)
+	public String remove(CustomerVO vo, Model model, String code) {
+		logger.info("remove ------ post");
+		
+		service.delete(code);
+		return "home";
+	}
 }

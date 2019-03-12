@@ -13,7 +13,7 @@
 
 <h3>회원정보수정</h3>
 	
-  <form class="content" action="join" method="post" id="f1">
+  <form class="content" action="customer" method="post" id="f1">
    
       <hr>
              
@@ -27,11 +27,11 @@
       <br>
       
       <label for="psw"><b>비밀번호</b></label><br>
-      <input type="password" placeholder="Enter Password" name="passwd" required class="inputPwd" id="Password">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내<br>
+      <input type="password" placeholder="Enter Password" name="passwd"  class="inputPwd" id="Password">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내<br>
  
 
       <label for="confirmPassword"><b>비밀번호 확인</b></label><br>
-      <input type="password" placeholder="Repeat Password" name="confirmPasswd" required class="inputPwd" id="ChPassword"><br>
+      <input type="password" placeholder="Repeat Password" name="confirmPasswd"  class="inputPwd" id="ChPassword"><br>
      
      <label for="phone"><b>전화번호</b></label><br>
          <c:set var='phone1' value="${fn:substring(customerVO.phone,0, 3) }"></c:set>
@@ -68,18 +68,20 @@
       <input type="text" placeholder="Enter Address" name="address" required id="sample6_address" value="${customerVO.address }"><br>
       
       <label for="detailAddr"><b>상세주소</b></label><br>
-      <input type="text" placeholder="Enter detailAddr" name="detailAddr" required id="sample6_detailAddress">
+      <input type="text" placeholder="Enter detailAddr" name="detailAddr"  id="sample6_detailAddress">
       <input type="text" id="sample6_extraAddress" placeholder="참고항목"><br>
 
+	<input type="hidden" name="code" value="${customerVO.code }">
  
       <div class="clearfix">
-        <button type="reset" class="cancelbtn">초기화</button>
+        <button type="submit" class="cancelbtn" id="withdrawal">회원탈퇴</button>
         <button type="submit" class="signupbtn">회원정보수정</button>
       </div>
 
   </form>
   
-  	
+
+  
   
   <script>
    $("#f1").submit(function(e){
@@ -106,6 +108,18 @@
   <c:if test="${sameResult==0 }">
 	alert("비밀번호를 다시 확인해주세요.")
 	</c:if>
+  </script>
+  <script type="text/javascript">
+  	function() {
+		$("#withdrawal").click(function() {
+			if(confirm("정말로 삭제하시겠습니까?")){
+				$("#f1").attr("method", "post");
+				$("#f1").attr("action", "remove");
+				$("#f1").submit();
+			}
+		})
+	}
+		 
   </script>
  
 </div>	

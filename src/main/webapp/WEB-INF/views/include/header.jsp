@@ -367,6 +367,9 @@ h4, .modal-title{
 .msg-log{
 	margin-left:10px; 
 }
+.find_id{
+	background: url("${pageContext.request.contextPath }/resources/images/find_id.gif")no-repeat 0 2px;
+}
 </style>
 </head>
 <body>
@@ -506,18 +509,17 @@ h4, .modal-title{
 										<a href="${pageContext.request.contextPath }/search/searchPw" class="find_id" style="color:#e92949 !important; padding-left:16px">비밀번호 찾기</a>
 									</div>
 									<div class="col-md-3 kloop text-center br">
-										<a href="${pageContext.request.contextPath }/join/joininfo" class="find_id" style="color:#5c5b5b !important">회원가입</a>
+										<a href="${pageContext.request.contextPath }/join/joininfo"  style="color:#5c5b5b !important">회원가입</a>
 									</div>
 									<div class="col-md-3 kloop text-center">
-										<a href="${pageContext.request.contextPath }/user/mLogin" class="find_id"  style="color:#5c5b5b !important">직원로그인</a>
+										<a href="${pageContext.request.contextPath }/user/mLogin"   style="color:#5c5b5b !important">직원로그인</a>
 									</div>
 								</div>
 							</div>
-								
 							
 						</div>
 					</div>
-				
+				 
 				</form>
 				
 			</div>

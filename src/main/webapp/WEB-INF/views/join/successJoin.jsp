@@ -4,10 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
 <link href="${pageContext.request.contextPath }/resources/css/successJoin.css" rel="stylesheet" type="text/css">
+<div id="container">
 <div id="customer_container">
 	<h3>05.가입완료</h3>
 	
-	<p><img src="/uploads/CONTENTS/site/www/kcc_lg_04_01_04.jpg" class="img-responsive" alt=""></p>
+	<p><img src="${pageContext.request.contextPath }/resources/images/kcc_lg_04_01_04.jpg" class="img-responsive" alt=""></p>
 	<ol class="sr-only">
 		<li>01.회원가입 안내</li>
 		<li>02.실명확인</li>
@@ -27,5 +28,5 @@
 
 		
 </div>
-
+</div>
 <%@ include file="../include/footer.jsp"%>
