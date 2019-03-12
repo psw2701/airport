@@ -22,6 +22,10 @@
 	</delete>
 	
 	
+	<delete id="deleteByBoardNo">
+			delete from reply where bno = #{bno}
+	</delete>
+	
 	<select id="list" resultMap="ResultReply">
 		select * from reply
 	</select>

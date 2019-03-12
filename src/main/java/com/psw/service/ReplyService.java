@@ -2,7 +2,7 @@ package com.psw.service;
 
 import java.util.List;
 
-import com.psw.domain.BoardVO;
+
 import com.psw.domain.Criteria;
 import com.psw.domain.ReplyVO;
 
@@ -22,4 +22,6 @@ public interface ReplyService {
 	public ReplyVO selectByRno(int no);
 	
 	public ReplyVO selectByBno(int no);
+	
+	public void deleteByBoardNo(int bno);
 }

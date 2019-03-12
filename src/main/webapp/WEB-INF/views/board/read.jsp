@@ -17,7 +17,7 @@
 			<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${boardVO.title }" readonly="readonly">
 			
 			<label>내용</label><br>
-			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" readonly="readonly">${boardVO.content }</textarea><br>
+			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" readonly="readonly" style="resize: none;">${boardVO.content }</textarea><br>
 						
 			<label>작성자</label>
 			<input type="text" name="writer" class="form-control" placeholder="Enter Writer"  value="${boardVO.cusCode.name }" readonly="readonly">

@@ -13,9 +13,6 @@
 		<collection property="files" column="files" javaType="java.util.ArrayList" select="listSearch"/>
 	</resultMap>
 
-
-	
-
 	<insert id="insert" useGeneratedKeys="true" keyProperty="no">
 		insert into board(title, content, open, customer_code, airport_code )
 		values(#{title}, #{content},  #{open}, #{cusCode.code}, #{airportCode.code})
@@ -111,10 +108,12 @@
 	
 	
 	<select id="listSearch" resultMap="ResultBoard">
-		 select * from board
+		select * from board
 		left join customer on customer.code=board.customer_code
+		left join reply on board.no=reply.bno
+		
 		<include refid="search"></include>
-		order by no desc
+		order by board.no desc
 		limit #{pageStart}, #{perPageNum}
 	</select>
 	
@@ -192,4 +191,12 @@
 	<insert id="addAttachByBno">
 		insert into board_attach(fullname, no) values (#{fullname}, #{no})
 	</insert>
+	
+	<update id="updateProgress">
+		UPDATE board
+		SET progress='답변완료'
+		WHERE no=#{no}
+	</update>
+	
+	
 </mapper>

@@ -48,7 +48,7 @@
 		<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${boardVO.title }" required="required">
 			
 		<label>내용</label><br>
-		<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required">${boardVO.content }</textarea><br>
+		<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required" style="resize: none;">${boardVO.content }</textarea><br>
 							
 		<label>첨부파일</label>
 		<input type="file" name="addFiles" class="form-control" multiple="multiple">

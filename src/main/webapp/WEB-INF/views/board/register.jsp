@@ -48,7 +48,7 @@
 	<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${BoardVO.title }" required="required">
 	
 	<label>내용</label><br>
-	<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required">${BoardVO.content }</textarea><br>
+	<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required" style="resize: none;">${BoardVO.content }</textarea><br>
       
  	<label>첨부파일</label><br>
 	<input type="file" name="file" class="form-control" placeholder="이미지를 선택하세요" multiple="multiple" value="${BoardVO.file }"> 

@@ -1,40 +1,41 @@
 @charset "UTF-8";
- 
- /* Full-width input fields */
- 
- #container{
-	width:1130px;
-	margin:17px auto;
+
+/* Full-width input fields */
+#container {
+	width: 1130px;
+	margin: 17px auto;
 	margin-bottom: 40px;
 }
-#cusvoc{
+
+#cusvoc {
 	width: 1130px;
 	margin: 0 auto;
 }
 
-#customer_container{
+#customer_container {
 	min-height: 530px;
 	overflow: hidden;
 }
-.img-responsive{
+
+.img-responsive {
 	width: 100%;
 }
 
-h3, .h3{
+h3, .h3 {
 	font-weight: 700;
 	font-size: 180%;
 	margin-bottom: 15px;
 	color: #454545;
 }
 
- .text-caption .h3{
+.text-caption .h3 {
 	margin: 30px 0 10px;
 	color: #802224;
 	font-size: 200%;
 	letter-spacing: -.05em;
 }
 
-.text-caption p{
+.text-caption p {
 	margin: 0 0 30px;
 	color: #5b5b5c;
 	font-size: 120%;
@@ -42,24 +43,7 @@ h3, .h3{
 	letter-spacing: -.05em;
 }
 
-#joinform input[type=text], #joinform input[type=password] {
-	width: 100%;
-	padding: 10px;
-	margin: 5px 0 22px 0;
-	display: inline-block;
-	border: none;
-	background: #f1f1f1;
-}
-
-#joinform input[type=file]{
-	width: 100%;
-	margin: 5px 0 22px 0;
-	display: inline-block;
-	border: none;
-	background: #f1f1f1;
-}
-
-#joinform #email1, #joinform #email2{
+#joinform input[type=text] {
 	width: 32%;
 	padding: 10px;
 	margin: 5px 0 22px 0;
@@ -68,12 +52,29 @@ h3, .h3{
 	background: #f1f1f1;
 }
 
-#joinform .form-control{
+#joinform input[type=file] {
+	width: 100%;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+#joinform #email1, #joinform #email2 {
+	width: 32%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+#joinform .form-control {
 	width: 33%;
 	display: inline-block;
 }
 
-#joinform #sample6_detailAddress{
+#joinform #sample6_detailAddress {
 	width: 49%;
 	padding: 10px;
 	margin: 5px 0 22px 0;
@@ -81,138 +82,173 @@ h3, .h3{
 	border: none;
 	background: #f1f1f1;
 }
-#joinform #sample6_extraAddress{
+
+#joinform #sample6_extraAddress {
 	width: 50%;
 	border: none;
 	background: #f1f1f1;
 	padding: 10px;
 }
 
-#joinform #sample6_postcode{
-	width:32%;
-	padding: 10px;
-	margin: 5px 0 22px 0;
-	display: inline-block;
-	border: none;
-	background: #f1f1f1;
-}
-#joinform #btnSearchPost{
-	display: inline-block;
-	padding: 5px;
-}
-#joinform #phone2, #joinform #phone3{
+#joinform #sample6_postcode, #joinform #inputId {
 	width: 32%;
 	padding: 10px;
 	margin: 5px 0 22px 0;
 	display: inline-block;
 	border: none;
 	background: #f1f1f1;
-	
 }
-#joinform #content, #joinform #newReplyText{
+
+#joinform .inputPwd {
+	width: 32%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+#joinform #btnSearchPost {
+	display: inline-block;
+	padding: 5px;
+}
+
+#joinform #phone2, #joinform #phone3 {
+	width: 32%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+#joinform #content, #joinform #newReplyText, #joinform #sample6_address
+	{
 	width: 100%;
 	padding: 10px;
 	margin: 5px 0 22px 0;
 	display: inline-block;
 	border: none;
 	background: #f1f1f1;
-	
 }
-#joinform #sel1{
+
+#joinform #sel1 {
 	width: 100%;
 	margin: 5px 0 22px 0;
 	display: inline-block;
 	border: none;
 	background: #f1f1f1;
-	
 }
 
 /* Add a background color when the inputs get focus */
 input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+	background-color: #ddd;
+	outline: none;
 }
 
 /* Set a style for all buttons */
 .signupbtn, .cancelbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
 }
 
 button:hover {
-  opacity:1;
+	opacity: 1;
 }
 
 /* Extra styles for the cancel button */
 .cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
+	padding: 14px 20px;
+	background-color: #f44336;
 }
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
+	float: left;
+	width: 50%;
 }
 
 /* Add padding to container elements */
 .container {
-  padding: 16px;
+	padding: 16px;
 }
-
 
 /* Modal Content/Box */
 .content {
-/*   background-color: #fefefe;  */
-  margin: 0 auto;  /* 5% from the top, 15% from the bottom and centered */
-  padding:5px;
-/*   border: 1px solid #888; */
-  width: 100%; /* Could be more or less, depending on screen size */
+	/*   background-color: #fefefe;  */
+	margin: 0 auto; /* 5% from the top, 15% from the bottom and centered */
+	padding: 5px;
+	/*   border: 1px solid #888; */
+	width: 100%; /* Could be more or less, depending on screen size */
 }
+
 #listContent {
-	background:none;
+	background: none;
 	margin: 5% auto 15% auto;
 	width: 80%;
 	border: none;
 }
 /* Style the horizontal ruler */
 hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
- 
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 35px;
-  top: 15px;
-  font-size: 40px;
-  font-weight: bold;
-  color: #f1f1f1;
+	border: 1px solid #f1f1f1;
+	margin-bottom: 25px;
 }
 
-.close:hover,
-.close:focus {
-  color: #f44336;
-  cursor: pointer;
+/* The Close Button (x) */
+.close {
+	position: absolute;
+	right: 35px;
+	top: 15px;
+	font-size: 40px;
+	font-weight: bold;
+	color: #f1f1f1;
+}
+
+.close:hover, .close:focus {
+	color: #f44336;
+	cursor: pointer;
 }
 
 /* Clear floats */
 .clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
+	content: "";
+	clear: both;
+	display: table;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-     width: 100%;
-  }
+	.cancelbtn, .signupbtn {
+		width: 100%;
+	}
+}
+
+.btn_prev {
+	background: url("../images/btn_prev.gif") no-repeat 0 0;
+	width: 90px;
+	height: 47px;
+	text-align: center;
+	color: #fff;
+	font-size: 100% !important;
+	line-height: 46px;
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.btn_next {
+	background: url("../images/btn_next.gif") no-repeat 0 0;
+	width: 90px;
+	height: 47px;
+	text-align: center;
+	color: #fff;
+	font-size: 100% !important;
+	line-height: 46px;
+	display: inline-block;
+	padding-right: 10px;
 }

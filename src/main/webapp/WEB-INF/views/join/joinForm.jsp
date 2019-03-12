@@ -3,13 +3,35 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
-<link href="${pageContext.request.contextPath }/resources/css/form.css?aaaaaaaa" rel="stylesheet"  type="text/css">
 
-
+<link href="${pageContext.request.contextPath }/resources/css/form.css?a1" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/cusTerm.css?aaaaaaaaa" rel="stylesheet" type="text/css">
 
 <!-- 다음 주소 API -->
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+ <script type="text/javascript">
+   $(function() {
+	   $("#duplicatedIdBtn").click(function(){
+	       var id = $("input[name='id']").val();
+	       
+	       $.ajax({
+	          url:"${pageContext.request.contextPath }/board/duplicatedId",
+	          type:"get",
+	          data:{"id":id},
+	          dataType:"json",
+	          success:function(data){
+	             console.log(data);
+	             if(data.result == true){
+	                alert("사용중인 ID입니다.");
+	             }else{
+	                alert("ID를 사용할 수 있습니다.");
+	             }
+	          }
+	       })
+	    })
+})
+</script>
 <div id="container"> 
 <div id="customer_container">
 	<div id="joinform">
@@ -34,19 +56,24 @@
 				
 		</div>
       <hr>
-      
-      <label for="name"><b>이름</b></label>
+        
+      <label for="name"><b>이름</b></label>    
       <input type="text" placeholder="Enter Name" name="name" required >
+   
       
-      <label for="id"><b>아이디</b></label>
-      <input type="text" placeholder="Enter Id" name="id" required>
+      <label for="id"><b>아이디</b></label><br>  
+      <input type="text" placeholder="Enter Id" name="id" required id="inputId">
+      <button type="button" class="btn btn-default" id="duplicatedIdBtn">중복확인</button>
       
-      <label for="psw"><b>비밀번호</b></label>
-      <input type="password" placeholder="Enter Password" name="passwd" required>
+      <br>
+      
+      <label for="psw"><b>비밀번호</b></label><br>
+      <input type="password" placeholder="Enter Password" name="passwd" required class="inputPwd" id="Password">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내<br>
+ 
 
-      <label for="confirmPassword"><b>비밀번호 확인</b></label>
-      <input type="password" placeholder="Repeat Password" name="confirmPasswd" required>
-      
+      <label for="confirmPassword"><b>비밀번호 확인</b></label><br>
+      <input type="password" placeholder="Repeat Password" name="confirmPasswd" required class="inputPwd" id="ChPassword"><br>
+     
       <label for="phone"><b>전화번호</b></label><br>
       <input type="hidden" name="phone" id="phone">
      <select name="phone1" id="phone1" class="form-control mb-3">
@@ -92,12 +119,13 @@
   	<div class="section">
 		<div class="text-center">
 			<a class=" btn_prev large4" href="${pageContext.request.contextPath}/join/acceptTerms" role="button">이전 단계</a>
-			<a class=" btn_next large4" href="${pageContext.request.contextPath}/join/" role="button">다음 단계</a>
+			<a class=" btn_next large4" href="${pageContext.request.contextPath}/join/successJoin" role="button">다음 단계</a>
 		</div>
 	</div>
   
   <script>
    $("#f1").submit(function(e){
+
 	  var phone1 = $("#phone1").val();
 	  var phone2 = $("#phone2").val();
 	  var phone3 = $("#phone3").val();
@@ -114,13 +142,14 @@
 	  email1 = email1 + "@" + email2;
 	  $("#email1").val(email1);
 	  
+	  alert("고객님의 회원가입을 축하합니다.");
 	  return true;
    });
   </script>
- 
+
 </div>	
 </div>
 </div>
 <!-- 다음주소 API -->
-	<script src="${pageContext.request.contextPath }/resources/js/post.js?a"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/post.js?aaaa"></script>
 <%@ include file="../include/footer.jsp"%>

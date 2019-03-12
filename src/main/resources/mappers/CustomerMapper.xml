@@ -63,4 +63,9 @@
 	<select id="getRandomPassword" resultType="String">
 		select concat( char(rand()*26 + 65) , round(rand() * 100), char(rand()*26 + 65), char(rand()*26 + 65) , round(rand() * 100), char(rand()*26 + 65)) as randomPwd
 	</select>
+	
+	<select id="samePwd" resultType="int">
+		select passwd = password(#{passwd}) as samePwd from customer where Id = #{id}
+		<!-- select * from customer where Id= 'asd132' and  password('rootroot') = passwd; -->
+	</select>
 </mapper>

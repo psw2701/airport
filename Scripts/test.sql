@@ -194,4 +194,38 @@ select * from reply
 INSERT INTO airport.reply
 (content, reg_date, title, is_reply, bno, manager_code)
 VALUES('답변', sysdate(), '답변제목', 1, 1, 'M001');
+
+
+DELETE FROM reply
+WHERE `no`=0;
+
+select * from board 
+left join customer on customer.code=board.customer_code
+left join airport on customer.code=airport.code
+		where no=1;
+
+
+select * from board
+left join customer on customer.code=board.customer_code
+left join reply on board.no=reply.bno
+order by board.no desc;
+
+select * from reply;
+
+
+	select * from board
+	
+UPDATE board
+SET progress='답변완료'
+WHERE `no`=15;
+
+		left join reply on board.no = reply.bno
+		where bno=15;
 		
+	delete from reply where bno = 1;
+	
+select passwd = password('123456789') as samePwd from customer where Id = 'psw2701';
+
+select passwd = password('rootroot') as samePwd from customer where Id = 'asd132';
+
+select * from customer where Id= 'asd132' and  password('rootroot') = passwd;

@@ -3,7 +3,8 @@
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../include/header.jsp"%>
-<link href="${pageContext.request.contextPath }/resources/css/joinInfo.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/joinInfo.css?aaaaaaaa" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/cusTerm.css" rel="stylesheet" type="text/css">
 <div id="container">
 <div id="customer_container">
 	<h3>03.약관동의</h3>
@@ -18,10 +19,7 @@
 		<li>05.가입완료</li>
 		<li></li>
 	</ol>
-	<!-- <form action="">
-		<input type="hidden" id="priv" name="priv" value="Y">
-		<input type="hidden" id="agree" name="agree" value="Y">
-		<input type="hidden" id="group" name="group" value="1"> -->
+
 	
 	<div class="section" >
 		<h4>약관동의</h4>
@@ -304,6 +302,12 @@
 			
 			</div>
 	</div>
+	
+	<div class="text-right">
+		<input type="checkbox" id="agree01" name="agree01" title="한국공항공사 홈페이지 회원가입 약관동의 체크박스입니다.">
+		<label for="agree01">위 약관에 동의합니다.</label>
+	</div>
+	
 	<div class="section">
 		<h4>한국공항공사 개인정보 수집 및 이용에 대한 안내</h4>
 		<div class="terms_overflow mb10" tabindex="0">
@@ -376,10 +380,11 @@
  	<div class="section">
 		<div class="text-center">
 			<a class=" btn_prev large4" href="${pageContext.request.contextPath}/join/authentication" role="button">이전 단계</a>
-			<a class=" btn_next large4" href="${pageContext.request.contextPath}/join/join" role="button">다음 단계</a>
+			<a class=" btn_next large4" href="${pageContext.request.contextPath}/join/join" role="button" id="btnNext">다음 단계</a>
 		</div>
 	</div>
 		
 </div>
 </div>
+	<script src="${pageContext.request.contextPath }/resources/js/csuTerm.js?aaaaaaaaaaa"></script>
 <%@ include file="../include/footer.jsp"%>

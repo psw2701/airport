@@ -71,4 +71,10 @@ public class ReplyDaoImpl implements ReplyDAO {
 		return sqlSession.selectOne(namespace+".selectByBno",no);
 	}
 
+	@Override
+	public void deleteByBoardNo(int bno) {
+		// TODO Auto-generated method stub
+		sqlSession.delete(namespace+".deleteByBoardNo",bno);
+	}
+
 }

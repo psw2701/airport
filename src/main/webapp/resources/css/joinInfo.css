@@ -1,8 +1,12 @@
 @charset "UTF-8";
+body{
+	background-color: #f2f2f0;
+}
 #container{
 	width:1130px;
 	margin:0 auto;
 	margin-bottom: 40px;
+	
 }
 
 #customer_container{
@@ -44,4 +48,27 @@ h3, .h3{
 .section{
 	padding: 20px 0; 
 }
-
+.btn_prev{
+	background: url("../images/btn_prev.gif") no-repeat 0 0;
+    width: 90px;
+    height: 47px;
+    text-align: center;
+    color: #fff;
+    font-size: 100% !important;
+    line-height: 46px;
+    display: inline-block;
+    padding-left: 10px;
+  
+}
+.btn_next{
+	background: url("../images/btn_next.gif") no-repeat 0 0;
+    width: 90px;
+    height: 47px;
+    text-align: center;
+    color: #fff;
+    font-size: 100% !important;
+    line-height: 46px;
+    display: inline-block;
+    padding-right: 10px;
+   
+}

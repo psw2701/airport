@@ -7,6 +7,7 @@ public class LoginDTO {
 	private String email;
 	private String cusCode;
 	private String mngCode;
+	private String password;
 
 	public String getCusCode() {
 		return cusCode;
@@ -70,10 +71,18 @@ public class LoginDTO {
 		this.mngCode = mngCode;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public String toString() {
 		return "LoginDTO [id=" + id + ", name=" + name + ", phone=" + phone + ", email=" + email + ", cusCode="
-				+ cusCode + ", mngCode=" + mngCode + ", admin=" + admin + "]";
+				+ cusCode + ", mngCode=" + mngCode + ", password=" + password + ", admin=" + admin + "]";
 	}
 
 }

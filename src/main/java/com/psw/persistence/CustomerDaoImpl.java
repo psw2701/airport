@@ -107,4 +107,15 @@ public class CustomerDaoImpl implements CustomerDAO {
 		return sqlSession.selectOne(namespace + ".selectCustomerByPw", vo);
 	}
 
+	@Override
+	public int samePwd(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		System.out.println("=====> sql : "+sqlSession);
+		System.out.println("=====> vo : "+vo);
+		int result = sqlSession.selectOne(namespace+".samePwd",vo);
+		System.out.println("=====> result : "+result);
+		return result;
+	
+	}
+
 }

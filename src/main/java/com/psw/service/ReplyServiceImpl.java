@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import com.psw.domain.Criteria;
 import com.psw.domain.ReplyVO;
 import com.psw.persistence.BoardDAO;
@@ -32,7 +31,8 @@ public class ReplyServiceImpl implements ReplyService {
 	public void create(ReplyVO vo) {
 		// TODO Auto-generated method stub
 		dao.create(vo);
-		boardDao.updateReplyCnt(vo.getNo(), 1);
+		boardDao.updateReplyCnt(vo.getbNo().getNo(), 1);
+		boardDao.updateProgress(vo.getbNo().getNo());
 	}
 
 	@Override
@@ -47,7 +47,6 @@ public class ReplyServiceImpl implements ReplyService {
 		// TODO Auto-generated method stub
 		// rno를 이용하여 bno값을 알아옴
 		ReplyVO vo = dao.selectByRno(no);
-
 		dao.delete(no);
 
 		boardDao.updateReplyCnt(vo.getNo(), -1);
@@ -75,6 +74,12 @@ public class ReplyServiceImpl implements ReplyService {
 	public ReplyVO selectByBno(int no) {
 		// TODO Auto-generated method stub
 		return dao.selectByBno(no);
+	}
+
+	@Override
+	public void deleteByBoardNo(int bno) {
+		// TODO Auto-generated method stub
+		dao.deleteByBoardNo(bno);
 	}
 
 }

@@ -620,7 +620,7 @@ h4, .modal-title{
 					
 						<c:if test="${login !=null }">
 						<span>${login.name }(${login.id })</span> 님, 환영합니다!						
-						<a href="${pageContext.request.contextPath }/user/logout" id="loginBtn" role="button">로그아웃</a><a href="">마이페이지</a>
+						<a href="${pageContext.request.contextPath }/user/logout" id="loginBtn" role="button">로그아웃</a><a href="${pageContext.request.contextPath }/customer/passGetCus">마이페이지</a>
 						</c:if>
 						<c:if test="${login==null }">
 							<a href="#" id="loginBtn" data-toggle="modal" data-target="#loginPopModal" role="button">로그인</a>

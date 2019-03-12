@@ -57,13 +57,13 @@
 								<th>REGDATE</th>
 								<th>PROGRESS</th>
 								<!-- <th>ANSDATE</th> -->
-								<th>VIEWCNT</th>
+								<th>VIEWCNT</th> 
 							</tr>
 						</thead>
-						<tbody>
+						<tbody>   
 						
 							 <c:forEach items="${list }" var="boardVO">
-									<%-- <input type="hidden" value="${boardVO.no}" name="no"> --%>
+								
 								<tr>
 								
 								
@@ -73,16 +73,10 @@
 									<td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 									<td>${boardVO.progress }</td>
 									
-									<%-- <c:if test="${replyVO.reply == true }">
-										<td>답변완료</td>
-									</c:if>
-									<c:if test="${replyVO.reply == false }">
-										<td>${boardVO.progress }</td>
-									</c:if> --%>
-									
 									
 									<%-- <td><fmt:formatDate value="${boardVO.regDate}" pattern="yyyy-MM-dd HH:mm"/></td> --%>
 									<td><span class="badge bg-red">${boardVO.viewCnt }</span></td>
+									
 								</tr>
 								</c:forEach> 
 					

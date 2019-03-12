@@ -3,7 +3,8 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
-<link href="${pageContext.request.contextPath }/resources/css/joinInfo.css?Aaa" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/joinInfo.css?Aaaaaaaa" rel="stylesheet"  type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/cusTerm.css" rel="stylesheet" type="text/css">
 <div id="container">
 <div id="customer_container">
 	

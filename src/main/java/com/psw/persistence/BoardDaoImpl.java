@@ -155,4 +155,10 @@ public class BoardDaoImpl implements BoardDAO {
 		return sqlSession.selectOne(namespace + ".searchTotalCountMy", map);
 	}
 
+	@Override
+	public void updateProgress(int no) {
+		sqlSession.update(namespace+".updateProgress",no);
+		
+	}
+
 }

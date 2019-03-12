@@ -57,7 +57,12 @@ public class JoinController {
 		logger.info("customer====================>" + vo);
 
 		model.addAttribute("customerVO", vo);
-		return "home";
+		return "join/successJoin";
+	}
+	
+	@RequestMapping(value = "successJoin", method = RequestMethod.GET)
+	public void successJoin() {
+		
 	}
 	
 	

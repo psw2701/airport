@@ -21,6 +21,8 @@ public interface ReplyDAO {
 
 	public int totalCount(int bno);
 	
+	public void deleteByBoardNo(int bno);
+	
 	public ReplyVO selectByRno(int no);
 	
 	public ReplyVO selectByBno(int no);

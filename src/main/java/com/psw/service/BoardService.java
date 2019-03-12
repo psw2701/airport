@@ -34,4 +34,6 @@ public interface BoardService {
 	public List<BoardVO> listSearchMyBoard (SearchCriteria cri, String cusCode);
 
 	public int searchTotalCountMy(SearchCriteria cri, String cusCode);
+	
+	public void updateProgress(int no);
 }

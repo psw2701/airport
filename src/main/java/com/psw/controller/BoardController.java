@@ -22,13 +22,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import com.psw.domain.AirportVO;
 import com.psw.domain.BoardVO;
@@ -84,20 +84,19 @@ public class BoardController {
 		logger.info("==================================>>>>>>>>>>>>>>>" + cri);
 
 		List<BoardVO> list = service.listSearch(cri);
-		/*BoardVO vo = service.read(no);
-		service.addCnt(no);
-		List<ReplyVO> rList = ReplyService.list(no);*/
-
+		
+		
+		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.searchTotalCount(cri));
 
 		model.addAttribute("list", list);
-	/*	model.addAttribute("rList", rList);*/
+	
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("cri", cri);
 		
-	/*	logger.info("rList==================================>>>>>>>>>>>>>>>" + rList);*/
+	
 	}
 
 	@RequestMapping(value = "read", method = RequestMethod.GET)
@@ -176,7 +175,9 @@ public class BoardController {
 			File file2 = new File(uploadPath + originaalName);
 			file2.delete();
 		}
+		
 		service.remove(no);
+		
 		return "redirect:/board/list?page=" + cri.getPage() + "&searchType=" + cri.getSearchType();
 	}
 
@@ -322,5 +323,14 @@ public class BoardController {
 		ReplyService.create(rVO);
 		return "redirect:/board/list";
 	}
+	
+	@RequestMapping(value = "duplicatedId", method = RequestMethod.GET)
+	public ResponseEntity<Object> duplicatedId(){
+	
+		ResponseEntity<Object> entity = new ResponseEntity<>(HttpStatus.OK);
+		return entity;
+		
+	}
+	
 
 }

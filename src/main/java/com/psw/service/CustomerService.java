@@ -32,4 +32,6 @@ public interface CustomerService {
 	int changePw(CustomerVO vo);
 	
 	CustomerVO selectCustomerByPw(CustomerVO vo);
+	
+	int samePwd(CustomerVO vo);
 }

@@ -50,6 +50,8 @@
 			<mapping path="/board/modify"/>
 			<mapping path="/board/myBoard"/>
 			<mapping path="/notice/register"/>
+			<mapping path="/customer/passCus"/>
+			<mapping path="/customer/modifyCus"/>
 			<beans:ref bean="AuthInterceptor"/>
 		</interceptor>
 	</interceptors>

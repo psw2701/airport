@@ -44,6 +44,7 @@ public class UserController {
 		dto.setPhone(vo.getPhone());
 		dto.setEmail(vo.getEmail());
 		dto.setCusCode(vo.getCode());
+		dto.setPassword(vo.getPasswd());
 
 		model.addAttribute("customerVO", dto);
 	}
@@ -78,6 +79,7 @@ public class UserController {
 		dto.setPhone(vo.getPhone());
 		dto.setEmail(vo.getEmail());
 		dto.setMngCode(vo.getCode());
+		dto.setPassword(vo.getPasswd());
 		model.addAttribute("managerVO", dto);
 		logger.info("dto===============>" + dto);
 

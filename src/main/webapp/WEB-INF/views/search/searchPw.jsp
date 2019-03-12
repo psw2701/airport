@@ -53,5 +53,10 @@
 	  
 	  return true;
    });
+   
+   <c:if test="${search==false }">
+	alert("이름과 아이디, 이메일을 다시 확인해주세요.")
+	</c:if>
   </script>
+  <script src="${pageContext.request.contextPath }/resources/js/post.js?aaaaa"></script>
 <%@ include file="../include/footer.jsp"%>

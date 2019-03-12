@@ -42,13 +42,12 @@ public class SearchController {
 		logger.info("searchId - post");
 		logger.info(vo.toString());
 
-		try {
 			vo = service.searchId(vo);
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
+			if(vo==null) {
+				model.addAttribute("search",false);
+				return "/search/searchId";
+			}
+		
 
 		String id = vo.getId();
 		model.addAttribute("id", id);
@@ -86,9 +85,9 @@ public class SearchController {
 
 				String from = "psw2701";
 				String passwd = "swan0303";
-				String[] to = { vo2.getEmail() };// 蹂대궪 硫붿씪 紐⑸줉
-				String subject = "SWAIR공항입니다. 비밀번호를 개인정보관리에서 변경해주세요"; // 硫붿씪 �젣紐�
-				String body = "고객님의 임시 비밀번호는" + vo2.getPasswd() + " 입니다. 로그인하여 개인정보 관리에서 비밀번호를 변경해주세요 "; // 硫붿씪
+				String[] to = { vo2.getEmail() };// 
+				String subject = "SWAIR공항입니다. 비밀번호를 개인정보관리에서 변경해주세요"; //
+				String body = "고객님의 임시 비밀번호는" + vo2.getPasswd() + " 입니다. 로그인하여 개인정보 관리에서 비밀번호를 변경해주세요 "; // 
 
 				sendFromGMail(from, passwd, to, subject, body);
 
@@ -96,6 +95,7 @@ public class SearchController {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+			model.addAttribute("search",false);
 			return "search/searchPw";
 		}
 

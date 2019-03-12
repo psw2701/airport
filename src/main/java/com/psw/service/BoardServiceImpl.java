@@ -11,12 +11,16 @@ import com.psw.domain.BoardVO;
 import com.psw.domain.Criteria;
 import com.psw.domain.SearchCriteria;
 import com.psw.persistence.BoardDAO;
+import com.psw.persistence.ReplyDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardDAO dao;
+	
+	@Autowired
+	private ReplyDAO replyDao;
 
 	@Override
 	@Transactional
@@ -50,8 +54,10 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	@Transactional
 	public void remove(int no) {
 		// TODO Auto-generated method stub
+		replyDao.deleteByBoardNo(no);
 		dao.delImg(no);
 		dao.delete(no);
 	}
@@ -126,6 +132,12 @@ public class BoardServiceImpl implements BoardService {
 	public int searchTotalCountMy(SearchCriteria cri, String cusCode) {
 		// TODO Auto-generated method stub
 		return dao.searchTotalCountMy(cri, cusCode);
+	}
+
+	@Override
+	public void updateProgress(int no) {
+		// TODO Auto-generated method stub
+		dao.updateProgress(no);
 	}
 
 }

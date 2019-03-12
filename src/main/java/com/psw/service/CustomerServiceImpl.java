@@ -99,4 +99,10 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.selectCustomerByPw(vo);
 	}
 
+	@Override
+	public int samePwd(CustomerVO vo) {
+		// TODO Auto-generated method stub
+		return dao.samePwd(vo);
+	}
+
 }
