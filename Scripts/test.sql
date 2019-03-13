@@ -229,3 +229,5 @@ select passwd = password('123456789') as samePwd from customer where Id = 'psw27
 select passwd = password('rootroot') as samePwd from customer where Id = 'asd132';
 
 select * from customer where Id= 'asd132' and  password('rootroot') = passwd;
+
+select * from customer;

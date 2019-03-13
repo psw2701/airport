@@ -5,23 +5,25 @@
 <%@ include file="../include/header.jsp"%>
 <link href="${pageContext.request.contextPath }/resources/css/cusInfo.css?Aaa" rel="stylesheet"  type="text/css">
 
-
+<div id="container">
 <div id="customer_container">
 	<section>
 		<div id="pass">
-		<h1>회원정보 수정</h1>
-		<span>회원님의 소중한 정보를 안전하게 관리하세요</span>
-		<fieldset>
-		<h3>회원정보를 수정 하시려면 비밀번호를 입력하셔야 합니다.</h3>
-		<h4>회원님의 개인정보 보호를 위한 본인 절차이오니, WIT렌트카 회원 로그인 시 사용하시는 비밀번호를 입력해 주세요</h4>
-		<form action="passPostCus" method="post">
-		<label>현재 비밀번호</label><input type="password" name="password" placeholder="비밀번호를 입력해 주세요"><br>
-		<input type="reset" value="취소" id="reset">
-		<input type="submit" value="확인" id="ok">
-		</form>
-		</fieldset>
-		</div>
-	</section>
-</div>
 
+		<h4 style="text-align: center;margin-top: 100px;margin-bottom: 50px;">회원님의 개인정보 보호를 위한 본인 절차이오니, SWAIR 회원 로그인 시 사용하시는 비밀번호를 입력해 주세요</h4>
+		<form action="passPostCus" method="post" style="text-align: center;margin-bottom: 15px;">
+		
+		 <div class="input-group" style="margin: 0 auto; text-align: center; padding-left: 30%;">
+	
+		      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+		      <input id="password" type="password" class="form-control" name="password" placeholder="Password" style="width: 50%; text-align: center;">
+		      <button type="submit" class="btn btn-primary" style="margin-right: 42%;">확인</button>
+    	</div>  
+		             
+		</form>    
+	    
+		</div>   
+	</section>
+</div>    
+</div>
 <%@ include file="../include/footer.jsp"%>

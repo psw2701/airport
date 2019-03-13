@@ -12,10 +12,18 @@
  <script type="text/javascript">
  var clickDuplicateId = false;
    $(function() {
+	   
+	   $(".error2").css("display","none");
+	   
 	   $("#duplicatedIdBtn").click(function(){
 	       var id = $("input[name='id']").val();
 	       clickDuplicateId = false;
-	       
+	       if(id==""){
+	    	   alert("ID를 입력해주세요.");
+	    	   return false
+	    	  
+	       }
+	      
 	       $.ajax({
 	        url:"${pageContext.request.contextPath }/join/duplicatedId",
 	          type:"get",
@@ -24,7 +32,7 @@
 	          success:function(data){
 	             console.log(data);
 	             if(data.result == true){
-	                alert("사용중인 ID입니다.");
+	            	 alert("사용 할 수 없는 ID입니다.");
 	             }else{
 	                alert("ID를 사용할 수 있습니다.");
 	                clickDuplicateId=true;
@@ -32,8 +40,11 @@
 	          }
 	       })
 	    })
-
+  
 })
+</script>
+<script>
+
 </script>
 <div id="container"> 
 <div id="customer_container">
@@ -61,24 +72,26 @@
       <hr>
          
       <label for="name"><b>이름</b></label><br>  
-      <input type="text" placeholder="Enter Name" name="name" required ><br>
-   
+      <input type="text" placeholder="Enter Name" name="name" required >
+  	  
       
       <label for="id"><b>아이디</b></label><br>  
       <input type="text" placeholder="Enter Id" name="id" required id="inputId">
       <button type="button" class="btn btn-default" id="duplicatedIdBtn">중복확인</button>
+     
       
       <br>
       
       <label for="psw"><b>비밀번호</b></label><br>
-      <input type="password" placeholder="Enter Password" name="passwd" required class="inputPwd" id="Password">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내<br>
+      <input type="password" placeholder="=영문,숫자,특수문자 혼합하여 8자리~20자리 이내" name="passwd" required class="inputPwd" id="Password"> <span class="error2">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내</span><br>
  
 
       <label for="confirmPassword"><b>비밀번호 확인</b></label><br>
       <input type="password" placeholder="Repeat Password" name="confirmPasswd" required class="inputPwd" id="ChPassword"><br>
      
-      <label for="phone"><b>전화번호</b></label><br>
-      <input type="hidden" name="phone" id="phone">
+     
+      <label for="phone"><b>전화번호</b></label><br>   
+      <input type="hidden" name="phone" id="phone"> 
      <select name="phone1" id="phone1" class="form-control mb-3">
         	<!-- <option selected="selected" value="opt">선택하세요</option> -->
         	<option value="010">010</option>
@@ -119,11 +132,43 @@
 
   </form>
   
-  	
+  	  
   
   <script>
    $("#f1").submit(function(e){
 
+	 
+       
+ 		var name = $("input[name='name']").val();
+       
+        var regName = /^[가-힣]{2,5}$/;
+        if(regName.test(name) == false){
+          alert("이름을 올바른 형식으로 입력해주세요.")
+           return false;
+        }     
+        var id = $("input[name='id']").val();
+        
+        var regId = /^[a-z0-9]{6,15}$/i;
+        if(regId.test(id) == false){
+        	alert("아이디를 올바른 형식으로 입력해주세요.")
+           return false;
+        }
+ 		
+        var password = $("input[name='passwd']").val();
+      
+        var regPassword = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,20}$/;
+        if(regPassword.test(password) == false){
+        	 alert("비밀번호를  올바른 형식으로 입력해주세요.")
+           return false;
+        }
+        
+        var confirmPassword = $("input[name='confirmPasswd']").val();
+        
+        if(password != confirmPassword){
+        	  alert("비밀번호와 비밀번호확인을 일치시켜주세요.")
+           return false;
+        }
+           
 	  var phone1 = $("#phone1").val();
 	  var phone2 = $("#phone2").val();
 	  var phone3 = $("#phone3").val();
@@ -143,11 +188,13 @@
 	  if(clickDuplicateId==true){
 		  alert("고객님의 회원가입을 축하합니다.");
   		return true;
-  	  }
-  		alert("중복확인 버튼을 눌러주세요.")
-		return false;
-	  
-	 
+	  }else{
+		  alert("중복확인 버튼을 눌러주세요.")
+			return false;
+	  }
+  		
+         
+  		 
    });
   </script>
 

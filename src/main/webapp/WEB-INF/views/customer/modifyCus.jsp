@@ -7,16 +7,19 @@
 <link href="${pageContext.request.contextPath }/resources/css/form.css?a" rel="stylesheet"  type="text/css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+
+</script>
 <div id="container"> 
 <div id="customer_container">
 	<div id="joinform">
 
 <h3>회원정보수정</h3>
 	
-  <form class="content" action="customer" method="post" id="f1">
+  <form class="content" action="modifyCus" method="post" id="f1">
    
       <hr>
-             
+             <input type="hidden" value="${customerVO.code }">
       <label for="name"><b>이름</b></label><br>
       <input type="text" placeholder="Enter Name" name="name" required value="${login.name }" readonly="readonly"><br>
    
@@ -24,14 +27,14 @@
       <label for="id"><b>아이디</b></label><br>  
       <input type="text" placeholder="Enter Id" name="id" required id="inputId" value="${login.id }" readonly="readonly">
       
-      <br>
-      
+      <br>     
+        
       <label for="psw"><b>비밀번호</b></label><br>
-      <input type="password" placeholder="Enter Password" name="passwd"  class="inputPwd" id="Password">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내<br>
+      <input type="password" placeholder="Enter Password" name="passwd"  class="inputPwd" id="Password" required="required">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내<br>
  
 
       <label for="confirmPassword"><b>비밀번호 확인</b></label><br>
-      <input type="password" placeholder="Repeat Password" name="confirmPasswd"  class="inputPwd" id="ChPassword"><br>
+      <input type="password" placeholder="Repeat Password" name="confirmPasswd"  class="inputPwd" id="ChPassword" required="required"><br>
      
      <label for="phone"><b>전화번호</b></label><br>
          <c:set var='phone1' value="${fn:substring(customerVO.phone,0, 3) }"></c:set>
@@ -42,7 +45,7 @@
            <option value="011"  ${phone1=='011'?'selected':''}>011</option>
            <option value="017" ${phone1=='017'?'selected':''}>017</option>
         </select>
-      - <input type="text" name="phone2" value="${fn:substring(customerVO.phone,4,4+fn:indexOf(fn:substringAfter(customerVO.phone,'-'),'-')) }"> - <input type="text" name="phone3" value="${fn:substring(customerVO.phone,9,13) }"><br>
+      - <input type="text" name="phone2" value="${fn:substring(customerVO.phone,4,4+fn:indexOf(fn:substringAfter(customerVO.phone,'-'),'-')) }" id="phone2"> - <input type="text" name="phone3" value="${fn:substring(customerVO.phone,9,13) }" id="phone3"><br>
 
         
       <label for="email"><b>E-mail</b></label><br>
@@ -58,8 +61,7 @@
            <option value="nate.com" ${domain=='nate.com'?'selected':'' }>nate.com</option>
            <option value="yahoo.com"${domain=='yahoo.com'?'selected':'' }>yahoo.com</option>
         </select><br>
-
-      
+   
       <label for="zipcode"><b>우편번호</b></label><br>
       <input type="text" placeholder="Enter zipcode" name="zipCode" required id="sample6_postcode" value="${customerVO.zipCode }">
       <button type="button" class="btn btn-default" onclick="sample6_execDaumPostcode()" id="btnSearchPost">우편번호 찾기</button><br>
@@ -80,11 +82,28 @@
 
   </form>
   
-
-  
-  
   <script>
    $("#f1").submit(function(e){
+	   
+	   var password = $("input[name='passwd']").val();
+      
+       var regPassword =/^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,20}$/;// 영문 숫자 특수문자
+
+       if(regPassword.test(password) == false){
+         
+          alert("비밀번호를  올바른 형식으로 입력해주세요.")
+          return false;
+       }
+           
+       var confirmPassword = $("input[name='confirmPasswd']").val();
+      
+       if(password != confirmPassword){
+         
+          alert("비밀번호와 비밀번호확인을 일치시켜주세요.")
+          return false;
+       }
+	   
+	   
 	  var phone1 = $("#phone1").val();
 	  var phone2 = $("#phone2").val();
 	  var phone3 = $("#phone3").val();
@@ -101,6 +120,8 @@
 	  email1 = email1 + "@" + email2;
 	  $("#email1").val(email1);
 	  
+	  alert("회원님의 정보가 수정되었습니다.")
+	  
 	  return true;
    });
   </script>
@@ -110,16 +131,16 @@
 	</c:if>
   </script>
   <script type="text/javascript">
-  	function() {
-		$("#withdrawal").click(function() {
-			if(confirm("정말로 삭제하시겠습니까?")){
-				$("#f1").attr("method", "post");
-				$("#f1").attr("action", "remove");
-				$("#f1").submit();
-			}
-		})
-	}
-		 
+$(function() {
+	$("#withdrawal").click(function() {
+		if(confirm("정말로 삭제하시겠습니까?")){
+			$("#f1").attr("method", "post");
+			$("#f1").attr("action", "remove");
+			$("#f1").submit();
+		}
+	})
+})
+  	 
   </script>
  
 </div>	

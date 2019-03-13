@@ -66,9 +66,16 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "modifyCus", method = RequestMethod.POST)
-	public String postModify(CustomerVO vo, Model model) {
+	public String postModify(String code,CustomerVO vo, Model model, HttpSession session) {
 		logger.info("modifyCus ------ post");
-		return "customer/resultCus";
+		logger.info("vo:===="+vo);
+		
+		vo.setCode(code);
+		service.update(vo);
+		logger.info("vo:"+vo);
+		
+		
+		return "home";
 	}
 	
 	@RequestMapping(value = "remove", method = RequestMethod.POST)
@@ -78,4 +85,6 @@ public class CustomerController {
 		service.delete(code);
 		return "home";
 	}
+	
+	
 }
