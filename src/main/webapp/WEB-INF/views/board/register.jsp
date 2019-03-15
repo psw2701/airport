@@ -13,17 +13,17 @@
       <h2><b>고객의 소리 등록</b></h2>
      
       <hr>
-      
+       
       <input type="hidden" name="code" value="${login.cusCode }"> 
       
-	<label>이름</label>
-	<input type="text" name="name" class="form-control" placeholder="Enter Name" value="${login.name }" readonly="readonly">
+	<label>이름</label><br>
+	<input type="text" name="name" class="form-control" placeholder="Enter Name" value="${login.name }" readonly="readonly"><br>
 	      
-	<label>휴대폰 번호</label>
-	<input type="text" name="phone" class="form-control" placeholder="Enter Phone" value="${login.phone }" readonly="readonly">
+	<label>휴대폰 번호</label><br>
+	<input type="text" name="phone" class="form-control" placeholder="Enter Phone" value="${login.phone }" readonly="readonly"><br>
       
-	<label>이메일</label>
-	<input type="text" name="email" class="form-control" placeholder="Enter Email" value="${login.email }" readonly="readonly"> 
+	<label>이메일</label><br>
+	<input type="text" name="email" class="form-control" placeholder="Enter Email" value="${login.email }" readonly="readonly"> <br>
 
  	<label for="sel1">대상공항선택</label><br>			
 		<select class="form-control" id="sel1" name="AirCode" required="required">
@@ -43,9 +43,9 @@
 			<option value="KUV">군산공항</option>
 			<option value="RSU">여수공항</option>
 		</select><br> 
-		
+		    
 	<label>제목</label><br>
-	<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${BoardVO.title }" required="required">
+	<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${BoardVO.title }" required="required"><br>
 	
 	<label>내용</label><br>
 	<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required" style="resize: none;">${BoardVO.content }</textarea><br>

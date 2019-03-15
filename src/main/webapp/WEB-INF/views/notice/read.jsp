@@ -13,13 +13,13 @@
 	<div class="container mt-3">
 		<h3 class="box-title">공지사항</h3>
 		<hr>
-			<label>제목</label>
-			<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${noticeVO.title }" readonly="readonly">
+			<label>제목</label><br>
+			<input type="text" name="title" class="form-control" placeholder="Enter Title" value="${noticeVO.title }" readonly="readonly"><br>
 			
 			<label>내용</label><br>
-			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" readonly="readonly">${noticeVO.content }</textarea><br>
+			<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" readonly="readonly" style="resize: none;">${noticeVO.content }</textarea><br>
 						
-			<label>작성자</label>
+			<label>작성자</label><br>
 			
 			<input type="text" name="writer" class="form-control" placeholder="Enter Writer"  value="${noticeVO.managerCode.name }" readonly="readonly">
 			<div class="form-group">	 

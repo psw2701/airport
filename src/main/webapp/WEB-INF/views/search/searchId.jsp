@@ -15,8 +15,8 @@
 		<p>아래 내용을 빠짐없이 기재해주세요.</p>
 		<hr>
       
-      <label for="name"><b>이름</b></label>
-      <input type="text" placeholder="Enter Name" name="name" required >
+      <label for="name"><b>이름</b></label><br>
+      <input type="text" placeholder="Enter Name" name="name" required ><br>
       
       <label for="email"><b>E-mail</b></label><br>
       <input type="text" placeholder="Enter Email" name="email" required id="email1"> <b>@</b> <input type="text" placeholder="Enter Email" name="email2"  id="email2" required>
@@ -24,11 +24,11 @@
          <select name="email2" id="domain" class="form-control mb-3">
         
         	<option selected="selected">직접 입력</option>
-        	<option value="naver.com">naver.com</option>
+        	<option value="naver.com">naver.com</option>  
         	<option value="gmail.com">gmail.com</option>
         	<option value="daum.net">daum.net</option>
         	<option value="nate.com">nate.com</option>
-        	<option value="yahoo.com ">yahoo.com </option>
+        	<option value="yahoo.com ">yahoo.com </option>  
         </select><br>
         
          <div class="clearfix">

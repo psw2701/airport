@@ -4,6 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../include/header.jsp"%>
 <link href="${pageContext.request.contextPath }/resources/css/successJoin.css" rel="stylesheet" type="text/css">
+<style>
+
+</style>
 <div id="container">
 <div id="customer_container">
 	<h3>05.가입완료</h3>
@@ -26,7 +29,7 @@
 		<a href="javascript:void(0)" role="button" class="popup-trigger login_bg" data-toggle="modal" data-target="#loginPopModal">로그인</a>
 	</div>
 
-		
+		  
 </div>
 </div>
 <%@ include file="../include/footer.jsp"%>

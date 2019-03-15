@@ -72,7 +72,7 @@
       <hr>
          
       <label for="name"><b>이름</b></label><br>  
-      <input type="text" placeholder="Enter Name" name="name" required >
+      <input type="text" placeholder="Enter Name" name="name" required ><br>
   	  
       
       <label for="id"><b>아이디</b></label><br>  
@@ -83,7 +83,7 @@
       <br>
       
       <label for="psw"><b>비밀번호</b></label><br>
-      <input type="password" placeholder="=영문,숫자,특수문자 혼합하여 8자리~20자리 이내" name="passwd" required class="inputPwd" id="Password"> <span class="error2">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내</span><br>
+      <input type="password" placeholder="Enter Password" name="passwd" required class="inputPwd" id="Password">비밀번호는 영문,숫자,특수문자 혼합하여 8자리~20자리 이내<br>
  
 
       <label for="confirmPassword"><b>비밀번호 확인</b></label><br>

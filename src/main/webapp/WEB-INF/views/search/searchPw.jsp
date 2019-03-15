@@ -15,11 +15,11 @@
 		<p>아래 내용을 빠짐없이 기재해주세요.</p>
 		<hr>
       
-      <label for="name"><b>이름</b></label>
-      <input type="text" placeholder="Enter Name" name="name" required >
+      <label for="name"><b>이름</b></label><br>
+      <input type="text" placeholder="Enter Name" name="name" required ><br>
       
-      <label for="id"><b>아이디</b></label>
-      <input type="text" placeholder="Enter Id" name="id" required>
+      <label for="id"><b>아이디</b></label><br>
+      <input type="text" placeholder="Enter Id" name="id" required><br>
       
       
       <label for="email"><b>E-mail</b></label><br>

@@ -16,15 +16,15 @@
       
        <input type="hidden" name="code" value="${login.mngCode }"> 
 
-	<label>이름</label>
-	<input type="text" name="name" class="form-control" placeholder="Enter Name" value="${login.name }" readonly="readonly">
+	<label>이름</label><br>
+	<input type="text" name="name" class="form-control" placeholder="Enter Name" value="${login.name }" readonly="readonly"><br>
 	      
 		
 	<label>제목</label><br>
-	<input type="text" name="title" class="form-control" placeholder="Enter Title" required="required">
+	<input type="text" name="title" class="form-control" placeholder="Enter Title" required="required"><br>
 	
 	<label>내용</label><br>
-	<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required"></textarea><br>
+	<textarea rows="10" class="form-control" name="content" placeholder="Enter Content" id="content" required="required" style="resize: none;"></textarea><br>
       
  	<label>첨부파일</label><br>
 	<input type="file" name="imageFiles" class="form-control" placeholder="이미지를 선택하세요" multiple="multiple"> 

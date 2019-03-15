@@ -9,7 +9,7 @@
 <div id="container">
 <div id="customer_container">
 	
-	<h3>01.회원가입 안내</h3>	
+	<h3>02.실명확인</h3>	
 		<p><img src="${pageContext.request.contextPath }/resources/images/kcc_lg_04_01_01.jpg" class="img-responsive" alt=""></p>
 			<ol class="sr-only">
 				<li>01.회원가입 안내</li>
