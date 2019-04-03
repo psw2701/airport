@@ -375,87 +375,87 @@
 												<label class="input-group-addon" for="findAirline">항공사</label>
 												<select class="form-control" id="airLine" name="airLine">
 												
-												<option value="KL">네덜란드항공</option>
+												<option value="네덜란드항공">네덜란드항공</option>
 												
-												<option value="KE">대한항공</option>
+												<option value="대한항공">대한항공</option>
 												
-												<option value="DL" >델타항공</option>
+												<option value="델타항공" >델타항공</option>
 												
-												<option value="QV">라오항공</option>
+												<option value="라오항공">라오항공</option>
 												
-												<option value="SU">러시아항공</option>
+												<option value="러시아항공">러시아항공</option>
 												
-												<option value="OM">몽골항공</option>
+												<option value="몽골항공">몽골항공</option>
 												
-												<option value="VN">베트남항공</option>
+												<option value="베트남항공">베트남항공</option>
 												
-												<option value="VJ">비엣젯항공</option>
+												<option value="비엣젯항공">비엣젯항공</option>
 												
-												<option value="8B">비즈니스에어</option>
+												<option value="비즈니스에어">비즈니스에어</option>
 												
-												<option value="FM">상해항공</option>
+												<option value="상해항공">상해항공</option>
 												
-												<option value="ZA">스카이앙코르항공</option>
+												<option value="스카이앙코르항공">스카이앙코르항공</option>
 												
-												<option value="AA">아메리칸항공</option>
+												<option value="아메리칸항공">아메리칸항공</option>
 												
-												<option value="OZ">아시아나항공</option>
+												<option value="아시아나항공">아시아나항공</option>
 												
-												<option value="AZ">알이탈리아항공</option>
+												<option value="알이탈리아항공">알이탈리아항공</option>
 												
-												<option value="BX">에어부산</option>
+												<option value="에어부산">에어부산</option>
 												
-												<option value="D7">에어아시아엑스</option>
+												<option value="에어아시아엑스">에어아시아엑스</option>
 												
-												<option value="AC">에어캐나다</option>
+												<option value="에어캐나다">에어캐나다</option>
 												
-												<option value="HZ">오로라항공</option>
+												<option value="오로라항공">오로라항공</option>
 												
-												<option value="ZE">이스타항공</option>
+												<option value="이스타항공">이스타항공</option>
 												
-												<option value="JL">일본항공</option>
+												<option value="일본항공">일본항공</option>
 												
-												<option value="7C">제주항공</option>
+												<option value="제주항공">제주항공</option>
 												
-												<option value="CA">중국국제항공</option>
+												<option value="중국국제항공">중국국제항공</option>
 												
-												<option value="CZ">중국남방항공</option>
+												<option value="중국남방항공">중국남방항공</option>
 												
-												<option value="MU">중국동방항공</option>
+												<option value="중국동방항공">중국동방항공</option>
 												
-												<option value="HU">중국하이난항공</option>
+												<option value="중국하이난항공">중국하이난항공</option>
 												
-												<option value="CI">중화항공</option>
+												<option value="중화항공">중화항공</option>
 												
-												<option value="LJ">진에어</option>
+												<option value="진에어">진에어</option>
 												
-												<option value="CX">캐세이퍼시픽항공</option>
+												<option value="캐세이퍼시픽항공">캐세이퍼시픽항공</option>
 												
-												<option value="KA">케세이드래곤항공</option>
+												<option value="케세이드래곤항공">케세이드래곤항공</option>
 												
-												<option value="KW">코리아익스프레스에어</option>
+												<option value="코리아익스프레스에어">코리아익스프레스에어</option>
 												
-												<option value="IT">타이거에어 타이완</option>
+												<option value="타이거에어">타이거에어 타이완</option>
 												
-												<option value="TG">타이항공</option>
+												<option value="타이항공">타이항공</option>
 												
-												<option value="TW">티웨이항공</option>
+												<option value="티웨이항공">티웨이항공</option>
 												
-												<option value="8Y">팬퍼시픽항공</option>
+												<option value="팬퍼시픽항공">팬퍼시픽항공</option>
 												
-												<option value="AF">프랑스항공</option>
+												<option value="프랑스항공">프랑스항공</option>
 												
-												<option value="MM">피치항공</option>
+												<option value="피치항공">피치항공</option>
 												
-												<option value="AY">핀란드항공</option>
+												<option value="핀란드항공">핀란드항공</option>
 												
-												<option value="Z2">필리핀에어아시아</option>
+												<option value="필리핀에어아시아">필리핀에어아시아</option>
 												
-												<option value="PR">필리핀항공</option>
+												<option value="필리핀항공">필리핀항공</option>
 												
-												<option value="HA">하와이안항공</option>
+												<option value="하와이안항공">하와이안항공</option>
 												
-												<option value="UO">홍콩익스프레스</option>
+												<option value="홍콩익스프레스">홍콩익스프레스</option>
 												
 												<option value="ALL" selected="selected">선택</option>
 												</select>

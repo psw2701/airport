@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.yi.controller">
+	<logger name="com.psw.controller">
 		<level value="info" />
 	</logger>
 	
